@@ -1,0 +1,52 @@
+{
+  "rfp_metadata": {
+    "rfp_title": "",
+    "rfp_number": "",
+    "issuing_authority": "",
+    "issue_date": "",
+    "submission_deadline": "",
+    "pre_bid_meeting": "",
+    "category": "",
+    "estimated_value": ""
+  },
+  "scope_of_supply": [
+    {
+      "item_name": "",
+      "description": "",
+      "quantity": "",
+      "unit": "",
+      "technical_specifications": {
+        "voltage": "",
+        "conductor_material": "",
+        "insulation_material": "",
+        "cores": "",
+        "area_sqmm": "",
+        "armouring": "",
+        "standard": "",
+        "other_parameters": {}
+      },
+      "test_requirements": [],
+      "acceptance_criteria": []
+    }
+  ],
+  "eligibility_criteria": {
+    "experience_required": "",
+    "turnover_required": "",
+    "technical_experience": "",
+    "certifications_required": [],
+    "documents_required": []
+  },
+  "terms_and_conditions": {
+    "delivery_terms": "",
+    "payment_terms": "",
+    "penalty_clause": "",
+    "warranty": "",
+    "contract_duration": ""
+  },
+  "test_and_quality_requirements": {
+    "tests_required": [],
+    "inspection_process": "",
+    "lab_requirements": ""
+  },
+  "attachments": []
+}
