@@ -4,26 +4,54 @@ import fitz  # PyMuPDF
 from typing import Optional
 from dotenv import load_dotenv
 import os
+
+# Load environment variables
+load_dotenv()
+
 # -----------------------
-# 1. LLM CLIENT (Gemini or GPT)
+# 1. LLM CLIENT (Gemini)
 # -----------------------
 import google.generativeai as genai
 
 
+import requests
+import os
+
 class LLMClient:
-    def __init__(self, provider="gemini", api_key=None):
-        self.provider = provider
-
-        if provider == "gemini":
-            genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel("gemini-1.5-flash")
-
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.url = (
+            "https://generativelanguage.googleapis.com/v1beta/"
+            "models/gemini-2.0-flash:generateContent"
+        )
 
     def generate(self, prompt: str) -> str:
-        """Unified interface for generating text from either provider."""
-        if self.provider == "gemini":
-            response = self.model.generate_content(prompt)
-            return response.text
+        headers = {
+            "Content-Type": "application/json"
+        }
+
+        payload = {
+            "contents": [
+                {
+                    "parts": [
+                        {"text": prompt}
+                    ]
+                }
+            ]
+        }
+
+        response = requests.post(
+            f"{self.url}?key={self.api_key}",
+            headers=headers,
+            json=payload,
+            timeout=60
+        )
+
+        response.raise_for_status()
+        data = response.json()
+
+        return data["candidates"][0]["content"]["parts"][0]["text"]
+
 
 
 # -----------------------
@@ -32,7 +60,6 @@ class LLMClient:
 class PDFProcessor:
     @staticmethod
     def extract_text(pdf_path: str) -> str:
-        """Extracts raw text from PDF using PyMuPDF."""
         text = ""
         with fitz.open(pdf_path) as doc:
             for page in doc:
@@ -41,7 +68,6 @@ class PDFProcessor:
 
     @staticmethod
     def clean_text(text: str) -> str:
-        """Basic cleaning: remove extra whitespace."""
         text = re.sub(r"\s+", " ", text)
         return text.strip()
 
@@ -59,7 +85,6 @@ class JSONFixer:
 
     @staticmethod
     def extract_json_from_text(llm_output: str) -> Optional[dict]:
-        """Attempts to extract JSON if the model wrapped it in text."""
         match = re.search(r"\{.*\}", llm_output, re.DOTALL)
         if match:
             try:
@@ -78,11 +103,30 @@ class ExtractorAgent:
         self.prompt_template = prompt_template
 
     def build_prompt(self, text: str) -> str:
-        """Insert RFP text into the predefined schema prompt."""
-        return self.prompt_template + "\n\nRFP CONTENT STARTS BELOW:\n\n" + text
+        """
+        Builds the final prompt by injecting:
+        1. Instructions
+        2. Schema
+        3. RFP content
+        """
+
+        # Load schema
+        with open("agents/prompts/schema.json", "r", encoding="utf-8") as f:
+            schema_json = f.read()
+
+        prompt = (
+            self.prompt_template
+            + "\n\n---\n"
+            + "SCHEMA (You must follow this structure EXACTLY):\n"
+            + schema_json
+            + "\n---\n\n"
+            + "RFP CONTENT STARTS BELOW:\n\n"
+            + text
+        )
+
+        return prompt
 
     def extract(self, pdf_path: str) -> dict:
-        """Main pipeline: PDF → Text → Clean → Prompt → LLM → JSON."""
         print("Extracting text from PDF...")
         raw_text = PDFProcessor.extract_text(pdf_path)
         cleaned_text = PDFProcessor.clean_text(raw_text)
@@ -96,7 +140,6 @@ class ExtractorAgent:
         print("Parsing JSON...")
         result_json = JSONFixer.try_parse(llm_output)
 
-        # If JSON is not clean, try extracting embedded JSON
         if result_json is None:
             print("Fixing JSON...")
             result_json = JSONFixer.extract_json_from_text(llm_output)
@@ -108,20 +151,20 @@ class ExtractorAgent:
 
 
 # -----------------------
-# 5. USAGE EXAMPLE
+# 5. RUN DIRECTLY
 # -----------------------
 if __name__ == "__main__":
 
-    # Load prompt template from file for safety
+    # Load extractor prompt
     with open("agents/prompts/extractor_prompt.txt", "r", encoding="utf-8") as f:
         extractor_prompt = f.read()
 
     llm = LLMClient(
-        provider="gemini",
         api_key=os.getenv("GEMINI_API_KEY")
     )
 
     agent = ExtractorAgent(llm, extractor_prompt)
 
-    output = agent.extract("samples/sample_rfp.pdf")
+    output = agent.extract("samples/24a1021.pdf")
+
     print(json.dumps(output, indent=4))
