@@ -69,12 +69,6 @@ cd backend
 python -m venv venv
 ```
 
-**macOS / Linux**
-
-```bash
-python3 -m venv venv
-```
-
 ### 3️⃣ Activate the virtual environment
 
 **Windows (PowerShell)**
@@ -82,13 +76,6 @@ python3 -m venv venv
 ```powershell
 venv\Scripts\activate
 ```
-
-**macOS / Linux**
-
-```bash
-source venv/bin/activate
-```
-
 > You should now see `(venv)` in your terminal.
 
 ### 4️⃣ Install dependencies
@@ -98,6 +85,23 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+
+-----
+
+5️⃣ Create .gitignore (Crucial!)
+To prevent committing sensitive keys and the large virtual environment folder, you must create a .gitignore file.
+
+Create a file named .gitignore inside the backend/ folder.
+
+Add the following lines to it:
+
+Plaintext
+
+venv/
+.env
+__pycache__/
+*.pyc
+✅ This ensures git ignores your secrets and local environment files.
 
 -----
 
@@ -168,6 +172,7 @@ Once this setup is complete, you can:
   * Collaborate smoothly as a team
 
 **Happy hacking 🚀**
+
 
 
 
