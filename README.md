@@ -144,18 +144,6 @@ output = agent.extract("samples/your_rfp.pdf")
 
 -----
 
-## 👥 Team Collaboration Guidelines
-
-  * ✔ Everyone must create their own `venv` locally
-  * ✔ Do **not** commit `venv/`
-  * ✔ Do **not** commit `.env`
-  * ✔ If `requirements.txt` changes, teammates should re-run:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
------
-
 ## 🧪 Troubleshooting
 
 **❌ ModuleNotFoundError**
@@ -181,6 +169,4 @@ Once this setup is complete, you can:
 
 **Happy hacking 🚀**
 
-```
-```
 
