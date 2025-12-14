@@ -20,7 +20,7 @@ This guide explains **how to set up the backend correctly**, especially when wor
 
 ## 📁 Project Structure (Relevant Part)
 
-
+```text
 RFP_BidAssist_AI/
 │
 ├── backend/
@@ -33,7 +33,7 @@ RFP_BidAssist_AI/
 │   └── extractor_agent.py
 │
 └── frontend/
-
+```
 
 -----
 
@@ -168,5 +168,6 @@ Once this setup is complete, you can:
   * Collaborate smoothly as a team
 
 **Happy hacking 🚀**
+
 
 
