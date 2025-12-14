@@ -1,62 +1,31 @@
+import os
 import json
 import re
 import fitz  # PyMuPDF
-from typing import Optional
-from dotenv import load_dotenv
-import os
+from typing import Optional, Dict, Any
 
-# Load environment variables
+from dotenv import load_dotenv
+from google import genai
+from google.genai import types
+
+# -------------------------------------------------
+# ENV
+# -------------------------------------------------
 load_dotenv()
 
-# -----------------------
-# 1. LLM CLIENT (Gemini)
-# -----------------------
-import google.generativeai as genai
+# -------------------------------------------------
+# GEMINI CLIENT
+# -------------------------------------------------
+try:
+    client = genai.Client()
+    GEMINI_MODEL = "gemini-2.5-flash"   # ✅ WORKING MODEL
+except Exception as e:
+    raise RuntimeError("Failed to initialize Gemini client. Check API key.") from e
 
 
-import requests
-import os
-
-class LLMClient:
-    def __init__(self, api_key: str):
-        self.api_key = api_key
-        self.url = (
-            "https://generativelanguage.googleapis.com/v1beta/"
-            "models/gemini-2.0-flash:generateContent"
-        )
-
-    def generate(self, prompt: str) -> str:
-        headers = {
-            "Content-Type": "application/json"
-        }
-
-        payload = {
-            "contents": [
-                {
-                    "parts": [
-                        {"text": prompt}
-                    ]
-                }
-            ]
-        }
-
-        response = requests.post(
-            f"{self.url}?key={self.api_key}",
-            headers=headers,
-            json=payload,
-            timeout=60
-        )
-
-        response.raise_for_status()
-        data = response.json()
-
-        return data["candidates"][0]["content"]["parts"][0]["text"]
-
-
-
-# -----------------------
-# 2. PDF TEXT EXTRACTION
-# -----------------------
+# -------------------------------------------------
+# PDF PROCESSOR
+# -------------------------------------------------
 class PDFProcessor:
     @staticmethod
     def extract_text(pdf_path: str) -> str:
@@ -64,107 +33,99 @@ class PDFProcessor:
         with fitz.open(pdf_path) as doc:
             for page in doc:
                 text += page.get_text("text") + "\n"
-        return text
-
-    @staticmethod
-    def clean_text(text: str) -> str:
-        text = re.sub(r"\s+", " ", text)
         return text.strip()
 
 
-# -----------------------
-# 3. JSON VALIDATION / FIXING
-# -----------------------
+# -------------------------------------------------
+# JSON FIXER
+# -------------------------------------------------
 class JSONFixer:
     @staticmethod
-    def try_parse(json_text: str) -> Optional[dict]:
+    def try_parse(text: str) -> Optional[Dict[str, Any]]:
         try:
-            return json.loads(json_text)
-        except json.JSONDecodeError:
+            return json.loads(text)
+        except Exception:
             return None
 
     @staticmethod
-    def extract_json_from_text(llm_output: str) -> Optional[dict]:
-        match = re.search(r"\{.*\}", llm_output, re.DOTALL)
+    def extract_json(text: str) -> Optional[Dict[str, Any]]:
+        match = re.search(r"\{[\s\S]*\}", text)
         if match:
             try:
                 return json.loads(match.group(0))
-            except:
+            except Exception:
                 return None
         return None
 
 
-# -----------------------
-# 4. EXTRACTOR AGENT
-# -----------------------
+# -------------------------------------------------
+# EXTRACTOR AGENT
+# -------------------------------------------------
 class ExtractorAgent:
-    def __init__(self, llm_client: LLMClient, prompt_template: str):
-        self.llm = llm_client
+    def __init__(self, prompt_template: str, schema: Dict[str, Any]):
         self.prompt_template = prompt_template
+        self.schema = schema
 
-    def build_prompt(self, text: str) -> str:
-        """
-        Builds the final prompt by injecting:
-        1. Instructions
-        2. Schema
-        3. RFP content
-        """
+    def build_prompt(self, rfp_text: str) -> str:
+        return f"""
+{self.prompt_template}
 
-        # Load schema
-        with open("agents/prompts/schema.json", "r", encoding="utf-8") as f:
-            schema_json = f.read()
+JSON Schema (STRICTLY FOLLOW):
+{json.dumps(self.schema, indent=2)}
 
-        prompt = (
-            self.prompt_template
-            + "\n\n---\n"
-            + "SCHEMA (You must follow this structure EXACTLY):\n"
-            + schema_json
-            + "\n---\n\n"
-            + "RFP CONTENT STARTS BELOW:\n\n"
-            + text
+RFP DOCUMENT TEXT:
+------------------
+{rfp_text}
+------------------
+"""
+
+    def extract(self, pdf_path: str) -> Dict[str, Any]:
+        print("📄 Extracting PDF text...")
+        document_text = PDFProcessor.extract_text(pdf_path)
+
+        print("🧠 Building prompt...")
+        prompt = self.build_prompt(document_text)
+
+        print("🚀 Calling Gemini...")
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=[prompt],
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                system_instruction="You are an expert RFP parser. Respond ONLY with valid JSON."
+            )
         )
 
-        return prompt
+        raw_output = response.text
+        print("📦 Raw Gemini Output received")
 
-    def extract(self, pdf_path: str) -> dict:
-        print("Extracting text from PDF...")
-        raw_text = PDFProcessor.extract_text(pdf_path)
-        cleaned_text = PDFProcessor.clean_text(raw_text)
+        parsed = JSONFixer.try_parse(raw_output)
+        if not parsed:
+            parsed = JSONFixer.extract_json(raw_output)
 
-        print("Building prompt...")
-        prompt = self.build_prompt(cleaned_text)
+        if not parsed:
+            raise ValueError("❌ Failed to parse JSON from Gemini response")
 
-        print("Sending to LLM...")
-        llm_output = self.llm.generate(prompt)
-
-        print("Parsing JSON...")
-        result_json = JSONFixer.try_parse(llm_output)
-
-        if result_json is None:
-            print("Fixing JSON...")
-            result_json = JSONFixer.extract_json_from_text(llm_output)
-
-        if result_json is None:
-            raise ValueError("ExtractorAgent: Could not parse JSON from LLM output.")
-
-        return result_json
+        return parsed
 
 
-# -----------------------
-# 5. RUN DIRECTLY
-# -----------------------
+# -------------------------------------------------
+# RUN DIRECTLY
+# -------------------------------------------------
 if __name__ == "__main__":
 
-    # Load extractor prompt
     with open("agents/prompts/extractor_prompt.txt", "r", encoding="utf-8") as f:
         extractor_prompt = f.read()
 
-    llm = LLMClient(
-        api_key=os.getenv("GEMINI_API_KEY")
+    with open("agents/prompts/schema.json", "r", encoding="utf-8") as f:
+        schema = json.load(f)
+
+    agent = ExtractorAgent(
+        prompt_template=extractor_prompt,
+        schema=schema
     )
 
-    agent = ExtractorAgent(llm, extractor_prompt)
+    result = agent.extract("samples/rfp_2024.pdf")
 
-    output = agent.extract("samples/24a1021.pdf")
-
-    print(json.dumps(output, indent=4))
+    print("\n✅ FINAL EXTRACTED JSON:")
+    print(json.dumps(result, indent=2))
