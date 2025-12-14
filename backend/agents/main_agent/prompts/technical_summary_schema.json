@@ -1,0 +1,44 @@
+{
+  "rfp_context": {
+    "rfp_title": "",
+    "issuing_authority": "",
+    "category": "",
+    "submission_deadline": ""
+  },
+
+  "items_to_supply": [
+    {
+      "item_name": "",
+      "quantity": "",
+      "unit": "",
+      "key_technical_requirements": [
+        "…",
+        "…"
+      ],
+      "mandatory_standards": [],
+      "critical_parameters": []
+    }
+  ],
+
+  "testing_and_quality": {
+    "mandatory_tests": [],
+    "inspection_process": "",
+    "lab_or_certification_requirements": ""
+  },
+
+  "eligibility_constraints": {
+    "technical_experience": "",
+    "manufacturing_requirements": "",
+    "certifications_required": []
+  },
+
+  "delivery_and_warranty": {
+    "delivery_timeline": "",
+    "warranty": ""
+  },
+
+  "technical_risks_or_flags": [
+    "Unusually high test coverage",
+    "Multiple cable variants increase manufacturing complexity"
+  ]
+}
