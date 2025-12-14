@@ -1,0 +1,14 @@
+# Core environment
+python-dotenv>=1.0.1
+
+# PDF processing
+PyMuPDF>=1.26.0
+
+# Gemini (NEW SDK – google.genai)
+google-genai>=0.3.0
+
+# Data validation (optional but recommended)
+pydantic>=2.7.0
+
+# HTTP utilities (used internally by SDK)
+requests>=2.32.0
