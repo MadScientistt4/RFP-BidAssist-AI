@@ -1,44 +1,75 @@
 {
-  "rfp_context": {
-    "rfp_title": "",
-    "issuing_authority": "",
-    "category": "",
-    "submission_deadline": ""
-  },
+  "scope_of_supply_input": {
+    "product_families": [
+      {
+        "family_id": "string",
+        "family_name": "string",
 
-  "items_to_supply": [
-    {
-      "item_name": "",
-      "quantity": "",
-      "unit": "",
-      "key_technical_requirements": [
-        "…",
-        "…"
-      ],
-      "mandatory_standards": [],
-      "critical_parameters": []
-    }
-  ],
+        "high_level_description": "string",
 
-  "testing_and_quality": {
-    "mandatory_tests": [],
-    "inspection_process": "",
-    "lab_or_certification_requirements": ""
-  },
+        "variants": [
+          {
+            "variant_id": "string",
+            "pair_count": "number",
+            "quantity": "number",
+            "unit": "string",
 
-  "eligibility_constraints": {
-    "technical_experience": "",
-    "manufacturing_requirements": "",
-    "certifications_required": []
-  },
+            "variant_specific_constraints": [
+              "string"
+            ],
 
-  "delivery_and_warranty": {
-    "delivery_timeline": "",
-    "warranty": ""
-  },
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "string",
+              "sheath_thickness_mm": "string",
+              "jacket_thickness_mm": "string",
+              "packing_length": "string"
+            }
+          }
+        ],
 
-  "technical_risks_or_flags": [
-    "Unusually high test coverage",
-    "Multiple cable variants increase manufacturing complexity"
-  ]
+        "common_technical_characteristics": {
+          "conductor": "string",
+          "insulation": "string",
+          "armouring": "string",
+          "sheath": "string",
+          "special_properties": [
+            "string"
+          ]
+        },
+
+        "mandatory_standards": [
+          "string"
+        ],
+
+        "non_negotiable_constraints": [
+          "string"
+        ],
+
+        "testing_and_quality_expectations": {
+          "electrical_tests": [
+            "string"
+          ],
+          "mechanical_tests": [
+            "string"
+          ],
+          "fire_or_environmental_tests": [
+            "string"
+          ],
+          "inspection_requirements": "string"
+        },
+
+        "engineering_complexity_indicators": [
+          "string"
+        ],
+
+        "validation_required_before_commitment": [
+          "string"
+        ],
+
+        "assumed_standard_if_not_flagged": [
+          "string"
+        ]
+      }
+    ]
+  }
 }

@@ -20,7 +20,8 @@
         )
 
         response = self.llm.generate(prompt)
-        return json.loads(response)"""
+        return json.loads(response)
+"""
 
 # agents/main_agent.py
 
