@@ -1,0 +1,269 @@
+{
+  "scope_of_supply_input": {
+    "product_families": [
+      {
+        "family_id": "PIJF_ARM_CU_TELECOM_CABLE",
+        "family_name": "Polythene Insulated Jelly Filled (PIJF) Armoured Copper Telecom Cables",
+        "high_level_description": "Single-strand, polythene insulated, jelly-filled, and armoured copper cables designed for telecommunications applications, emphasizing resistance to moisture and mechanical protection.",
+        "variants": [
+          {
+            "variant_id": "PIJF_200P_0_5MM",
+            "pair_count": 200,
+            "quantity": 1.5,
+            "unit": "km",
+            "variant_specific_constraints": [
+              "Diameter over sheath shall not exceed 37.5mm (TEC GR/CUG-01/03 Table-7)",
+              "Minimum sheath thickness: 1.62 mm (min) and 2.2 mm (nom) for 200P cable",
+              "Diameter over Jacket shall not exceed 45.5mm for 200P cable"
+            ],
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "45.5",
+              "sheath_thickness_mm": "1.62 (min), 2.2 (nom)",
+              "jacket_thickness_mm": "Not less than 1.4mm",
+              "packing_length": "1000 meters +/- 10% or as per TEC GR/CUG-01/03 Table-1"
+            }
+          },
+          {
+            "variant_id": "PIJF_100P_0_5MM",
+            "pair_count": 100,
+            "quantity": 1,
+            "unit": "km",
+            "variant_specific_constraints": [
+              "Diameter over sheath shall not exceed 28mm (TEC GR/CUG-01/03 Table-7)",
+              "Minimum sheath thickness: 1.50 mm (min) and 2.0 mm (nom) for 100P cable",
+              "Diameter over Jacket shall not exceed 36mm for 100P cable"
+            ],
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "36",
+              "sheath_thickness_mm": "1.50 (min), 2.0 (nom)",
+              "jacket_thickness_mm": "Not less than 1.4mm",
+              "packing_length": "1000 meters +/- 10% or as per TEC GR/CUG-01/03 Table-1"
+            }
+          },
+          {
+            "variant_id": "PIJF_50P_0_5MM",
+            "pair_count": 50,
+            "quantity": 4.5,
+            "unit": "kms",
+            "variant_specific_constraints": [
+              "Diameter over sheath shall not exceed 22mm (TEC GR/CUG-01/03 Table-7)",
+              "Minimum sheath thickness: 1.50 mm (min) and 2.0 mm (nom) for 50P cable",
+              "Diameter over Jacket shall not exceed 29mm for 50P cable"
+            ],
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "29",
+              "sheath_thickness_mm": "1.50 (min), 2.0 (nom)",
+              "jacket_thickness_mm": "Not less than 1.4mm",
+              "packing_length": "1000 meters +/- 10% or as per TEC GR/CUG-01/03 Table-1"
+            }
+          },
+          {
+            "variant_id": "PIJF_20P_0_5MM",
+            "pair_count": 20,
+            "quantity": 3,
+            "unit": "kms",
+            "variant_specific_constraints": [
+              "Diameter over sheath shall not exceed 17mm (TEC GR/CUG-01/03 Table-7)",
+              "Minimum sheath thickness: 1.50 mm (min) and 2.0 mm (nom) for 20P cable",
+              "Diameter over Jacket shall not exceed 24mm for 20P cable"
+            ],
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "24",
+              "sheath_thickness_mm": "1.50 (min), 2.0 (nom)",
+              "jacket_thickness_mm": "Not less than 1.4mm",
+              "packing_length": "1000 meters +/- 10% or as per TEC GR/CUG-01/03 Table-1"
+            }
+          },
+          {
+            "variant_id": "PIJF_10P_0_5MM",
+            "pair_count": 10,
+            "quantity": 2,
+            "unit": "kms",
+            "variant_specific_constraints": [
+              "Diameter over sheath shall not exceed 11mm (TEC GR/CUG-01/03 Table-7)",
+              "Minimum sheath thickness: 1.50 mm (min) and 2.0 mm (nom) for 10P cable",
+              "Diameter over Jacket shall not exceed 20.2mm for 10P cable"
+            ],
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "20.2",
+              "sheath_thickness_mm": "1.50 (min), 2.0 (nom)",
+              "jacket_thickness_mm": "Not less than 1.4mm",
+              "packing_length": "1000 meters +/- 10% or as per TEC GR/CUG-01/03 Table-1"
+            }
+          }
+        ],
+        "common_technical_characteristics": {
+          "conductor": "Solid Annealed high conductive Copper, 0.5mm diameter, single strand",
+          "insulation": "Polythene insulating grade; Solid polythene conforming to ASTMD-1248 Type-II or III, Class-A cat.4 or 5; Uniform thickness for entire cable length",
+          "armouring": "Galvanized steel tape, Helical (double), 0.5mm \u00b110% thickness",
+          "sheath": "Inner sheath: Polythene grade with anti-oxidant conforming to BS 6234. Outer Jacket: Solid polythene conforming to BS-6234",
+          "special_properties": [
+            "Jelly Filling Compound: Petroleum Jelly, homogenous, uniformly mixed, anti-oxidant, water-resistant, compatible with polythene insulation, binders and tapes",
+            "Core Wrapping: Closed helical or longitudinal lapping of a non-hygroscopic and non-wicking polyester tape, impregnated or flooded with jelly",
+            "Moisture barrier/Screen: Polythene coated aluminum tape, 0.3 mm+ 15% thickness, minimum overlap of 3 mm",
+            "Bedding tape: Polythene tape or polypropylene tape, applied helically over the sheath",
+            "Colour coding: As per Table 2 of TEC GR/CUG-01/03 Aug 2003",
+            "Twisting/Pairing Lay length: Shall not exceed 150mm"
+          ]
+        },
+        "mandatory_standards": [
+          "DOT TEC GR/CUG-01/03 Aug 2003.",
+          "ASTMD-1248 Type-II or III, Class-A cat.4 or 5",
+          "BS 6234"
+        ],
+        "non_negotiable_constraints": [
+          "Conductor diameter: 0.5mm",
+          "Armouring thickness: 0.5mm \u00b110%",
+          "Jacket thickness: Shall not be less than 1.4mm",
+          "Cable wound on strong wooden drums for packing",
+          "Ends of cable sealed by rubber or PVC caps",
+          "Hot stamping with SDSC SHAR stamp at cable ends required",
+          "Sequential length marking at 1-meter intervals throughout the sheath is critical",
+          "Conductor resistance: 86 Ohms/km \u00b1 6 Ohms/km",
+          "Resistance unbalance: 1 (average) / 2.5 (individual)",
+          "Mutual capacitance: 52 \u00b1 3 nF/km at 800 to 1000 Hz",
+          "Capacitance unbalance (Pair to Pair): \u2264 50 pF/Km (average) @800- 1000Hz",
+          "Capacitance unbalance (Pair to Gnd): \u2264 750 pF/Km (average) @800- 1000Hz",
+          "Dielectric strength (conductors): 2.4 KV DC for 3 Sec.",
+          "Dielectric strength (conductors to shield): 5.0 KV DC for 3 Sec.",
+          "Insulation resistance (C-C & C-S): Min 5000 M\u03a9-KM at 500 V DC-1 Min",
+          "Dielectric strength of sheath: 17KV DC or 11KV RMS AC for sheath thickness 2.0 to 2.4mm",
+          "Equal level far end cross talk (150KHz): Better than 55dB/Km (individual)",
+          "Near end cross talk (150KHz): Better than 55dB/Km (individual)",
+          "Attenuation (150KHz): 8.25 dB/Km (maximum average) at 20 deg C"
+        ],
+        "testing_and_quality_expectations": {
+          "electrical_tests": [
+            "Continuity of conductors",
+            "Conductor resistance",
+            "Resistance unbalance",
+            "Resistance of poly-al tape",
+            "Mutual capacitance",
+            "Capacitance unbalance (Pair to Pair)",
+            "Capacitance unbalance (Pair to Gnd)",
+            "Dielectric strength (High voltage) between conductors",
+            "Dielectric strength (High voltage) between all conductors and shield",
+            "Insulation resistance (Conductor to conductor)",
+            "Insulation resistance (Conductor to shield)",
+            "Dielectric strength of the sheath",
+            "Equal level far end cross talk (150KHz)",
+            "Near end cross talk (150KHz)",
+            "Attenuation (150KHz)"
+          ],
+          "mechanical_tests": [
+            "Polythene for conductor insulation",
+            "Dielectric constant or permittivity",
+            "Volume resistivity of petroleum jelly",
+            "Permittivity of petroleum jelly",
+            "Thickness of Poly-Al tape",
+            "Thickness of Sheath",
+            "Diameter over Sheath",
+            "Variation between the maximum and minimum diameter over sheath at any cross section",
+            "Elongation and tensile strength of conductor insulation",
+            "Thickness of conductor",
+            "Annealing of conductor (Min 15% of a sample wire of 250mm long)",
+            "Cable bend test",
+            "Water penetration test"
+          ],
+          "fire_or_environmental_tests": [],
+          "inspection_requirements": "Inspection at factory site/online video mode before dispatch. Dispatch requires clearance from SDSC SHAR Pre-Delivery inspection team. Minimum 50% of ordered quantity to be tested with SDSC SHAR authorities present, using randomly chosen cable drums."
+        },
+        "engineering_complexity_indicators": [
+          "Strict adherence to TEC GR standard for numerous parameters including material composition, dimensional tolerances, and electrical performance.",
+          "Critical sequential running length marking for traceability.",
+          "Complex multi-layer construction including jelly filling, core wrapping, moisture barrier, and double armouring.",
+          "Extensive electrical and mechanical test matrix required for validation."
+        ],
+        "validation_required_before_commitment": [
+          "Pre-Delivery Inspection by SDSC SHAR team.",
+          "Minimum 50% of ordered quantity to be tested in presence of SDSC SHAR authorities."
+        ],
+        "assumed_standard_if_not_flagged": [
+          "DOT TEC GR/CUG-01/03 Aug 2003."
+        ]
+      },
+      {
+        "family_id": "FRLS_ARM_CU_TELEPHONE_CABLE",
+        "family_name": "Armoured Fire Retardant Low Smoke (FRLS) Copper Telephone Cables",
+        "high_level_description": "Single-strand, armoured copper telephone cable with Fire Retardant Low Smoke (FRLS) properties for enhanced safety in critical environments.",
+        "variants": [
+          {
+            "variant_id": "FRLS_5P_0_5MM",
+            "pair_count": 5,
+            "quantity": 3,
+            "unit": "kms",
+            "variant_specific_constraints": [
+              "Nominal diameter of overall cable: 11.5 \u00b1 2mm",
+              "Packing cable length: 500m \u00b1 10% in a single drum/reel or nominal length specified in TEC GR WIR 06/03. March 2002."
+            ],
+            "variant_specific_dimensions_or_limits": {
+              "max_overall_diameter_mm": "13.5",
+              "sheath_thickness_mm": "Inner: Minimum 0.65mm; Outer: Minimum 1.24mm",
+              "jacket_thickness_mm": "N/A (covered by Outer Sheath)",
+              "packing_length": "500m +/- 10%"
+            }
+          }
+        ],
+        "common_technical_characteristics": {
+          "conductor": "Solid annealed Bare copper conductor as per IS:8130 (Single strand), Electrolytic Grade, 0.5mm diameter",
+          "insulation": "Extruded Polyethylene",
+          "armouring": "Galvanized steel Round wire (IS: 3975), Single layer, \u2265 0.9 mm size",
+          "sheath": "Inner sheath material: PVC type \u2018TM-2 as per IS:13176 or ST1 as per IS:5831\u2019. Outer Sheath material: Extruded FRLS PVC type- TM-2 as per IS:13176 or ST1 as per IS:5831\u2019",
+          "special_properties": [
+            "Lay length of Twisted pair: \u2264 80mm",
+            "Colour coding: As per Table-2 of GR/WIR 06/03. Mar 2002",
+            "Outer sheath must exhibit Fire Retardant Low Smoke (FRLS) properties"
+          ]
+        },
+        "mandatory_standards": [
+          "GR/WIR 06/03. Mar 2002",
+          "IS:8130",
+          "IS:3975",
+          "IS:13176",
+          "IS:5831",
+          "IEC-332 Part-1",
+          "ASTM D2843"
+        ],
+        "non_negotiable_constraints": [
+          "Conductor diameter: 0.5mm",
+          "Lay length of Twisted pair: \u2264 80mm",
+          "Armouring: Single layer Galvanized steel Round wire, \u2265 0.9 mm size",
+          "Inner sheath thickness: Minimum 0.65mm",
+          "Outer Sheath thickness: Minimum 1.24mm",
+          "Flammability test: Must pass as per IEC-332 Part-1",
+          "Smoke density rating: Max 60% when tested as per ASTM D2843",
+          "Conductor Resistance: 86 \u00b1 6 ohms/km",
+          "Min Insulation resistance: 50M.ohms/km",
+          "High Voltage test: 2KV RMS for 1 minute",
+          "Capacitance Unbalance (pair to pair): Shall not exceed 230PF"
+        ],
+        "testing_and_quality_expectations": {
+          "electrical_tests": [
+            "Conductor Resistance",
+            "Min Insulation resistance",
+            "High Voltage test",
+            "Capacitance Unbalance (pair to pair)"
+          ],
+          "mechanical_tests": [],
+          "fire_or_environmental_tests": [
+            "Flammability test (as per IEC-332 Part-1)",
+            "Smoke density rating (as per ASTM D2843)"
+          ],
+          "inspection_requirements": "Inspection at factory site/online video mode before dispatch. Dispatch requires clearance from SDSC SHAR Pre-Delivery inspection team. Minimum 50% of ordered quantity to be tested with SDSC SHAR authorities present, using randomly chosen cable drums."
+        },
+        "engineering_complexity_indicators": [
+          "Compliance with multiple Indian Standards (IS) and international fire safety standards (IEC, ASTM).",
+          "Requirement for FRLS outer sheath material, demanding specialized formulation and processing to meet flammability and smoke density ratings.", 
+          "Precise control over cable dimensions, particularly the overall diameter and sheath thicknesses."
+        ],
+        "validation_required_before_commitment": [
+          "Pre-Delivery Inspection by SDSC SHAR team.",
+          "Minimum 50% of ordered quantity to be tested in presence of SDSC SHAR authorities."
+        ],
+        "assumed_standard_if_not_flagged": [
+          "GR/WIR 06/03. Mar 2002"
+        ]
+      }
+    ]
+  }
+}
