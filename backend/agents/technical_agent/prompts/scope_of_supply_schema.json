@@ -1,0 +1,57 @@
+{
+  "scope_of_supply_summary": {
+    "products": [
+      {
+        "product_id": "",
+        "product_name": "",
+        "product_family": "",
+        "quantity": {
+          "value": 0,
+          "unit": ""
+        },
+
+        "functional_description": "",
+
+        "core_specifications": {
+          "conductor": {
+            "material": "",
+            "diameter_mm": "",
+            "grade_or_type": ""
+          },
+          "pair_count": 0,
+          "insulation": {
+            "material": "",
+            "special_properties": []
+          },
+          "armouring": {
+            "type": "",
+            "material": "",
+            "thickness_mm": ""
+          },
+          "sheath_and_jacket": {
+            "inner_sheath": "",
+            "outer_sheath": "",
+            "special_properties": []
+          }
+        },
+
+        "mandatory_standards": [],
+
+        "performance_requirements": {
+          "electrical": {},
+          "mechanical": {},
+          "environmental_or_fire": {}
+        },
+
+        "testing_requirements": {
+          "mandatory_tests": [],
+          "inspection_requirements": ""
+        },
+
+        "non_negotiable_constraints": [],
+
+        "intended_application": ""
+      }
+    ]
+  }
+}
