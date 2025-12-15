@@ -1,0 +1,97 @@
+{
+  "currency": "INR",
+  "unit": "per_km",
+  "last_updated": "2025-01-01",
+  "price_basis": "Dummy pricing for EY Techathon demonstration",
+
+  "prices": [
+    {
+      "sku": "TOPCABLE-PIJF-10P-0.5-ARM",
+      "family_id": "TOPCABLE-PIJF-ARM",
+      "description": "PIJF Armoured Copper Cable, 10 Pair, 0.5mm",
+      "unit_price": 180000
+    },
+    {
+      "sku": "TOPCABLE-PIJF-20P-0.5-ARM",
+      "family_id": "TOPCABLE-PIJF-ARM",
+      "description": "PIJF Armoured Copper Cable, 20 Pair, 0.5mm",
+      "unit_price": 260000
+    },
+    {
+      "sku": "TOPCABLE-PIJF-50P-0.5-ARM",
+      "family_id": "TOPCABLE-PIJF-ARM",
+      "description": "PIJF Armoured Copper Cable, 50 Pair, 0.5mm",
+      "unit_price": 420000
+    },
+    {
+      "sku": "TOPCABLE-PIJF-100P-0.5-ARM",
+      "family_id": "TOPCABLE-PIJF-ARM",
+      "description": "PIJF Armoured Copper Cable, 100 Pair, 0.5mm",
+      "unit_price": 720000
+    },
+    {
+      "sku": "TOPCABLE-PIJF-200P-0.5-ARM",
+      "family_id": "TOPCABLE-PIJF-ARM",
+      "description": "PIJF Armoured Copper Cable, 200 Pair, 0.5mm",
+      "unit_price": 1150000
+    },
+
+    {
+      "sku": "TOPCABLE-FRLS-5P-0.5-ARM",
+      "family_id": "TOPCABLE-FRLS-ARM",
+      "description": "FRLS Armoured Telephone Cable, 5 Pair, 0.5mm",
+      "unit_price": 140000
+    },
+    {
+      "sku": "TOPCABLE-FRLS-10P-0.5-ARM",
+      "family_id": "TOPCABLE-FRLS-ARM",
+      "description": "FRLS Armoured Telephone Cable, 10 Pair, 0.5mm",
+      "unit_price": 220000
+    },
+    {
+      "sku": "TOPCABLE-FRLS-20P-0.5-ARM",
+      "family_id": "TOPCABLE-FRLS-ARM",
+      "description": "FRLS Armoured Telephone Cable, 20 Pair, 0.5mm",
+      "unit_price": 360000
+    },
+
+    {
+      "sku": "TOPCABLE-CONTROL-4C-500V",
+      "family_id": "TOPCABLE-CONTROL-LV",
+      "description": "LV Control Cable, 4 Core, 500V",
+      "unit_price": 190000
+    },
+    {
+      "sku": "TOPCABLE-CONTROL-8C-500V",
+      "family_id": "TOPCABLE-CONTROL-LV",
+      "description": "LV Control Cable, 8 Core, 500V",
+      "unit_price": 310000
+    },
+
+    {
+      "sku": "TOPCABLE-POWER-3C-1KV",
+      "family_id": "TOPCABLE-POWER-LV",
+      "description": "LV Power Cable, 3 Core, 1kV",
+      "unit_price": 450000
+    },
+    {
+      "sku": "TOPCABLE-POWER-4C-1KV",
+      "family_id": "TOPCABLE-POWER-LV",
+      "description": "LV Power Cable, 4 Core, 1kV",
+      "unit_price": 560000
+    },
+
+    {
+      "sku": "TOPCABLE-MARINE-2C-1KV",
+      "family_id": "TOPCABLE-MARINE-LS",
+      "description": "Marine LSZH Copper Cable, 2 Core, 1kV",
+      "unit_price": 680000
+    },
+    {
+      "sku": "TOPCABLE-MARINE-4C-1KV",
+      "family_id": "TOPCABLE-MARINE-LS",
+      "description": "Marine LSZH Copper Cable, 4 Core, 1kV",
+      "unit_price": 890000
+    }
+  ]
+}
