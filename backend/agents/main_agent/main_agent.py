@@ -1,4 +1,29 @@
-# agents/main_agent/main_agent.py
+"""class MainAgent:
+    def __init__(self, llm_client, technical_prompt, pricing_prompt):
+        self.llm = llm_client
+        self.technical_prompt = technical_prompt
+        self.pricing_prompt = pricing_prompt
+
+    def generate_technical_summary(self, extracted_rfp_json: dict) -> dict:
+        prompt = self.technical_prompt.replace(
+            "{{EXTRACTED_RFP_JSON}}",
+            json.dumps(extracted_rfp_json, indent=2)
+        )
+
+        response = self.llm.generate(prompt)
+        return json.loads(response)
+
+    def generate_pricing_summary(self, extracted_rfp_json: dict) -> dict:
+        prompt = self.pricing_prompt.replace(
+            "{{EXTRACTED_RFP_JSON}}",
+            json.dumps(extracted_rfp_json, indent=2)
+        )
+
+        response = self.llm.generate(prompt)
+        return json.loads(response)
+"""
+
+# agents/main_agent.py
 
 import json
 import os
