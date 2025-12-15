@@ -1,0 +1,109 @@
+[
+  {
+    "family_id": "TOPCABLE-PIJF-ARM",
+    "oem": "TopCable",
+    "family_name": "PIJF Armoured Copper Telecom Cable",
+    "category": "Telecom Cables",
+    "application": "External and underground telecom networks",
+    "conductor_material": "Solid annealed high conductivity copper",
+    "insulation_material": "Polythene with anti-oxidant / copper inhibitor",
+    "armouring_type": "Double helical galvanized steel tape",
+    "sheath_material": "Polythene (BS 6234 compliant)",
+    "supported_configurations": {
+      "pair_counts": [10, 20, 50, 100, 200],
+      "conductor_diameter_mm": [0.5],
+      "packing_lengths_m": [500, 1000]
+    },
+    "standards": [
+      "DOT TEC GR/CUG-01/03 Aug 2003",
+      "BS 6234"
+    ],
+    "fire_properties": "Standard",
+    "notes": "Used for jelly-filled underground telecom applications"
+  },
+  {
+    "family_id": "TOPCABLE-FRLS-ARM",
+    "oem": "TopCable",
+    "family_name": "FRLS Armoured Copper Telephone Cable",
+    "category": "Telecom Cables",
+    "application": "Indoor and building telecom wiring",
+    "conductor_material": "Solid annealed bare copper (IS:8130)",
+    "insulation_material": "Extruded polyethylene",
+    "armouring_type": "Single layer galvanized steel round wire",
+    "sheath_material": "FRLS PVC",
+    "supported_configurations": {
+      "pair_counts": [2, 5, 10, 20],
+      "conductor_diameter_mm": [0.5]
+    },
+    "standards": [
+      "IS:8130",
+      "GR/WIR 06/03",
+      "IEC-332 Part-1",
+      "ASTM D2843"
+    ],
+    "fire_properties": "FRLS",
+    "notes": "Fire-retardant, low-smoke cable for indoor telecom use"
+  },
+  {
+    "family_id": "TOPCABLE-CONTROL-LV",
+    "oem": "TopCable",
+    "family_name": "Low Voltage Control & Instrumentation Cable",
+    "category": "Control & Screened Cables",
+    "application": "Control panels and automation systems",
+    "conductor_material": "Flexible copper",
+    "insulation_material": "PVC or LSZH",
+    "armouring_type": "Optional steel wire or tape",
+    "sheath_material": "PVC / LSZH",
+    "supported_configurations": {
+      "core_counts": [2, 4, 6, 8, 12],
+      "voltage_rating_v": [300, 500, 1000]
+    },
+    "standards": [
+      "IEC 60227",
+      "IEC 60332"
+    ],
+    "fire_properties": "LSZH optional",
+    "notes": "Used in industrial control and signal transmission"
+  },
+  {
+    "family_id": "TOPCABLE-POWER-LV",
+    "oem": "TopCable",
+    "family_name": "Low Voltage XLPE/PVC Power Cable",
+    "category": "Power Cables",
+    "application": "Power distribution up to 1kV",
+    "conductor_material": "Copper or aluminium",
+    "insulation_material": "XLPE",
+    "armouring_type": "Steel tape or wire armoured",
+    "sheath_material": "PVC",
+    "supported_configurations": {
+      "core_counts": [1, 2, 3, 4],
+      "voltage_rating_v": [600, 1000]
+    },
+    "standards": [
+      "IEC 60502-1"
+    ],
+    "fire_properties": "Standard",
+    "notes": "General purpose power distribution cable"
+  },
+  {
+    "family_id": "TOPCABLE-MARINE-LS",
+    "oem": "TopCable",
+    "family_name": "Marine LSZH Copper Cable",
+    "category": "Marine Cables",
+    "application": "Marine and offshore installations",
+    "conductor_material": "Tinned copper",
+    "insulation_material": "XLPE",
+    "armouring_type": "Steel wire armoured",
+    "sheath_material": "LSZH",
+    "supported_configurations": {
+      "core_counts": [1, 2, 3, 4],
+      "voltage_rating_v": [600, 1000]
+    },
+    "standards": [
+      "IEC 60092",
+      "IEC 60332"
+    ],
+    "fire_properties": "LSZH",
+    "notes": "Designed for low smoke and halogen-free marine environments"
+  }
+]

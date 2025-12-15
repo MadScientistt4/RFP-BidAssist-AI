@@ -1,0 +1,57 @@
+{
+  "rfp_reference": {
+    "rfp_title": "",
+    "rfp_id": ""
+  },
+
+  "item_level_recommendations": [
+    {
+      "item_id": "",
+      "item_name": "",
+
+      "recommended_oem_products": [
+        {
+          "oem_name": "",
+          "sku": "",
+          "spec_match_percentage": 0,
+
+          "matched_parameters": [
+            "Conductor diameter",
+            "Armouring thickness",
+            "Insulation material",
+            "Standard compliance"
+          ],
+
+          "deviations_or_gaps": [
+            "Sheath thickness marginally higher than required"
+          ]
+        }
+      ],
+
+      "comparison_table": {
+        "parameters": [
+          "Conductor material",
+          "Conductor diameter",
+          "Armouring",
+          "Insulation resistance",
+          "Standard"
+        ],
+        "rfp_requirement": [],
+        "oem_product_1": [],
+        "oem_product_2": [],
+        "oem_product_3": []
+      },
+
+      "final_selected_oem": {
+        "oem_name": "",
+        "sku": "",
+        "selection_reason": "Highest overall spec match with zero critical deviations"
+      }
+    }
+  ],
+
+  "technical_summary_flags": [
+    "OEM A does not support FRLS cable variant",
+    "Multiple cable variants require separate manufacturing lines"
+  ]
+}
