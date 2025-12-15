@@ -1,178 +1,232 @@
 # 📘 RFP BidAssist AI – Backend Setup Guide
 
-This repository contains the backend for **RFP BidAssist AI**, built for the EY Techathon.  
-The backend uses **Python**, **FastAPI**, and **Google Gemini (google.genai)** to extract structured data from RFP PDFs.
+This repository contains the **backend** for **RFP BidAssist AI**, built for the **EY Techathon**.
 
-This guide explains **how to set up the backend correctly**, especially when working with teammates.
+The backend is responsible for:
+
+* Extracting structured data from RFP PDFs
+* Creating technical summaries
+* Supporting downstream Technical & Pricing Agents
+
+**Tech Stack**
+
+* Python 3.10+
+* FastAPI
+* Google Gemini (`google.genai` SDK)
+* Pydantic
 
 ---
 
 ## 🚨 IMPORTANT (Read This First)
 
-> ⚠️ **Always `cd` into the `backend/` folder before creating a virtual environment or installing dependencies.**
+⚠️ **Always `cd` into the `backend/` folder before creating a virtual environment or installing dependencies.**
 
-**Why?**
-* Keeps dependencies isolated to the backend
-* Avoids conflicts with frontend or other projects
-* Ensures consistent setup across all teammates
+### Why this matters
+
+* Keeps backend dependencies isolated
+* Prevents conflicts with frontend or other projects
+* Ensures all teammates have identical setups
+* Avoids accidentally installing packages globally
 
 ---
 
-## 📁 Project Structure (Relevant Part)
+## 📁 Project Structure (Relevant)
 
-```text
+```
 RFP_BidAssist_AI/
 │
 ├── backend/
 │   ├── agents/
+│   │   ├── extractor_agent/
+│   │   ├── main_agent/
+│   │   ├── technical_agent/
+│   │   └── pricing_agent/
+│   │
 │   ├── prompts/
+│   ├── schemas/
 │   ├── samples/
-│   ├── venv/              ← created locally (not committed)
+│   ├── venv/              # created locally (NOT committed)
 │   ├── requirements.txt
-│   ├── .env               ← NOT committed
-│   └── extractor_agent.py
+│   ├── .env               # local only (NOT committed)
+│   └── main.py            # FastAPI entry point (upcoming)
 │
 └── frontend/
 ```
 
------
+---
 
 ## 🧠 Why We Use a Virtual Environment (venv)
 
-A **virtual environment (venv)**:
+A virtual environment:
 
-  * Isolates Python packages per project
-  * Prevents version conflicts
-  * Makes the project reproducible for all teammates
-  * Is a best practice for hackathons & production
+* Isolates Python dependencies per project
+* Prevents version clashes between projects
+* Makes the backend reproducible for all teammates
+* Is industry best practice (even for hackathons)
 
-❌ **Never** install project dependencies globally  
-✅ **Always** install inside a `venv`
+❌ Never install project dependencies globally
+✅ Always install inside a `venv`
 
------
+---
 
-## 🛠️ Setup Instructions (Follow in Order)
+## 🛠️ Backend Setup Instructions (Follow in Order)
 
-### 1️⃣ Navigate to the backend folder
-
-✅ Do this **before** creating the virtual environment.
+### 1️⃣ Navigate to backend folder
 
 ```bash
 cd backend
 ```
 
+⚠️ Do **NOT** create a venv from the project root.
+
+---
+
 ### 2️⃣ Create a virtual environment
 
-**Windows**
+**Windows (PowerShell / CMD)**
 
 ```bash
 python -m venv venv
 ```
 
+---
+
 ### 3️⃣ Activate the virtual environment
 
 **Windows (PowerShell)**
 
-```powershell
+```bash
 venv\Scripts\activate
 ```
-> You should now see `(venv)` in your terminal.
+
+You should now see:
+
+```
+(venv)
+```
+
+---
 
 ### 4️⃣ Install dependencies
 
-⚠️ Make sure `(venv)` is active before running this command.
+⚠️ Ensure `(venv)` is active before running this.
 
 ```bash
 pip install -r requirements.txt
 ```
 
------
+---
 
-5️⃣ Create .gitignore (Crucial!)
-To prevent committing sensitive keys and the large virtual environment folder, you must create a .gitignore file.
+## 🔐 Environment Variables
 
-Create a file named .gitignore inside the backend/ folder.
+### Create `.env` file
 
-Add the following lines to it:
+Inside the `backend/` folder, create a file named `.env`:
 
-Plaintext
+```env
+GEMINI_API_KEY=your_google_gemini_api_key_here
+```
 
+🚫 **Do NOT commit `.env` to GitHub**
+✅ `.env` is already included in `.gitignore`
+
+---
+
+## 🧾 `.gitignore` (Mandatory)
+
+Inside `backend/`, ensure `.gitignore` contains:
+
+```gitignore
 venv/
 .env
 __pycache__/
 *.pyc
-✅ This ensures git ignores your secrets and local environment files.
-
------
-
-## 🔐 Environment Variables
-
-1.  Create a `.env` file inside the `backend/` folder.
-2.  Add your API key:
-
-<!-- end list -->
-
-```ini
-GEMINI_API_KEY=your_google_gemini_api_key_here
 ```
 
-> 🚫 **Do NOT commit `.env` to GitHub** \> ✅ `.env` is already included in `.gitignore`
+This prevents:
 
------
+* API keys leaking
+* Virtual environment being committed
+* Python cache files cluttering git history
+
+---
 
 ## ▶️ Running the Extractor Agent
 
 From inside the `backend/` folder:
 
 ```bash
-python agents/extractor_agent.py
+python agents/extractor_agent/extractor_agent.py
 ```
 
-**What happens:**
+### What happens
 
-1.  Reads a sample RFP PDF from `samples/`
-2.  Extracts text
-3.  Sends it to Gemini
-4.  Returns structured JSON based on the schema
+* Reads a sample RFP PDF from `samples/`
+* Extracts text from PDF
+* Sends content to Gemini (`google.genai`)
+* Returns structured JSON strictly following schema
 
-### 📄 Adding Your Own RFP PDFs
+---
 
-1.  Place PDFs inside: `backend/samples/`
-2.  Then update this line in `extractor_agent.py` if needed:
+## 📄 Adding Your Own RFP PDFs
 
-<!-- end list -->
+1. Place PDFs in:
+
+```
+backend/samples/
+```
+
+2. Update the path in the extractor script if needed:
 
 ```python
 output = agent.extract("samples/your_rfp.pdf")
 ```
 
------
+---
 
-## 🧪 Troubleshooting
+## 🧪 Common Troubleshooting
 
-**❌ ModuleNotFoundError**
-➡ Activate venv (`source venv/bin/activate` or `venv\Scripts\activate`) and reinstall requirements.
+### ❌ `ModuleNotFoundError`
 
-**❌ Gemini API errors**
-➡ Check API key in `.env`
-➡ Ensure correct model is used (`google.genai`)
+* Ensure `venv` is activated
+* Re-run:
 
-**❌ PDF extraction empty**
-➡ PDF might be scanned (OCR support coming later)
+```bash
+pip install -r requirements.txt
+```
 
------
+---
 
-## ✅ You’re Ready\!
+### ❌ Gemini API Errors
 
-Once this setup is complete, you can:
+* Verify `.env` exists in `backend/`
+* Check `GEMINI_API_KEY`
+* Ensure `google.genai` is being used (NOT deprecated SDKs)
 
-  * Build agent logic
-  * Integrate FastAPI
-  * Add Supabase
-  * Collaborate smoothly as a team
+---
 
-**Happy hacking 🚀**
+### ❌ JSON Parsing Errors
 
+* RFP may be very large → chunking may be needed
+* Gemini response may include extra text → strict JSON enforcement coming
 
+---
 
+### ❌ Empty PDF Text
 
+* PDF may be scanned
+* OCR support will be added later
+
+---
+
+## ✅ You’re Ready
+
+Once setup is complete, you can:
+
+* Run extractor → structured RFP JSON
+* Feed output to Main Agent
+* Generate Technical & Pricing summaries
+* Integrate Supabase
+* Run FastAPI backend
+
+🚀 **Happy hacking — and keep commits clean!**
