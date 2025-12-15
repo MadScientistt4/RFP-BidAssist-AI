@@ -1,0 +1,156 @@
+{
+  "currency": "INR",
+  "pricing_basis": "Per test per batch",
+  "test_price_table": [
+    {
+      "test_name": "Polythene for conductor insulation test",
+      "test_category": "Material",
+      "synthetic_price": 2500
+    },
+    {
+      "test_name": "Dielectric constant or permittivity test",
+      "test_category": "Electrical",
+      "synthetic_price": 3500
+    },
+    {
+      "test_name": "Volume resistivity of petroleum jelly test",
+      "test_category": "Material",
+      "synthetic_price": 3000
+    },
+    {
+      "test_name": "Permittivity of petroleum jelly test",
+      "test_category": "Material",
+      "synthetic_price": 2800
+    },
+    {
+      "test_name": "Thickness of Poly-Al tape test",
+      "test_category": "Dimensional",
+      "synthetic_price": 1800
+    },
+    {
+      "test_name": "Thickness of Sheath test",
+      "test_category": "Dimensional",
+      "synthetic_price": 2000
+    },
+    {
+      "test_name": "Diameter over Sheath test",
+      "test_category": "Dimensional",
+      "synthetic_price": 1800
+    },
+    {
+      "test_name": "Variation between the maximum and minimum diameter over sheath at any cross section test",
+      "test_category": "Dimensional",
+      "synthetic_price": 2200
+    },
+    {
+      "test_name": "Elongation and tensile strength of conductor insulation test",
+      "test_category": "Mechanical",
+      "synthetic_price": 4500
+    },
+    {
+      "test_name": "Thickness of conductor test",
+      "test_category": "Dimensional",
+      "synthetic_price": 1500
+    },
+    {
+      "test_name": "Annealing of conductor test",
+      "test_category": "Mechanical",
+      "synthetic_price": 3000
+    },
+    {
+      "test_name": "Cable bend test",
+      "test_category": "Mechanical",
+      "synthetic_price": 4000
+    },
+    {
+      "test_name": "Water penetration test",
+      "test_category": "Environmental",
+      "synthetic_price": 5000
+    },
+    {
+      "test_name": "Continuity of conductors test",
+      "test_category": "Electrical",
+      "synthetic_price": 1500
+    },
+    {
+      "test_name": "Conductor resistance test",
+      "test_category": "Electrical",
+      "synthetic_price": 2500
+    },
+    {
+      "test_name": "Resistance unbalance test",
+      "test_category": "Electrical",
+      "synthetic_price": 2800
+    },
+    {
+      "test_name": "Resistance of poly-al tape test",
+      "test_category": "Electrical",
+      "synthetic_price": 3000
+    },
+    {
+      "test_name": "Mutual capacitance test",
+      "test_category": "Electrical",
+      "synthetic_price": 3500
+    },
+    {
+      "test_name": "Capacitance unbalance (Pair to Pair) test",
+      "test_category": "Electrical",
+      "synthetic_price": 3800
+    },
+    {
+      "test_name": "Capacitance unbalance (Pair to Gnd) test",
+      "test_category": "Electrical",
+      "synthetic_price": 3800
+    },
+    {
+      "test_name": "Dielectric strength (High voltage) between conductors test",
+      "test_category": "Electrical",
+      "synthetic_price": 4500
+    },
+    {
+      "test_name": "Dielectric strength (High voltage) between all conductors and shield test",
+      "test_category": "Electrical",
+      "synthetic_price": 5000
+    },
+    {
+      "test_name": "Insulation resistance test",
+      "test_category": "Electrical",
+      "synthetic_price": 2500
+    },
+    {
+      "test_name": "Equal level far end cross talk test",
+      "test_category": "Electrical",
+      "synthetic_price": 6000
+    },
+    {
+      "test_name": "Near end cross talk test",
+      "test_category": "Electrical",
+      "synthetic_price": 6000
+    },
+    {
+      "test_name": "Attenuation test",
+      "test_category": "Electrical",
+      "synthetic_price": 3500
+    },
+    {
+      "test_name": "Spark test",
+      "test_category": "Electrical",
+      "synthetic_price": 3000
+    },
+    {
+      "test_name": "High Voltage test",
+      "test_category": "Electrical",
+      "synthetic_price": 4500
+    },
+    {
+      "test_name": "Flammability test",
+      "test_category": "Fire Safety",
+      "synthetic_price": 7000
+    },
+    {
+      "test_name": "Smoke density rating test",
+      "test_category": "Fire Safety",
+      "synthetic_price": 8000
+    }
+  ]
+}
