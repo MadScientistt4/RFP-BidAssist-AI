@@ -104,7 +104,7 @@ RFP DOCUMENT TEXT:
             parsed = JSONFixer.extract_json(raw_output)
 
         if not parsed:
-            raise ValueError("❌ Failed to parse JSON from Gemini response")
+            raise ValueError("Failed to parse JSON from Gemini response")
 
         return parsed
 
@@ -127,5 +127,5 @@ if __name__ == "__main__":
 
     result = agent.extract("samples/rfp_2024.pdf")
 
-    print("\n✅ FINAL EXTRACTED JSON:")
+    print("\nFINAL EXTRACTED JSON:")
     print(json.dumps(result, indent=2))

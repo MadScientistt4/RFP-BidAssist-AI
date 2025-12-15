@@ -1,0 +1,100 @@
+{
+    "oem_metadata": {
+      "manufacturer_name": "",
+      "brand_name": "",
+      "product_family": "",
+      "product_sku": "",
+      "product_name": "",
+      "datasheet_version": "",
+      "datasheet_date": ""
+    },
+  
+    "product_classification": {
+      "category": "Telecom Cable",
+      "sub_category": "",
+      "application": [],
+      "installation_environment": []
+    },
+  
+    "technical_specifications": {
+      "conductor": {
+        "material": "",
+        "construction": "",
+        "diameter_mm": "",
+        "cross_section_area_sqmm": "",
+        "standard": ""
+      },
+  
+      "insulation": {
+        "material": "",
+        "dielectric_constant": "",
+        "thickness_mm": "",
+        "tensile_strength": "",
+        "elongation_percent": "",
+        "standard": ""
+      },
+  
+      "pair_or_core_configuration": {
+        "pair_count": "",
+        "core_count": "",
+        "lay_length_mm": "",
+        "color_coding_standard": ""
+      },
+  
+      "armouring": {
+        "armour_type": "",
+        "material": "",
+        "construction": "",
+        "thickness_mm": "",
+        "standard": ""
+      },
+  
+      "sheath_and_jacket": {
+        "inner_sheath_material": "",
+        "outer_sheath_material": "",
+        "sheath_thickness_mm": "",
+        "fire_retardant": false,
+        "low_smoke": false,
+        "standard": ""
+      }
+    },
+  
+    "electrical_characteristics": {
+      "dc_resistance_ohm_per_km": "",
+      "resistance_tolerance": "",
+      "mutual_capacitance_nf_per_km": "",
+      "capacitance_unbalance_pair_to_pair_pf": "",
+      "capacitance_unbalance_pair_to_ground_pf": "",
+      "attenuation_db_per_km": "",
+      "crosstalk_near_end_db": "",
+      "crosstalk_far_end_db": ""
+    },
+  
+    "mechanical_and_physical_properties": {
+      "overall_diameter_mm": "",
+      "weight_kg_per_km": "",
+      "minimum_bending_radius_mm": ""
+    },
+  
+    "environmental_and_fire_properties": {
+      "operating_temperature_range": "",
+      "flame_retardance_standard": "",
+      "smoke_density_standard": "",
+      "halogen_free": false
+    },
+  
+    "testing_and_compliance": {
+      "mandatory_standards": [],
+      "type_tests": [],
+      "routine_tests": [],
+      "acceptance_tests": []
+    },
+  
+    "packaging_and_supply": {
+      "standard_drum_length_m": "",
+      "length_tolerance_percent": "",
+      "drum_type": "",
+      "marking_requirements": []
+    }
+  }
+  
