@@ -7,107 +7,46 @@
     "submission_deadline": "",
     "pre_bid_meeting": "",
     "category": "",
-    "estimated_value": "",
-    "currency": ""
+    "estimated_value": ""
   },
-
   "scope_of_supply": [
     {
-      "item_id": "",
       "item_name": "",
-      "item_category": "",
       "description": "",
-      "quantity": {
-        "value": "",
-        "unit": ""
+      "quantity": "",
+      "unit": "",
+      "technical_specifications": {
+        "voltage": "",
+        "conductor_material": "",
+        "insulation_material": "",
+        "cores": "",
+        "area_sqmm": "",
+        "armouring": "",
+        "standard": "",
+        "other_parameters": {}
       },
-
-      "technical_specifications": [
-        {
-          "spec_name": "",
-          "spec_category": "",
-          "raw_text": "",
-          "value": "",
-          "unit": "",
-          "min_value": "",
-          "max_value": "",
-          "nominal_value": "",
-          "tolerance": "",
-          "comparison_type": "",
-          "is_mandatory": true,
-          "standard_reference": "",
-          "source_clause": ""
-        }
-      ],
-
-      "applicable_standards": [
-        {
-          "standard_name": "",
-          "version": "",
-          "mandatory": true
-        }
-      ],
-
-      "test_requirements": [
-        {
-          "test_name": "",
-          "standard": "",
-          "acceptance_criteria": "",
-          "mandatory": true
-        }
-      ],
-
-      "acceptance_criteria": [
-        {
-          "criterion": "",
-          "type": ""
-        }
-      ]
+      "test_requirements": [],
+      "acceptance_criteria": []
     }
   ],
-
   "eligibility_criteria": {
     "experience_required": "",
     "turnover_required": "",
     "technical_experience": "",
-    "certifications_required": [
-      {
-        "certificate_name": "",
-        "mandatory": true
-      }
-    ],
-    "documents_required": [
-      {
-        "document_name": "",
-        "mandatory": true
-      }
-    ]
+    "certifications_required": [],
+    "documents_required": []
   },
-
   "terms_and_conditions": {
     "delivery_terms": "",
     "payment_terms": "",
     "penalty_clause": "",
     "warranty": "",
-    "contract_duration": "",
-    "liquidated_damages": {
-      "rate": "",
-      "max_cap": ""
-    }
+    "contract_duration": ""
   },
-
   "test_and_quality_requirements": {
+    "tests_required": [],
     "inspection_process": "",
-    "inspection_stage": "",
-    "sample_percentage": "",
-    "lab_requirements": "",
-    "authority_presence_required": true
+    "lab_requirements": ""
   },
-
-  "attachments": [
-    {
-      "attachment_name": "",
-      "attachment_type": ""
-    }
-  ]
+  "attachments": []
 }
