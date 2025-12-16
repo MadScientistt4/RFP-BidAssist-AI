@@ -2,12 +2,13 @@
 
 import json
 from typing import Dict, Any
+from anyio import Path
 from google import genai
 from google.genai import types
 import os
 from dotenv import load_dotenv
 load_dotenv()
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemini-2.5-flash-lite"
 
 class TechnicalAgent:
     def __init__(self):
@@ -55,6 +56,7 @@ class TechnicalAgent:
             raise ValueError("Failed to parse Scope of Supply JSON")
 
 if __name__ == "__main__":
+
     agent = TechnicalAgent()
 
     result = agent.generate_scope_of_supply(
@@ -63,7 +65,7 @@ if __name__ == "__main__":
         scope_schema="schemas/scope_of_supply_schema.json"
     )
 
-    output_path = "outputs/scope_of_supply_summary.json"
+    output_path = Path("outputs/scope_of_supply_summary.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)
 

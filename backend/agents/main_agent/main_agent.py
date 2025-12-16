@@ -18,7 +18,7 @@ PROJECT_ROOT = BASE_DIR.parent
 load_dotenv()
 
 client = genai.Client()
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-2.5-flash-lite"
 
 
 class MainAgent:
@@ -27,10 +27,10 @@ class MainAgent:
         self.model = MODEL
 
         # ---- Prompts ----
-        with open(BASE_DIR / "prompts" / "technical_summary_prompt.txt", encoding="utf-8") as f:
+        with open("prompts/technical_summary_prompt.txt", encoding="utf-8") as f:
             self.technical_prompt = f.read()
 
-        with open(BASE_DIR / "prompts" / "pricing_summary_prompt.txt", encoding="utf-8") as f:
+        with open("prompts/pricing_summary_prompt.txt", encoding="utf-8") as f:
             self.pricing_prompt = f.read()
 
         with open("schemas/technical_summary_schema.json") as f:
@@ -91,7 +91,7 @@ class MainAgent:
 # -------------------------------------------------
 if __name__ == "__main__":
 
-    with open("outputs/extractor_rfp.json") as f:
+    with open("outputs/extracted_rfp.json") as f:
         extracted_rfp = json.load(f)
 
     with open("outputs/technical_summary_by_main_agent.json") as f:
