@@ -12,3 +12,6 @@ pydantic>=2.7.0
 
 # HTTP utilities (used internally by SDK)
 requests>=2.32.0
+
+#pdf generator
+reportlab>=4.4.6

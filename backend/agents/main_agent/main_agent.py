@@ -1,35 +1,16 @@
-"""class MainAgent:
-    def __init__(self, llm_client, technical_prompt, pricing_prompt):
-        self.llm = llm_client
-        self.technical_prompt = technical_prompt
-        self.pricing_prompt = pricing_prompt
-
-    def generate_technical_summary(self, extracted_rfp_json: dict) -> dict:
-        prompt = self.technical_prompt.replace(
-            "{{EXTRACTED_RFP_JSON}}",
-            json.dumps(extracted_rfp_json, indent=2)
-        )
-
-        response = self.llm.generate(prompt)
-        return json.loads(response)
-
-    def generate_pricing_summary(self, extracted_rfp_json: dict) -> dict:
-        prompt = self.pricing_prompt.replace(
-            "{{EXTRACTED_RFP_JSON}}",
-            json.dumps(extracted_rfp_json, indent=2)
-        )
-
-        response = self.llm.generate(prompt)
-        return json.loads(response)
-"""
-
 # agents/main_agent.py
 
 import json
-import os
+from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+
+# -------------------------------------------------
+# PATH SETUP (CRITICAL FIX)
+# -------------------------------------------------
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
 
 # -------------------------------------------------
 # ENV
@@ -45,10 +26,11 @@ class MainAgent:
         self.client = client
         self.model = MODEL
 
-        with open("prompts/technical_summary_prompt.txt") as f:
+        # ---- Prompts ----
+        with open(BASE_DIR / "prompts" / "technical_summary_prompt.txt", encoding="utf-8") as f:
             self.technical_prompt = f.read()
 
-        with open("prompts/pricing_summary_prompt.txt") as f:
+        with open(BASE_DIR / "prompts" / "pricing_summary_prompt.txt", encoding="utf-8") as f:
             self.pricing_prompt = f.read()
 
         with open("schemas/technical_summary_schema.json") as f:
@@ -61,9 +43,11 @@ class MainAgent:
     # TECHNICAL SUMMARY (for Technical Agent)
     # -------------------------------------------------
     def generate_technical_summary(self, extracted_rfp_json: dict) -> dict:
-        prompt = self.technical_prompt \
-            .replace("{{TECHNICAL_SUMMARY_SCHEMA}}", json.dumps(self.technical_schema, indent=2)) \
+        prompt = (
+            self.technical_prompt
+            .replace("{{TECHNICAL_SUMMARY_SCHEMA}}", json.dumps(self.technical_schema, indent=2))
             .replace("{{EXTRACTED_RFP_JSON}}", json.dumps(extracted_rfp_json, indent=2))
+        )
 
         response = self.client.models.generate_content(
             model=self.model,
@@ -84,10 +68,12 @@ class MainAgent:
         technical_agent_output_json: dict
     ) -> dict:
 
-        prompt = self.pricing_prompt \
-            .replace("{{PRICING_SUMMARY_SCHEMA}}", json.dumps(self.pricing_schema, indent=2)) \
-            .replace("{{EXTRACTED_RFP_JSON}}", json.dumps(extracted_rfp_json, indent=2)) \
+        prompt = (
+            self.pricing_prompt
+            .replace("{{PRICING_SUMMARY_SCHEMA}}", json.dumps(self.pricing_schema, indent=2))
+            .replace("{{EXTRACTED_RFP_JSON}}", json.dumps(extracted_rfp_json, indent=2))
             .replace("{{TECHNICAL_AGENT_OUTPUT_JSON}}", json.dumps(technical_agent_output_json, indent=2))
+        )
 
         response = self.client.models.generate_content(
             model=self.model,
@@ -113,7 +99,6 @@ if __name__ == "__main__":
 
     agent = MainAgent()
 
-    print("\n=== TECHNICAL SUMMARY ===")
     technical_summary = agent.generate_technical_summary(extracted_rfp)
     print(json.dumps(technical_summary, separators=(",", ":")))
 
