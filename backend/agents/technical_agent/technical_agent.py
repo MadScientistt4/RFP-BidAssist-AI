@@ -5,12 +5,13 @@ from typing import Dict, Any
 from google import genai
 from google.genai import types
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 MODEL_NAME = "gemini-2.5-flash"
 
 class TechnicalAgent:
     def __init__(self):
-        self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        self.client = genai.Client()
 
     def generate_scope_of_supply(
         self,
@@ -54,17 +55,15 @@ class TechnicalAgent:
             raise ValueError("Failed to parse Scope of Supply JSON")
 
 if __name__ == "__main__":
-    base_path = Path("backend/outputs")
-
     agent = TechnicalAgent()
 
     result = agent.generate_scope_of_supply(
-        extracted_rfp_path=base_path / "extracted_rfp.json",
-        technical_summary_path=base_path / "technical_summary_by_main_agent.json",
-        schema_path=base_path / "scope_of_supply_schema.json"
+        extracted_rfp="outputs/extracted_rfp.json",
+        technical_summary="outputs/technical_summary_by_main_agent.json",
+        scope_schema="schemas/scope_of_supply_schema.json"
     )
 
-    output_path = base_path / "scope_of_supply_summary.json"
+    output_path = "outputs/scope_of_supply_summary.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)
 

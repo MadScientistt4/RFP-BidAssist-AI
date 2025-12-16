@@ -114,10 +114,10 @@ RFP DOCUMENT TEXT:
 # -------------------------------------------------
 if __name__ == "__main__":
 
-    with open("agents/extractor_agent/prompts/extractor_prompt.txt", "r", encoding="utf-8") as f:
+    with open("prompts/extractor_prompt.txt", "r", encoding="utf-8") as f:
         extractor_prompt = f.read()
 
-    with open("agents/extractor_agent/prompts/schema.json", "r", encoding="utf-8") as f:
+    with open("schemas/extraction_schema.json", "r", encoding="utf-8") as f:
         schema = json.load(f)
 
     agent = ExtractorAgent(
