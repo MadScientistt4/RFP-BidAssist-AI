@@ -9,7 +9,7 @@ from reportlab.platypus import (
     Table,
     TableStyle
 )
-from reportlab.lib import colors
+from reportlab.lib import colors 
 
 
 def generate_pricing_pdf(pricing_json: dict, output_path: str):
@@ -29,7 +29,7 @@ def generate_pricing_pdf(pricing_json: dict, output_path: str):
     # Title
     # -------------------------
     elements.append(Paragraph(
-        "<b>Pricing Summary – Supply of Copper Cables</b>",
+        "<b>Pricing Summary - Supply of Copper Cables</b>",
         styles["Title"]
     ))
     elements.append(Spacer(1, 12))
@@ -55,8 +55,8 @@ def generate_pricing_pdf(pricing_json: dict, output_path: str):
             OEM: {item['oem']}<br/>
             SKU: {item['sku']}<br/>
             Quantity: {item['quantity']} {item['unit']}<br/>
-            Unit Price: ₹{item['unit_price']:,}<br/>
-            Base Material Cost: ₹{item['base_material_cost']:,}
+            Unit Price: Rs {item['unit_price']:,}<br/>
+            Base Material Cost: Rs {item['base_material_cost']:,}
             """,
             styles["Normal"]
         ))
@@ -67,7 +67,7 @@ def generate_pricing_pdf(pricing_json: dict, output_path: str):
         # Test table
         # -------------------------
         test_table_data = [
-            ["Test Name", "Unit Price (₹)"]
+            ["Test Name", "Unit Price (Rs )"]
         ]
 
         for test in item["tests"]:
@@ -77,8 +77,8 @@ def generate_pricing_pdf(pricing_json: dict, output_path: str):
             ])
 
         test_table_data.append([
-            "<b>Total Test Cost</b>",
-            f"<b>{item['total_test_cost']:,}</b>"
+            "Total Test Cost",
+            f"{item['total_test_cost']:,}"
         ])
 
         test_table = Table(
@@ -87,19 +87,19 @@ def generate_pricing_pdf(pricing_json: dict, output_path: str):
         )
 
         test_table.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
-            ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+            ("BACKGROUND", (0, 0), (-1, 0), colors .lightgrey),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors .grey),
             ("ALIGN", (1, 1), (-1, -1), "RIGHT"),
             ("FONT", (0, 0), (-1, 0), "Helvetica-Bold"),
             ("FONT", (0, -1), (-1, -1), "Helvetica-Bold"),
-            ("BACKGROUND", (0, -1), (-1, -1), colors.whitesmoke),
+            ("BACKGROUND", (0, -1), (-1, -1), colors .whitesmoke),
         ]))
 
         elements.append(test_table)
         elements.append(Spacer(1, 8))
 
         elements.append(Paragraph(
-            f"<b>Total Item Cost:</b> ₹{item['total_item_cost']:,}",
+            f"<b>Total Item Cost:</b> Rs {item['total_item_cost']:,}",
             styles["Normal"]
         ))
 
@@ -110,7 +110,7 @@ def generate_pricing_pdf(pricing_json: dict, output_path: str):
     # -------------------------
     elements.append(Spacer(1, 12))
     elements.append(Paragraph(
-        f"<b>Grand Total Cost: ₹{pricing_json['grand_total']:,}</b>",
+        f"<b>Grand Total Cost: Rs {pricing_json['grand_total']:,}</b>",
         styles["Heading1"]
     ))
 
