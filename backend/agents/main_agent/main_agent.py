@@ -112,7 +112,7 @@ if __name__ == "__main__":
         technical_output = json.load(f)
 
     agent = MainAgent()
-x
+
     print("\n=== TECHNICAL SUMMARY ===")
     technical_summary = agent.generate_technical_summary(extracted_rfp)
     print(json.dumps(technical_summary, indent=2))
