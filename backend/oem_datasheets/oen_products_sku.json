@@ -1,0 +1,93 @@
+[
+  {
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_category": "electrical",
+    "spec_name": "Conductor resistance",
+    "spec_value": 84,
+    "comparison_operator": "<=",
+    "unit": "Ohms/km"
+  },
+  {
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_category": "electrical",
+    "spec_name": "Mutual capacitance",
+    "spec_value": 50,
+    "comparison_operator": "<=",
+    "unit": "nF/km"
+  },
+  {
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_category": "mechanical",
+    "spec_name": "Diameter over sheath",
+    "spec_value": 36,
+    "comparison_operator": "<=",
+    "unit": "mm"
+  },
+  {
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_category": "environmental",
+    "spec_name": "Operating temperature max",
+    "spec_value": 60,
+    "comparison_operator": ">=",
+    "unit": "C"
+  },
+
+  {
+    "product_sku": "TC-PIJF-150P-05",
+    "spec_category": "electrical",
+    "spec_name": "Conductor resistance",
+    "spec_value": 86,
+    "comparison_operator": "<=",
+    "unit": "Ohms/km"
+  },
+  {
+    "product_sku": "TC-PIJF-150P-05",
+    "spec_category": "mechanical",
+    "spec_name": "Diameter over sheath",
+    "spec_value": 32,
+    "comparison_operator": "<=",
+    "unit": "mm"
+  },
+
+  {
+    "product_sku": "TC-PIJF-100P-05",
+    "spec_category": "electrical",
+    "spec_name": "Conductor resistance",
+    "spec_value": 85,
+    "comparison_operator": "<=",
+    "unit": "Ohms/km"
+  },
+  {
+    "product_sku": "TC-PIJF-100P-05",
+    "spec_category": "electrical",
+    "spec_name": "Mutual capacitance",
+    "spec_value": 52,
+    "comparison_operator": "<=",
+    "unit": "nF/km"
+  },
+
+  {
+    "product_sku": "PL-PIJF-200P-06",
+    "spec_category": "electrical",
+    "spec_name": "Conductor resistance",
+    "spec_value": 80,
+    "comparison_operator": "<=",
+    "unit": "Ohms/km"
+  },
+  {
+    "product_sku": "PL-PIJF-200P-06",
+    "spec_category": "electrical",
+    "spec_name": "Mutual capacitance",
+    "spec_value": 45,
+    "comparison_operator": "<=",
+    "unit": "nF/km"
+  },
+  {
+    "product_sku": "PL-PIJF-200P-06",
+    "spec_category": "environmental",
+    "spec_name": "Operating temperature max",
+    "spec_value": 70,
+    "comparison_operator": ">=",
+    "unit": "C"
+  }
+]
