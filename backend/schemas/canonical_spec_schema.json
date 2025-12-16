@@ -1,0 +1,34 @@
+{
+        "type": "array",
+        "items": {
+            "spec_key": {
+                "type": "string",
+                "allowed_values": [
+                    "Conductor resistance",
+                    "Mutual capacitance",
+                    "Diameter over sheath",
+                    "Insulation resistance",
+                    "Dielectric strength",
+                    "Attenuation",
+                    "Near end cross talk"
+                ]
+            },
+            "operator": {
+                "type": "string",
+                "allowed_values": ["<=", ">=", "==", "range", "pass_fail"]
+            },
+            "value": {
+                "type": ["number", "array", "null"]
+            },
+            "unit": {
+                "type": "string"
+            },
+            "test_conditions": {
+                "temperature_c": ["number", "null"],
+                "frequency_hz": ["number", "null"]
+            },
+            "tolerance": ["number", "null"],
+            "mandatory": "boolean",
+            "source_text": "string"
+        }
+    }
