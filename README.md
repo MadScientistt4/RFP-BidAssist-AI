@@ -1,39 +1,46 @@
-# 📘 RFP BidAssist AI – Backend Setup Guide
 
-This repository contains the **backend** for **RFP BidAssist AI**, built for the **EY Techathon**.
 
-The backend is responsible for:
 
-* Extracting structured data from RFP PDFs
-* Creating technical summaries
-* Supporting downstream Technical & Pricing Agents
+# 📘 RFP BidAssist AI – Full Project Setup Guide
 
-**Tech Stack**
+RFP BidAssist AI is an **end-to-end AI system** built for the **EY Techathon** to analyze RFP documents and assist bid teams with **technical evaluation, OEM matching, and pricing support**.
 
-* Python 3.10+
-* FastAPI
-* Google Gemini (`google.genai` SDK)
-* Pydantic
+This repository contains **both backend and frontend**, designed to work together as a single pipeline.
 
 ---
 
-## 🚨 IMPORTANT (Read This First)
+## 🧠 What This System Does
 
-⚠️ **Always `cd` into the `backend/` folder before creating a virtual environment or installing dependencies.**
-
-### Why this matters
-
-* Keeps backend dependencies isolated
-* Prevents conflicts with frontend or other projects
-* Ensures all teammates have identical setups
-* Avoids accidentally installing packages globally
+1. **Upload:** Ingest RFP PDF documents.
+2. **Extract:** Structured RFP data (specs, scope, eligibility).
+3. **Generate:** A high-level **Technical Summary**.
+4. **Normalize:** Standardize scope & specs for analysis.
+5. **Match:** Compare requirements against OEM product datasheets.
+6. **Compute:** Calculate **Spec Match %** scores.
+7. **Display:** Present results in a **one-page dashboard for judges**.
 
 ---
 
-## 📁 Project Structure (Relevant)
+## 🧩 Tech Stack
 
-```
-RFP_BidAssist_AI/
+### Backend
+* **Language:** Python 3.10+
+* **Framework:** FastAPI
+* **AI Model:** Google Gemini (`google.genai`)
+* **Validation:** Pydantic
+* **Parsing:** PDF parsing utilities
+
+### Frontend
+* **Framework:** React (Vite)
+* **Network:** Axios
+* **Styling:** Simple CSS / Tailwind (Optional)
+
+---
+
+## 📁 Project Structure
+
+```text
+RFP_PROJECT/
 │
 ├── backend/
 │   ├── agents/
@@ -45,188 +52,246 @@ RFP_BidAssist_AI/
 │   ├── prompts/
 │   ├── schemas/
 │   ├── samples/
-│   ├── venv/              # created locally (NOT committed)
+│   ├── outputs/
+│   ├── oem_datasheets/
+│   ├── venv/                 # local only (NOT committed)
 │   ├── requirements.txt
-│   ├── .env               # local only (NOT committed)
-│   └── main.py            # FastAPI entry point (upcoming)
+│   ├── .env                  # local only (NOT committed)
+│   └── main.py               # FastAPI entry point
 │
-└── frontend/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── UploadPanel.jsx
+│   │   │   ├── TechnicalSummary.jsx
+│   │   │   ├── ScopeOfSupply.jsx
+│   │   │   ├── SpecMatchTable.jsx
+│   │   │   ├── OEMRecommendations.jsx
+│   │   │   └── StatusBar.jsx
+│   │   ├── pages/
+│   │   │   └── Dashboard.jsx
+│   │   ├── api.js
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── index.css
+│   └── package.json
+│
+└── README.md
+
 ```
 
 ---
 
-## 🧠 Why We Use a Virtual Environment (venv)
+# 🔹 BACKEND SETUP
 
-A virtual environment:
+## 🚨 IMPORTANT
 
-* Isolates Python dependencies per project
-* Prevents version clashes between projects
-* Makes the backend reproducible for all teammates
-* Is industry best practice (even for hackathons)
+> ⚠️ **Always `cd` into the `backend/` folder before creating a virtual environment or installing dependencies.**
 
-❌ Never install project dependencies globally
-✅ Always install inside a `venv`
+**Why?**
+
+* Keeps backend dependencies isolated.
+* Prevents frontend conflicts.
+* Ensures all teammates have identical environments.
+* Avoids global installs.
 
 ---
 
-## 🛠️ Backend Setup Instructions (Follow in Order)
+## 🛠️ Backend Setup (Follow in Order)
 
-### 1️⃣ Navigate to backend folder
+### 1️⃣ Navigate to backend
 
 ```bash
 cd backend
+
 ```
 
-⚠️ Do **NOT** create a venv from the project root.
-
----
-
-### 2️⃣ Create a virtual environment
-
-**Windows (PowerShell / CMD)**
+### 2️⃣ Create virtual environment
 
 ```bash
 python -m venv venv
+
 ```
 
----
+### 3️⃣ Activate venv
 
-### 3️⃣ Activate the virtual environment
-
-**Windows (PowerShell)**
+**Windows (PowerShell):**
 
 ```bash
 venv\Scripts\activate
-```
-
-You should now see:
 
 ```
-(venv)
-```
 
----
+*(You should see `(venv)` appear in your terminal)*
 
 ### 4️⃣ Install dependencies
 
-⚠️ Ensure `(venv)` is active before running this.
-
 ```bash
 pip install -r requirements.txt
+
 ```
 
 ---
 
 ## 🔐 Environment Variables
 
-### Create `.env` file
-
-Inside the `backend/` folder, create a file named `.env`:
+Create a `.env` file inside the `backend/` folder:
 
 ```env
 GEMINI_API_KEY=your_google_gemini_api_key_here
+
 ```
 
-🚫 **Do NOT commit `.env` to GitHub**
-✅ `.env` is already included in `.gitignore`
+**Note:** Never commit `.env`. It is already ignored via `.gitignore`.
 
 ---
 
-## 🧾 `.gitignore` (Mandatory)
+## 🧾 .gitignore (Mandatory)
 
-Inside `backend/`, ensure `.gitignore` contains:
+Ensure your `backend/.gitignore` contains:
 
 ```gitignore
 venv/
 .env
 __pycache__/
 *.pyc
+
 ```
-
-This prevents:
-
-* API keys leaking
-* Virtual environment being committed
-* Python cache files cluttering git history
 
 ---
 
-## ▶️ Running the Extractor Agent
-
-From inside the `backend/` folder:
+## ▶️ Running the Backend (FastAPI)
 
 ```bash
-python agents/extractor_agent/extractor_agent.py
+uvicorn main:app --reload
+
 ```
 
-### What happens
+The API will be available at: `http://localhost:8000`
 
-* Reads a sample RFP PDF from `samples/`
-* Extracts text from PDF
-* Sends content to Gemini (`google.genai`)
-* Returns structured JSON strictly following schema
+### 🔗 Backend API Endpoints
+
+**Upload RFP & Run Pipeline**
+
+* **URL:** `POST /run-rfp`
+* **Input:** PDF File
+* **Output:**
+* Extracted RFP JSON
+* Technical Summary
+* Scope of Supply
+* OEM Recommendations
+* Spec Match Matrix
+
+
 
 ---
 
-## 📄 Adding Your Own RFP PDFs
+# 🔹 FRONTEND SETUP
 
-1. Place PDFs in:
+## 🧠 Frontend Purpose
 
-```
-backend/samples/
-```
+The frontend provides a single-page dashboard for judges, displaying:
 
-2. Update the path in the extractor script if needed:
-
-```python
-output = agent.extract("samples/your_rfp.pdf")
-```
+* Upload status
+* Technical summary
+* Scope of supply
+* OEM recommendations
+* Spec match comparison table
 
 ---
 
-## 🧪 Common Troubleshooting
+## 🛠️ Frontend Setup
 
-### ❌ `ModuleNotFoundError`
-
-* Ensure `venv` is activated
-* Re-run:
+### 1️⃣ Navigate to frontend
 
 ```bash
-pip install -r requirements.txt
+cd frontend
+
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+
+```
+
+### 3️⃣ Start frontend server
+
+```bash
+npm run dev
+
+```
+
+The Frontend runs at: `http://localhost:5173`
+
+---
+
+## 🔌 How Frontend Connects to Backend
+
+In `frontend/src/api.js`:
+
+```javascript
+import axios from "axios";
+
+const API = axios.create({
+  baseURL: "http://localhost:8000"
+});
+
+export const runRFP = (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  return API.post("/run-rfp", formData);
+};
+
 ```
 
 ---
 
-### ❌ Gemini API Errors
+## 📊 Dashboard Components
 
-* Verify `.env` exists in `backend/`
-* Check `GEMINI_API_KEY`
-* Ensure `google.genai` is being used (NOT deprecated SDKs)
-
----
-
-### ❌ JSON Parsing Errors
-
-* RFP may be very large → chunking may be needed
-* Gemini response may include extra text → strict JSON enforcement coming
+| Component | Purpose |
+| --- | --- |
+| **UploadPanel** | Upload RFP PDF |
+| **StatusBar** | Pipeline progress indicator |
+| **TechnicalSummary** | High-level technical overview |
+| **ScopeOfSupply** | Normalized scope items |
+| **SpecMatchTable** | Spec vs OEM comparison |
+| **OEMRecommendations** | Top 3 OEM SKUs |
 
 ---
 
-### ❌ Empty PDF Text
+## 🧪 Common Issues
 
-* PDF may be scanned
-* OCR support will be added later
+### ❌ Backend not reachable
+
+* Ensure FastAPI is running (`uvicorn main:app --reload`).
+* Check CORS settings in `main.py` if needed.
+
+### ❌ Gemini errors
+
+* Verify your `.env` file exists in the `backend/` folder.
+* Ensure the API Key is valid and the model name is correct.
+
+### ❌ Empty dashboard
+
+* Check the API response in the backend terminal.
+* Inspect the browser **Network Tab** (F12) for errors.
 
 ---
 
-## ✅ You’re Ready
+## ✅ Final Notes
 
-Once setup is complete, you can:
+This system is designed to be:
 
-* Run extractor → structured RFP JSON
-* Feed output to Main Agent
-* Generate Technical & Pricing summaries
-* Integrate Supabase
-* Run FastAPI backend
+* **Modular**
+* **Explainable**
+* **Judge-friendly**
+* **Easily extensible** (e.g., adding OCR, new pricing logic, or Supabase integration)
 
-🚀 **Happy hacking — and keep commits clean!**
+```
+
+```
+
+
+
