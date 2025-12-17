@@ -1,32 +1,70 @@
+# backend/main.py
+
+from fastapi import FastAPI, UploadFile, File
+import json
+
+from agents.main_agent.main_agent import run_pipeline
 from agents.technical_agent.normalize_scope_of_summary import normalize_scope
 from agents.technical_agent.normalize_rfp_specs import normalize_rfp_specs
 from agents.technical_agent.sku_matcher import SKUMatcher
-import json
 
-# --- RFP INPUT ---
+app = FastAPI(title="RFP BidAssist AI Backend")
 
-with open("outputs/scope_of_supply_summary.json") as f:
-    scope_text = json.load(f)
-with open("outputs/extracted_rfp.json") as f:
-    spec_text = json.load(f)
+@app.post("/run-rfp")
+async def run_rfp(file: UploadFile = File(...)):
+    """
+    Full RFP Pipeline:
+    1. Extract RFP
+    2. Create technical + pricing summaries
+    3. Normalize scope & specs
+    4. Match OEM SKUs
+    5. Return everything for frontend
+    """
 
-# --- Normalize ---
-normalized_scope = normalize_scope(scope_text)
-normalized_specs = normalize_rfp_specs(spec_text)
+    # ----------------------------
+    # 1. Run main extraction pipeline
+    # ----------------------------
+    pipeline_output = run_pipeline(file)
 
-# --- Load OEM Data ---
-with open("oem_datasheets/oem_products.json") as f:
-    oem_products = json.load(f)
+    # Expected keys from run_pipeline
+    scope_summary = pipeline_output["scope_of_supply_summary"]
+    extracted_rfp = pipeline_output["extracted_rfp"]
 
-with open("oem_datasheets/oem_product_sku.json") as f:
-    oem_specs = json.load(f)
+    # ----------------------------
+    # 2. Normalize for matching
+    # ----------------------------
+    normalized_scope = normalize_scope(scope_summary)
+    normalized_specs = normalize_rfp_specs(extracted_rfp)
 
-# --- Match ---
-matcher = SKUMatcher(normalized_scope, oem_products, oem_specs)
-top_3, spec_matrix = matcher.recommend_top_skus(normalized_specs)
+    # ----------------------------
+    # 3. Load OEM data
+    # ----------------------------
+    with open("oem_datasheets/oem_products.json") as f:
+        oem_products = json.load(f)
 
-print("\nTOP 3 SKUs")
-print(json.dumps(top_3, indent=2))
+    with open("oem_datasheets/oem_product_sku.json") as f:
+        oem_specs = json.load(f)
 
-print("\nSPEC MATCH MATRIX")
-print(json.dumps(spec_matrix, indent=2))
+    # ----------------------------
+    # 4. SKU Matching
+    # ----------------------------
+    matcher = SKUMatcher(
+        normalized_scope=normalized_scope,
+        oem_products=oem_products,
+        oem_specs=oem_specs
+    )
+
+    top_3_skus, spec_match_matrix = matcher.recommend_top_skus(normalized_specs)
+
+    # ----------------------------
+    # 5. API Response (Frontend-ready)
+    # ----------------------------
+    return {
+        "rfp_metadata": pipeline_output.get("rfp_metadata"),
+        "technical_summary": pipeline_output.get("technical_summary"),
+        "scope_of_supply_summary": scope_summary,
+        "normalized_scope": normalized_scope,
+        "normalized_specs": normalized_specs,
+        "top_3_oem_recommendations": top_3_skus,
+        "spec_match_matrix": spec_match_matrix
+    }
