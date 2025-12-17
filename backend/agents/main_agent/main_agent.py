@@ -10,7 +10,7 @@ from google.genai import types
 # PATH SETUP (CRITICAL FIX)
 # -------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = BASE_DIR.parent
+PROJECT_ROOT = BASE_DIR.parent.parent
 
 # -------------------------------------------------
 # ENV
@@ -27,17 +27,19 @@ class MainAgent:
         self.model = MODEL
 
         # ---- Prompts ----
-        with open("prompts/technical_summary_prompt.txt", encoding="utf-8") as f:
-            self.technical_prompt = f.read()
+        # ---- Prompts ----
+    with open(PROJECT_ROOT / "prompts" / "technical_summary_prompt.txt", encoding="utf-8") as f:
+        self.technical_prompt = f.read()
 
-        with open("prompts/pricing_summary_prompt.txt", encoding="utf-8") as f:
-            self.pricing_prompt = f.read()
+    with open(PROJECT_ROOT / "prompts" / "pricing_summary_prompt.txt", encoding="utf-8") as f:
+        self.pricing_prompt = f.read()
 
-        with open("schemas/technical_summary_schema.json") as f:
-            self.technical_schema = json.load(f)
+# ---- Schemas ----
+    with open(PROJECT_ROOT / "schemas" / "technical_summary_schema.json", encoding="utf-8") as f:
+        self.technical_schema = json.load(f)
 
-        with open("schemas/pricing_summary_schema.json") as f:
-            self.pricing_schema = json.load(f)
+    with open(PROJECT_ROOT / "schemas" / "pricing_summary_schema.json", encoding="utf-8") as f:
+        self.pricing_schema = json.load(f)
 
     # -------------------------------------------------
     # TECHNICAL SUMMARY (for Technical Agent)
@@ -91,20 +93,37 @@ class MainAgent:
 # -------------------------------------------------
 if __name__ == "__main__":
 
-    with open("outputs/extracted_rfp.json") as f:
+    OUTPUT_DIR = PROJECT_ROOT / "outputs"
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    extracted_rfp_path = OUTPUT_DIR / "extracted_rfp.json"
+    technical_input_path = OUTPUT_DIR / "technical_agent_output.json"
+
+    with open(extracted_rfp_path, "r", encoding="utf-8") as f:
         extracted_rfp = json.load(f)
 
-    with open("outputs/technical_summary_by_main_agent.json") as f:
+    with open(technical_input_path, "r", encoding="utf-8") as f:
         technical_output = json.load(f)
 
     agent = MainAgent()
 
+    # ---- Generate outputs ----
     technical_summary = agent.generate_technical_summary(extracted_rfp)
-    print(json.dumps(technical_summary, separators=(",", ":")))
-
-    print("\n=== PRICING SUMMARY ===")
     pricing_summary = agent.generate_pricing_summary(
         extracted_rfp,
         technical_output
     )
-    print(json.dumps(pricing_summary, separators=(",", ":")))
+
+    # ---- Write outputs ----
+    technical_out_path = OUTPUT_DIR / "technical_summary.json"
+    pricing_out_path = OUTPUT_DIR / "pricing_summary.json"
+
+    with open(technical_out_path, "w", encoding="utf-8") as f:
+        json.dump(technical_summary, f, indent=2)
+
+    with open(pricing_out_path, "w", encoding="utf-8") as f:
+        json.dump(pricing_summary, f, indent=2)
+
+    print("✅ Outputs generated:")
+    print(f" - {technical_out_path}")
+    print(f" - {pricing_out_path}")

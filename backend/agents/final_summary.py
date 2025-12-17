@@ -131,7 +131,7 @@ if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
 
     input_json_path = BASE_DIR.parent / "outputs" / "final_priced_output.json"
-    output_pdf_path = BASE_DIR.parent / "outputs" / "Pricing_Summary.pdf"
+    output_pdf_path = BASE_DIR.parent / "outputs" / "Final_Summary.pdf"
 
     with open(input_json_path, "r", encoding="utf-8") as f:
         pricing_data = json.load(f)
