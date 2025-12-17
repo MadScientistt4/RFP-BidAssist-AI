@@ -1,0 +1,256 @@
+{
+  "product_families": [
+    {
+      "family_name": "PIJF Armoured Copper Cable",
+      "description": "Polythene Insulated Jelly Filled Armoured Telecom Cables",
+      "variants": [
+        {
+          "variant_name": "200 Pair Cable",
+          "quantity": "1.5 km",
+          "technical_specifications": {
+            "conductor_material": "Solid Annealed High Conductive Copper",
+            "conductor_diameter": "0.5mm",
+            "insulation_material": "Solid Polythene (ASTMD-1248 Type-II or III, Class-A cat.4 or 5)",
+            "armouring": "Galvanized Steel Tape, Helical (double), 0.5mm \u00b110%",
+            "sheath_material": "Polythene (BS 6234)",
+            "jacket_material": "Solid Polythene (BS 6234)",
+            "filling_compound": "Petroleum Jelly (Homogenous, anti-oxidant, water-resistant, compatible with insulation)",
+            "moisture_barrier": "Polythene coated Aluminum Tape (0.3mm \u00b115%, min 3mm overlap)",
+            "standard": "DOT TEC GR/CUG-01/03 Aug 2003 (Configurable)",
+            "maximum_diameter_over_sheath": "37.5mm",
+            "minimum_sheath_thickness": "1.62 mm (min)",
+            "minimum_jacket_thickness": "1.4mm",
+            "maximum_diameter_over_jacket": "45.5mm",
+            "packing_cable_length": "1000m \u00b110%"
+          },
+          "testing": {
+            "mandatory_tests": [
+              "Mechanical Tests: Polythene for conductor insulation, Dielectric constant/permittivity, Volume resistivity of petroleum jelly, Permittivity of petroleum jelly, Poly-Al tape thickness, Sheath thickness, Diameter over Sheath, Variation between max/min diameter over sheath, Elongation and tensile strength of conductor insulation, Conductor thickness, Annealing of conductor, Cable bend test, Water penetration test",
+              "Electrical Tests (Low Frequency): Continuity of conductors, Conductor resistance (86 \u00b1 6 Ohms/km), Resistance unbalance (1 avg / 2.5 individual), Resistance of poly-al tape, Mutual capacitance (52 \u00b1 3 nF/km @ 800-1000Hz), Capacitance unbalance (Pair to Pair) (\u2264 50 pF/km avg), Capacitance unbalance (Pair to Gnd) (\u2264 750 pF/km avg), Dielectric strength between conductors (2.4 KV DC for 3 Sec.), Dielectric strength between conductors and shield (5.0 KV DC for 3 Sec.), Insulation resistance (Min 5000 M\u2126-KM @ 500 V DC for 1 Min), Dielectric strength of sheath (17KV DC or 11KV RMS AC)"
+            ],
+            "high_frequency_tests": [
+              "Equal level far end cross talk (Better than 55dB/km)",
+              "Near end cross talk (Better than 55dB/km)",
+              "Attenuation (8.25 dB/km max avg @ 20 deg C)"
+            ]
+          },
+          "marking": {
+            "sheath": "Manufacturers name, No. of pairs and dia of conductor, Length (sequential marking), Year of manufacture, \u201cTELECOM SDSC\u201d",
+            "intervals": "1 meter"
+          }
+        },
+        {
+          "variant_name": "100 Pair Cable",
+          "quantity": "1 km",
+          "technical_specifications": {
+            "conductor_material": "Solid Annealed High Conductive Copper",
+            "conductor_diameter": "0.5mm",
+            "insulation_material": "Solid Polythene (ASTMD-1248 Type-II or III, Class-A cat.4 or 5)",
+            "armouring": "Galvanized Steel Tape, Helical (double), 0.5mm \u00b110%",
+            "sheath_material": "Polythene (BS 6234)",
+            "jacket_material": "Solid Polythene (BS 6234)",
+            "filling_compound": "Petroleum Jelly (Homogenous, anti-oxidant, water-resistant, compatible with insulation)",
+            "moisture_barrier": "Polythene coated Aluminum Tape (0.3mm \u00b115%, min 3mm overlap)",
+            "standard": "DOT TEC GR/CUG-01/03 Aug 2003 (Configurable)",
+            "maximum_diameter_over_sheath": "28mm",
+            "minimum_sheath_thickness": "1.50 mm (min)",
+            "minimum_jacket_thickness": "1.4mm",
+            "maximum_diameter_over_jacket": "36mm",
+            "packing_cable_length": "1000m \u00b110%"
+          },
+          "testing": {
+            "mandatory_tests": [
+              "Mechanical Tests: Polythene for conductor insulation, Dielectric constant/permittivity, Volume resistivity of petroleum jelly, Permittivity of petroleum jelly, Poly-Al tape thickness, Sheath thickness, Diameter over Sheath, Variation between max/min diameter over sheath, Elongation and tensile strength of conductor insulation, Conductor thickness, Annealing of conductor, Cable bend test, Water penetration test",
+              "Electrical Tests (Low Frequency): Continuity of conductors, Conductor resistance (86 \u00b1 6 Ohms/km), Resistance unbalance (1 avg / 2.5 individual), Resistance of poly-al tape, Mutual capacitance (52 \u00b1 3 nF/km @ 800-1000Hz), Capacitance unbalance (Pair to Pair) (\u2264 50 pF/km avg), Capacitance unbalance (Pair to Gnd) (\u2264 750 pF/km avg), Dielectric strength between conductors (2.4 KV DC for 3 Sec.), Dielectric strength between conductors and shield (5.0 KV DC for 3 Sec.), Insulation resistance (Min 5000 M\u2126-KM @ 500 V DC for 1 Min), Dielectric strength of sheath (17KV DC or 11KV RMS AC)"
+            ],
+            "high_frequency_tests": [
+              "Equal level far end cross talk (Better than 55dB/km)",
+              "Near end cross talk (Better than 55dB/km)",
+              "Attenuation (8.25 dB/km max avg @ 20 deg C)"
+            ]
+          },
+          "marking": {
+            "sheath": "Manufacturers name, No. of pairs and dia of conductor, Length (sequential marking), Year of manufacture, \u201cTELECOM SDSC\u201d",
+            "intervals": "1 meter"
+          }
+        },
+        {
+          "variant_name": "50 Pair Cable",
+          "quantity": "4.5 km",
+          "technical_specifications": {
+            "conductor_material": "Solid Annealed High Conductive Copper",
+            "conductor_diameter": "0.5mm",
+            "insulation_material": "Solid Polythene (ASTMD-1248 Type-II or III, Class-A cat.4 or 5)",
+            "armouring": "Galvanized Steel Tape, Helical (double), 0.5mm \u00b110%",
+            "sheath_material": "Polythene (BS 6234)",
+            "jacket_material": "Solid Polythene (BS 6234)",
+            "filling_compound": "Petroleum Jelly (Homogenous, anti-oxidant, water-resistant, compatible with insulation)",
+            "moisture_barrier": "Polythene coated Aluminum Tape (0.3mm \u00b115%, min 3mm overlap)",
+            "standard": "DOT TEC GR/CUG-01/03 Aug 2003 (Configurable)",
+            "maximum_diameter_over_sheath": "22mm",
+            "minimum_sheath_thickness": "1.50 mm (min)",
+            "minimum_jacket_thickness": "1.4mm",
+            "maximum_diameter_over_jacket": "29mm",
+            "packing_cable_length": "1000m \u00b110%"
+          },
+          "testing": {
+            "mandatory_tests": [
+              "Mechanical Tests: Polythene for conductor insulation, Dielectric constant/permittivity, Volume resistivity of petroleum jelly, Permittivity of petroleum jelly, Poly-Al tape thickness, Sheath thickness, Diameter over Sheath, Variation between max/min diameter over sheath, Elongation and tensile strength of conductor insulation, Conductor thickness, Annealing of conductor, Cable bend test, Water penetration test",
+              "Electrical Tests (Low Frequency): Continuity of conductors, Conductor resistance (86 \u00b1 6 Ohms/km), Resistance unbalance (1 avg / 2.5 individual), Resistance of poly-al tape, Mutual capacitance (52 \u00b1 3 nF/km @ 800-1000Hz), Capacitance unbalance (Pair to Pair) (\u2264 50 pF/km avg), Capacitance unbalance (Pair to Gnd) (\u2264 750 pF/km avg), Dielectric strength between conductors (2.4 KV DC for 3 Sec.), Dielectric strength between conductors and shield (5.0 KV DC for 3 Sec.), Insulation resistance (Min 5000 M\u2126-KM @ 500 V DC for 1 Min), Dielectric strength of sheath (17KV DC or 11KV RMS AC)"
+            ],
+            "high_frequency_tests": [
+              "Equal level far end cross talk (Better than 55dB/km)",
+              "Near end cross talk (Better than 55dB/km)",
+              "Attenuation (8.25 dB/km max avg @ 20 deg C)"
+            ]
+          },
+          "marking": {
+            "sheath": "Manufacturers name, No. of pairs and dia of conductor, Length (sequential marking), Year of manufacture, \u201cTELECOM SDSC\u201d",
+            "intervals": "1 meter"
+          }
+        },
+        {
+          "variant_name": "20 Pair Cable",
+          "quantity": "3 km",
+          "technical_specifications": {
+            "conductor_material": "Solid Annealed High Conductive Copper",
+            "conductor_diameter": "0.5mm",
+            "insulation_material": "Solid Polythene (ASTMD-1248 Type-II or III, Class-A cat.4 or 5)",
+            "armouring": "Galvanized Steel Tape, Helical (double), 0.5mm \u00b110%",
+            "sheath_material": "Polythene (BS 6234)",
+            "jacket_material": "Solid Polythene (BS 6234)",
+            "filling_compound": "Petroleum Jelly (Homogenous, anti-oxidant, water-resistant, compatible with insulation)",
+            "moisture_barrier": "Polythene coated Aluminum Tape (0.3mm \u00b115%, min 3mm overlap)",
+            "standard": "DOT TEC GR/CUG-01/03 Aug 2003 (Configurable)",
+            "maximum_diameter_over_sheath": "17mm",
+            "minimum_sheath_thickness": "1.50 mm (min)",
+            "minimum_jacket_thickness": "1.4mm",
+            "maximum_diameter_over_jacket": "24mm",
+            "packing_cable_length": "1000m \u00b110%"
+          },
+          "testing": {
+            "mandatory_tests": [
+              "Mechanical Tests: Polythene for conductor insulation, Dielectric constant/permittivity, Volume resistivity of petroleum jelly, Permittivity of petroleum jelly, Poly-Al tape thickness, Sheath thickness, Diameter over Sheath, Variation between max/min diameter over sheath, Elongation and tensile strength of conductor insulation, Conductor thickness, Annealing of conductor, Cable bend test, Water penetration test",
+              "Electrical Tests (Low Frequency): Continuity of conductors, Conductor resistance (86 \u00b1 6 Ohms/km), Resistance unbalance (1 avg / 2.5 individual), Resistance of poly-al tape, Mutual capacitance (52 \u00b1 3 nF/km @ 800-1000Hz), Capacitance unbalance (Pair to Pair) (\u2264 50 pF/km avg), Capacitance unbalance (Pair to Gnd) (\u2264 750 pF/km avg), Dielectric strength between conductors (2.4 KV DC for 3 Sec.), Dielectric strength between conductors and shield (5.0 KV DC for 3 Sec.), Insulation resistance (Min 5000 M\u2126-KM @ 500 V DC for 1 Min), Dielectric strength of sheath (17KV DC or 11KV RMS AC)"
+            ],
+            "high_frequency_tests": [
+              "Equal level far end cross talk (Better than 55dB/km)",
+              "Near end cross talk (Better than 55dB/km)",
+              "Attenuation (8.25 dB/km max avg @ 20 deg C)"
+            ]
+          },
+          "marking": {
+            "sheath": "Manufacturers name, No. of pairs and dia of conductor, Length (sequential marking), Year of manufacture, \u201cTELECOM SDSC\u201d",
+            "intervals": "1 meter"
+          }
+        },
+        {
+          "variant_name": "10 Pair Cable",
+          "quantity": "2 km",
+          "technical_specifications": {
+            "conductor_material": "Solid Annealed High Conductive Copper",
+            "conductor_diameter": "0.5mm",
+            "insulation_material": "Solid Polythene (ASTMD-1248 Type-II or III, Class-A cat.4 or 5)",
+            "armouring": "Galvanized Steel Tape, Helical (double), 0.5mm \u00b110%",
+            "sheath_material": "Polythene (BS 6234)",
+            "jacket_material": "Solid Polythene (BS 6234)",
+            "filling_compound": "Petroleum Jelly (Homogenous, anti-oxidant, water-resistant, compatible with insulation)",
+            "moisture_barrier": "Polythene coated Aluminum Tape (0.3mm \u00b115%, min 3mm overlap)",
+            "standard": "DOT TEC GR/CUG-01/03 Aug 2003 (Configurable)",
+            "maximum_diameter_over_sheath": "11mm",
+            "minimum_sheath_thickness": "1.50 mm (min)",
+            "minimum_jacket_thickness": "1.4mm",
+            "maximum_diameter_over_jacket": "20.2mm",
+            "packing_cable_length": "1000m \u00b110%"
+          },
+          "testing": {
+            "mandatory_tests": [
+              "Mechanical Tests: Polythene for conductor insulation, Dielectric constant/permittivity, Volume resistivity of petroleum jelly, Permittivity of petroleum jelly, Poly-Al tape thickness, Sheath thickness, Diameter over Sheath, Variation between max/min diameter over sheath, Elongation and tensile strength of conductor insulation, Conductor thickness, Annealing of conductor, Cable bend test, Water penetration test",
+              "Electrical Tests (Low Frequency): Continuity of conductors, Conductor resistance (86 \u00b1 6 Ohms/km), Resistance unbalance (1 avg / 2.5 individual), Resistance of poly-al tape, Mutual capacitance (52 \u00b1 3 nF/km @ 800-1000Hz), Capacitance unbalance (Pair to Pair) (\u2264 50 pF/km avg), Capacitance unbalance (Pair to Gnd) (\u2264 750 pF/km avg), Dielectric strength between conductors (2.4 KV DC for 3 Sec.), Dielectric strength between conductors and shield (5.0 KV DC for 3 Sec.), Insulation resistance (Min 5000 M\u2126-KM @ 500 V DC for 1 Min), Dielectric strength of sheath (17KV DC or 11KV RMS AC)"
+            ],
+            "high_frequency_tests": [
+              "Equal level far end cross talk (Better than 55dB/km)",
+              "Near end cross talk (Better than 55dB/km)",
+              "Attenuation (8.25 dB/km max avg @ 20 deg C)"
+            ]
+          },
+          "marking": {
+            "sheath": "Manufacturers name, No. of pairs and dia of conductor, Length (sequential marking), Year of manufacture, \u201cTELECOM SDSC\u201d",
+            "intervals": "1 meter"
+          }
+        }
+      ]
+    },
+    {
+      "family_name": "Armoured FRLS Copper Cable",
+      "description": "Flame Retardant Low Smoke Armoured Telephone Cables",
+      "variants": [
+        {
+          "variant_name": "5 Pair Cable",
+          "quantity": "3 km",
+          "technical_specifications": {
+            "conductor_material": "Solid Annealed Bare Copper (IS:8130)",
+            "conductor_diameter": "0.5mm",
+            "insulation_material": "Extruded Polyethylene",
+            "armouring": "GS Round wire (IS:3975), Single layer, \u2265 0.9 mm size",
+            "inner_sheath_material": "PVC type \u2018TM-2 (IS:13176) or ST1 (IS:5831)\u201d",
+            "inner_sheath_thickness": "Minimum 0.65mm",
+            "outer_sheath_material": "FRLS PVC type- TM-2 (IS:13176) or ST1 (IS:5831)\u201d",
+            "outer_sheath_thickness": "Minimum 1.24mm",
+            "standard": "GR/WIR 06/03. Mar 2002",
+            "lay_length_of_twisted_pair": "\u2264 80mm",
+            "nominal_overall_cable_diameter": "11.5 \u00b1 2mm",
+            "packing_cable_length": "500m \u00b110%"
+          },
+          "testing": {
+            "mandatory_tests": [
+              "Electrical Tests: Conductor Resistance (86 \u00b1 6 ohms/km), Min Insulation resistance (50M.ohms/km), High Voltage test (2KV RMS for 1 minute), Capacitance Unbalance (pair to pair) (\u2264 230PF)"
+            ],
+            "frls_properties": [
+              "Flammability test (IEC-332 Part-1)",
+              "Smoke density rating (Max(60%) ASTM D2843)"
+            ]
+          },
+          "marking": {
+            "drums": "As per TEC GR document"
+          }
+        }
+      ]
+    }
+  ],
+  "compliance_requirements": {
+    "standards": [
+      "DOT TEC GR/CUG-01/03 Aug 2003",
+      "BS 6234",
+      "ASTMD-1248",
+      "IS:8130",
+      "IS:13176",
+      "IS:5831",
+      "GR/WIR 06/03. Mar 2002",
+      "IEC-332 Part-1",
+      "ASTM D2843"
+    ],
+    "special_requirements": [
+      "Jelly filled compound for moisture protection",
+      "Armouring with Galvanized steel tape or round wire",
+      "Flame Retardant Low Smoke (FRLS) properties for specific cable type",
+      "Sequential length marking on sheath at 1-meter intervals",
+      "Hot stamping with SDSC SHAR authority stamp",
+      "Cable winding on strong wooden drums"
+    ],
+    "technical_risk_flags": [
+      "Running length marking is critical."
+    ]
+  },
+  "commercial_constraints": {
+    "delivery_timeline": "12 weeks from date of order",
+    "delivery_terms": "F.O.R. SDSC SHAR, Sriharikota",
+    "payment_terms": "100% after receipt and acceptance of materials",
+    "penalty_clause": "0.5% per week of undelivered portion, max 10% of contract value",
+    "warranty_period": "Minimum one year from date of acceptance"
+  },
+  "quality_assurance": {
+    "inspection": "Pre-delivery inspection at factory/online video mode, clearance required before dispatch. Random drum selection for testing. Minimum 50% of ordered quantity to be tested in presence of SDSC SHAR authorities.",
+    "test_certificates": "Relevant standard test certificates/data sheets complying with technical specifications are required."
+  }
+}

@@ -1,42 +1,169 @@
 {
   "rfp_reference": {
-    "rfp_title": "",
+    "rfp_title": "Supply of Copper cables",
     "rfp_id": ""
   },
 
   "item_level_recommendations": [
     {
-      "item_id": "",
-      "item_name": "",
+      "item_id": "PIJF_200P_0_5MM",
+      "item_name": "200 pair, 0.5mm diameter, PIJF armoured copper cable",
 
       "recommended_oem_products": [
         {
-          "oem_name": "",
-          "sku": "",
-          "spec_match_percentage": 0,
+          "oem_name": "TopCable",
+          "sku": "TC-PIJF-200P-05",
+          "spec_match_percentage": 88,
 
           "matched_parameters": [
-            "Conductor diameter",
-            "Armouring thickness",
-            "Insulation material",
-            "Standard compliance"
+            "Conductor diameter (0.5mm)",
+            "Conductor resistance (≤ 84 ohm/km)",
+            "Mutual capacitance (≤ 50 nF/km)",
+            "Operating temperature (≥ 60°C)",
+            "TEC GR/CUG compliance (family-level)"
           ],
 
           "deviations_or_gaps": [
-            "Sheath thickness marginally higher than required"
+            "Diameter over sheath limited to 36mm vs RFP jacket diameter requirement of up to 45.5mm",
+            "Explicit armouring construction details not stated in datasheet extract"
+          ]
+        },
+        {
+          "oem_name": "Polylink",
+          "sku": "PL-PIJF-200P-06",
+          "spec_match_percentage": 92,
+
+          "matched_parameters": [
+            "Lower conductor resistance (≤ 80 ohm/km)",
+            "Lower mutual capacitance (≤ 45 nF/km)",
+            "Higher operating temperature rating (≥ 70°C)",
+            "Suitable for high-reliability telecom installations"
+          ],
+
+          "deviations_or_gaps": [
+            "Conductor diameter is 0.6mm vs RFP requirement of 0.5mm",
+            "TEC GR/CUG compliance not explicitly referenced in datasheet"
           ]
         }
       ],
 
       "comparison_table": {
         "parameters": [
-          "Conductor material",
+          "Conductor resistance (ohm/km)",
+          "Mutual capacitance (nF/km)",
           "Conductor diameter",
-          "Armouring",
-          "Insulation resistance",
-          "Standard"
+          "Operating temperature",
+          "Diameter over sheath",
+          "Standard compliance"
         ],
-        "rfp_requirement": [],
+        "rfp_requirement": [
+          "86 ± 6",
+          "52 ± 3",
+          "0.5mm",
+          "≥ 60°C",
+          "≤ 45.5mm",
+          "DOT TEC GR/CUG-01/03"
+        ],
+        "oem_product_1": [
+          "≤ 84",
+          "≤ 50",
+          "0.5mm",
+          "≥ 60°C",
+          "≤ 36mm",
+          "Implicit / family-level"
+        ],
+        "oem_product_2": [
+          "≤ 80",
+          "≤ 45",
+          "0.6mm",
+          "≥ 70°C",
+          "Not stated",
+          "Not explicitly stated"
+        ],
+        "oem_product_3": []
+      },
+
+      "final_selected_oem": {
+        "oem_name": "TopCable",
+        "sku": "TC-PIJF-200P-05",
+        "selection_reason": "Exact match on conductor diameter and closer alignment with TEC GR/CUG telecom standards outweighs Polylink’s superior electrical metrics but diameter deviation."
+      }
+    },
+
+    {
+      "item_id": "PIJF_100P_0_5MM",
+      "item_name": "100 pair, 0.5mm diameter, PIJF armoured copper cable",
+
+      "recommended_oem_products": [
+        {
+          "oem_name": "TopCable",
+          "sku": "TC-PIJF-100P-05",
+          "spec_match_percentage": 90,
+
+          "matched_parameters": [
+            "Conductor diameter (0.5mm)",
+            "Conductor resistance (≤ 85 ohm/km)",
+            "Mutual capacitance (≤ 52 nF/km)",
+            "Telecom-grade PIJF construction"
+          ],
+
+          "deviations_or_gaps": [
+            "Armouring and jacket thickness details not explicitly listed in datasheet extract"
+          ]
+        }
+      ],
+
+      "comparison_table": {
+        "parameters": [
+          "Conductor resistance",
+          "Mutual capacitance",
+          "Conductor diameter",
+          "Standard compliance"
+        ],
+        "rfp_requirement": [
+          "86 ± 6",
+          "52 ± 3",
+          "0.5mm",
+          "DOT TEC GR/CUG-01/03"
+        ],
+        "oem_product_1": [
+          "≤ 85",
+          "≤ 52",
+          "0.5mm",
+          "Implicit / family-level"
+        ],
+        "oem_product_2": [],
+        "oem_product_3": []
+      },
+
+      "final_selected_oem": {
+        "oem_name": "TopCable",
+        "sku": "TC-PIJF-100P-05",
+        "selection_reason": "Only OEM with explicit 100-pair PIJF specification matching conductor diameter and electrical limits."
+      }
+    },
+
+    {
+      "item_id": "FRLS_5P_0_5MM",
+      "item_name": "5 pair, 0.5mm diameter, Armoured FRLS copper cable",
+
+      "recommended_oem_products": [],
+
+      "comparison_table": {
+        "parameters": [
+          "FRLS compliance",
+          "Flammability (IEC-332)",
+          "Smoke density (ASTM D2843)",
+          "High voltage test",
+          "Capacitance unbalance"
+        ],
+        "rfp_requirement": [
+          "Mandatory",
+          "Pass",
+          "≤ 60%",
+          "2kV RMS",
+          "≤ 230 pF"
+        ],
         "oem_product_1": [],
         "oem_product_2": [],
         "oem_product_3": []
@@ -45,13 +172,15 @@
       "final_selected_oem": {
         "oem_name": "",
         "sku": "",
-        "selection_reason": "Highest overall spec match with zero critical deviations"
+        "selection_reason": "No OEM in the provided dataset offers FRLS armoured telephone cable specifications. Separate OEM sourcing required."
       }
     }
   ],
 
   "technical_summary_flags": [
-    "OEM A does not support FRLS cable variant",
-    "Multiple cable variants require separate manufacturing lines"
+    "Polylink PIJF variant exceeds RFP conductor diameter requirement despite superior electrical performance",
+    "FRLS armoured cable family not covered by provided OEM datasets",
+    "PIJF variants require careful verification of armouring and jacket construction at manufacturing drawing level",
+    "Multiple cable variants necessitate independent qualification and inspection cycles"
   ]
 }
