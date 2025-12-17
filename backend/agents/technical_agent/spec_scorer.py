@@ -1,12 +1,34 @@
-# backend/agents/technical_agent/spec_scorer.py
-
 import json
 from typing import Dict, List, Any, Tuple
 
 
-# -------------------------------------------------
-# Operator Compliance Checks
-# -------------------------------------------------
+# =================================================
+# BASIC UTILITIES
+# =================================================
+
+def extract_oem_numeric_value(oem_value: Dict[str, Any]) -> float | None:
+    if not oem_value:
+        return None
+    if oem_value.get("exact") is not None:
+        return oem_value["exact"]
+    if oem_value.get("max") is not None:
+        return oem_value["max"]
+    if oem_value.get("min") is not None:
+        return oem_value["min"]
+    return None
+
+
+def variant_matches(rfp_spec: Dict[str, Any], oem_spec: Dict[str, Any]) -> bool:
+    return (
+        rfp_spec["variant_scope"]["pair_count"] is None
+        or rfp_spec["variant_scope"]["pair_count"]
+        == oem_spec["variant_scope"]["pair_count"]
+    )
+
+
+# =================================================
+# COMPLIANCE + SCORING
+# =================================================
 
 def check_compliance(rfp_spec: Dict[str, Any], oem_value: float) -> bool:
     op = rfp_spec["operator"]
@@ -21,17 +43,9 @@ def check_compliance(rfp_spec: Dict[str, Any], oem_value: float) -> bool:
         if tol is None:
             return oem_value == val["exact"]
         return abs(oem_value - val["exact"]) <= tol
-    if op == "range":
-        return val["min"] <= oem_value <= val["max"]
-    if op == "pass_fail":
-        return True  # already filtered upstream
 
     return False
 
-
-# -------------------------------------------------
-# Quality Score
-# -------------------------------------------------
 
 def compute_quality_score(rfp_spec: Dict[str, Any], oem_value: float) -> float:
     op = rfp_spec["operator"]
@@ -50,120 +64,139 @@ def compute_quality_score(rfp_spec: Dict[str, Any], oem_value: float) -> float:
         delta = abs(oem_value - val["exact"])
         return max(0.0, 1 - (delta / tol))
 
-    if op == "range":
-        mid = (val["min"] + val["max"]) / 2
-        spread = (val["max"] - val["min"]) / 2
-        return max(0.0, 1 - abs(oem_value - mid) / spread)
-
-    return 1.0
+    return 0.0
 
 
-# -------------------------------------------------
-# Variant Match
-# -------------------------------------------------
-
-def variant_matches(rfp_spec: Dict[str, Any], oem_spec: Dict[str, Any]) -> bool:
-    rfp_pair = rfp_spec["variant_scope"]["pair_count"]
-    oem_pair = oem_spec["variant_scope"]["pair_count"]
-
-    return rfp_pair is None or rfp_pair == oem_pair
-
-
-# -------------------------------------------------
-# Score One Spec
-# -------------------------------------------------
-
-def score_single_spec(
-    rfp_spec: Dict[str, Any],
-    oem_spec: Dict[str, Any],
-    importance_weight: float = 1.0,
-    confidence_weight: float = 1.0
-) -> Dict[str, Any]:
-
-    if not variant_matches(rfp_spec, oem_spec):
-        return None
-
-    oem_value = oem_spec["value"]
-
-    passed = check_compliance(rfp_spec, oem_value)
-
-    if not passed:
-        return {
-            "spec_key": rfp_spec["spec_key"],
-            "passed": False,
-            "score": 0.0,
-            "reason": "Constraint not satisfied"
-        }
-
-    quality = compute_quality_score(rfp_spec, oem_value)
-
-    final_score = quality * importance_weight * confidence_weight
-
-    return {
-        "spec_key": rfp_spec["spec_key"],
-        "passed": True,
-        "score": round(final_score, 4),
-        "quality": round(quality, 4),
-        "importance_weight": importance_weight
-    }
-
-
-# -------------------------------------------------
-# Score SKU
-# -------------------------------------------------
+# =================================================
+# SCORE ONE SKU
+# =================================================
 
 def score_sku(
     rfp_specs: List[Dict[str, Any]],
     oem_specs: List[Dict[str, Any]],
-    reject_on_mandatory_fail: bool = True
-) -> Tuple[str, float, List[Dict[str, Any]]]:
+) -> float:
 
-    results = []
+    # Deduplicate RFP specs (spec_key + pair_count)
+    unique = {}
+    for rfp in rfp_specs:
+        key = (rfp["spec_key"], rfp["variant_scope"]["pair_count"])
+        unique[key] = rfp
+    rfp_specs = list(unique.values())
+
     total_score = 0.0
-    max_score = 0.0
+    total_required = len(rfp_specs)
 
     for rfp in rfp_specs:
         matched = [
             o for o in oem_specs
             if o["spec_key"] == rfp["spec_key"]
+            and variant_matches(rfp, o)
         ]
 
         if not matched:
-            if rfp["mandatory"]:
-                return "REJECTED", 0.0, []
             continue
 
-        spec_result = score_single_spec(rfp, matched[0])
-
-        if spec_result is None:
+        oem_value = extract_oem_numeric_value(matched[0]["value"])
+        if oem_value is None:
             continue
 
-        if not spec_result["passed"] and rfp["mandatory"]:
-            return "REJECTED", 0.0, []
+        if not check_compliance(rfp, oem_value):
+            continue
 
-        results.append(spec_result)
+        total_score += compute_quality_score(rfp, oem_value)
 
-        total_score += spec_result["score"]
-        max_score += spec_result.get("importance_weight", 1.0)
+    return round(total_score / total_required, 4) if total_required else 0.0
 
-    final_score = round(total_score / max_score, 4) if max_score else 0.0
 
-    return "ACCEPTED", final_score, results
+# =================================================
+# OEM RANKING
+# =================================================
+
+def group_oem_by_sku(oem_rows: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
+    grouped = {}
+    for row in oem_rows:
+        grouped.setdefault(row["product_sku"], []).append(row)
+    return grouped
+
+
+def rank_oem_skus(
+    rfp_specs: List[Dict[str, Any]],
+    oem_repo: List[Dict[str, Any]],
+    top_k: int = 3
+) -> List[Dict[str, Any]]:
+
+    ranked = []
+    grouped = group_oem_by_sku(oem_repo)
+
+    for sku, oem_specs in grouped.items():
+        score = score_sku(rfp_specs, oem_specs)
+        ranked.append({
+            "product_sku": sku,
+            "spec_match_score": score,
+            "spec_match_pct": round(score * 100, 2)
+        })
+
+    ranked.sort(key=lambda x: x["spec_match_score"], reverse=True)
+    return ranked[:top_k]
+
+
+# =================================================
+# FINAL OEM SELECTION PER RFP PRODUCT
+# =================================================
+
+def build_final_recommendation_table(
+    scope_summary: Dict[str, Any],
+    ranked_oems: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+
+    final_table = []
+
+    for line in scope_summary["product_lines"]:
+        for product in line["products"]:
+            best_oem = ranked_oems[0]
+
+            final_table.append({
+                "product_line": line["product_line_name"],
+                "rfp_product_name": product["product_name"],
+                "rfp_product_code": product["product_code"],
+                "quantity": product["quantity"],
+                "recommended_oem_sku": best_oem["product_sku"],
+                "spec_match_pct": best_oem["spec_match_pct"]
+            })
+
+    return final_table
+
+
+# =================================================
+# MAIN RUNNER
+# =================================================
 
 if __name__ == "__main__":
-    with open("oem_datasheets/normalized_oem.json") as f:
-        oem_normalized_specs = json.load(f)
 
-    with open("outputs/enforced_normalized_specs.json", "w") as f:
-        normalized_rfp_specs = json.load(f)
-    
-    status, score, breakdown = score_sku(
-        rfp_specs=normalized_rfp_specs,
-        oem_specs=oem_normalized_specs
+    # ---- LOAD FILES ----
+    with open("outputs/enforced_normalized_specs.json", "r") as f:
+        rfp_specs = json.load(f)["data"]
+
+    with open("oem_datasheets/normalized_oem.json", "r") as f:
+        oem_repo = json.load(f)
+
+    with open("outputs/scope_of_supply_summary.json", "r") as f:
+        scope_summary = json.load(f)
+
+    # ---- RANK OEMs ----
+    top_3 = rank_oem_skus(rfp_specs, oem_repo)
+
+    # ---- FINAL TABLE ----
+    final_table = build_final_recommendation_table(
+        scope_summary=scope_summary,
+        ranked_oems=top_3
     )
 
-    print(status)       # ACCEPTED / REJECTED
-    print(score)        # 0.0 – 1.0
-    print(breakdown)    # per-spec explainability
+    # ---- PRINT OUTPUT ----
+    print("\nTOP 3 OEM RECOMMENDATIONS\n")
+    for i, oem in enumerate(top_3, 1):
+        print(f"#{i} SKU: {oem['product_sku']} — Spec Match: {oem['spec_match_pct']}%")
 
-    print("✅ Scope normalized successfully")
+    print("\nFINAL OEM RECOMMENDATION TABLE\n")
+    for row in final_table:
+        print(row)
