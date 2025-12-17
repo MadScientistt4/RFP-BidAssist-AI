@@ -7,7 +7,7 @@ Applies final enforcement rules on normalized RFP technical specs:
 3. Deduplicate global specs
 4. Normalize test condition ranges
 """
-
+import json
 from copy import deepcopy
 from typing import List, Dict, Any
 
@@ -1022,9 +1022,13 @@ def main():
     print("\n--- BEFORE ENFORCEMENT ---")
 
     enforced = enforce_all(sample_specs)
+    with open("outputs/enforced_normalized_specs.json", "w", encoding="utf-8") as f:
+      json.dump(
+          {"data": enforced},
+          f,
+          indent=2
+      )
 
-    print("\n--- AFTER ENFORCEMENT ---")
-    pprint(enforced)
 
 if __name__ == "__main__":
     main()
