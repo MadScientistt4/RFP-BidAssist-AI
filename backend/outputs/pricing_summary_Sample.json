@@ -1,125 +1,125 @@
 {
-"rfp_context": {
-"rfp_title": "Supply of Copper cables",
-"issuing_authority": "SDSC SHAR",
-"currency": "INR",
-"submission_deadline": ""
-},
+  "rfp_context": {
+    "rfp_title": "Supply of Copper cables",
+    "issuing_authority": "SDSC SHAR",
+    "currency": "INR",
+    "submission_deadline": ""
+  },
 
-"items_for_pricing": [
-{
-"item_id": "PIJF_200_PAIR",
-"item_name": "200 pair, 0.5mm diameter, PIJF armoured copper cable",
-"selected_oem": "TopCable",
-"selected_sku": "TOPCABLE-PIJF-ARM",
-"quantity": "1.5",
-"unit": "km",
-"pricing_unit": "km",
-"applicable_tests": [
-{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
-]
-},
-{
-"item_id": "PIJF_100_PAIR",
-"item_name": "100 pair, 0.5mm diameter, PIJF armoured copper cable",
-"selected_oem": "TopCable",
-"selected_sku": "TOPCABLE-PIJF-ARM",
-"quantity": "1",
-"unit": "km",
-"pricing_unit": "km",
-"applicable_tests": [
-{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
-]
-},
-{
-"item_id": "PIJF_50_PAIR",
-"item_name": "50 pair, 0.5mm diameter, PIJF armoured copper cable",
-"selected_oem": "TopCable",
-"selected_sku": "TOPCABLE-PIJF-ARM",
-"quantity": "4.5",
-"unit": "kms",
-"pricing_unit": "km",
-"applicable_tests": [
-{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
-]
-},
-{
-"item_id": "PIJF_20_PAIR",
-"item_name": "20 pair, 0.5mm diameter, PIJF armoured copper cable",
-"selected_oem": "TopCable",
-"selected_sku": "TOPCABLE-PIJF-ARM",
-"quantity": "3",
-"unit": "kms",
-"pricing_unit": "km",
-"applicable_tests": [
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
-]
-},
-{
-"item_id": "PIJF_10_PAIR",
-"item_name": "10 pair, 0.5mm diameter, PIJF armoured copper cable",
-"selected_oem": "TopCable",
-"selected_sku": "TOPCABLE-PIJF-ARM",
-"quantity": "2",
-"unit": "kms",
-"pricing_unit": "km",
-"applicable_tests": [
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
-]
-},
-{
-"item_id": "FRLS_5_PAIR",
-"item_name": "5 pair, 0.5mm diameter, Armoured FRLS copper cable",
-"selected_oem": "TopCable",
-"selected_sku": "TOPCABLE-FRLS-ARM",
-"quantity": "3",
-"unit": "kms",
-"pricing_unit": "km",
-"applicable_tests": [
-{ "test_name": "Conductor Resistance test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "High Voltage test", "test_type": "Electrical", "chargeable": True },
-{ "test_name": "Flammability test", "test_type": "Fire", "chargeable": True },
-{ "test_name": "Smoke density rating test", "test_type": "Fire", "chargeable": True }
-]
-}
-],
+  "items_for_pricing": [
+    {
+      "item_id": "PIJF_200_PAIR",
+      "item_name": "200 pair, 0.5mm diameter, PIJF armoured copper cable",
+      "selected_oem": "TopCable",
+      "selected_sku": "TOPCABLE-PIJF-ARM",
+      "quantity": "1.5",
+      "unit": "km",
+      "pricing_unit": "km",
+      "applicable_tests": [
+        { "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+      ]
+    },
+    {
+      "item_id": "PIJF_100_PAIR",
+      "item_name": "100 pair, 0.5mm diameter, PIJF armoured copper cable",
+      "selected_oem": "TopCable",
+      "selected_sku": "TOPCABLE-PIJF-ARM",
+      "quantity": "1",
+      "unit": "km",
+      "pricing_unit": "km",
+      "applicable_tests": [
+        { "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+      ]
+    },
+    {
+      "item_id": "PIJF_50_PAIR",
+      "item_name": "50 pair, 0.5mm diameter, PIJF armoured copper cable",
+      "selected_oem": "TopCable",
+      "selected_sku": "TOPCABLE-PIJF-ARM",
+      "quantity": "4.5",
+      "unit": "kms",
+      "pricing_unit": "km",
+      "applicable_tests": [
+        { "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+      ]
+    },
+    {
+      "item_id": "PIJF_20_PAIR",
+      "item_name": "20 pair, 0.5mm diameter, PIJF armoured copper cable",
+      "selected_oem": "TopCable",
+      "selected_sku": "TOPCABLE-PIJF-ARM",
+      "quantity": "3",
+      "unit": "kms",
+      "pricing_unit": "km",
+      "applicable_tests": [
+        { "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+      ]
+    },
+    {
+      "item_id": "PIJF_10_PAIR",
+      "item_name": "10 pair, 0.5mm diameter, PIJF armoured copper cable",
+      "selected_oem": "TopCable",
+      "selected_sku": "TOPCABLE-PIJF-ARM",
+      "quantity": "2",
+      "unit": "kms",
+      "pricing_unit": "km",
+      "applicable_tests": [
+        { "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
+        { "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+      ]
+    },
+    {
+      "item_id": "FRLS_5_PAIR",
+      "item_name": "5 pair, 0.5mm diameter, Armoured FRLS copper cable",
+      "selected_oem": "TopCable",
+      "selected_sku": "TOPCABLE-FRLS-ARM",
+      "quantity": "3",
+      "unit": "kms",
+      "pricing_unit": "km",
+      "applicable_tests": [
+        { "test_name": "Conductor Resistance test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "High Voltage test", "test_type": "Electrical", "chargeable": true },
+        { "test_name": "Flammability test", "test_type": "Fire", "chargeable": true },
+        { "test_name": "Smoke density rating test", "test_type": "Fire", "chargeable": true }
+      ]
+    }
+  ],
 
-"testing_and_inspection": {
-"inspection_required": True,
-"inspection_mode": "Pre-Delivery inspection at factory site / online video mode with SDSC SHAR authorities",
-"inspection_cost_applicable": True
-},
+  "testing_and_inspection": {
+    "inspection_required": true,
+    "inspection_mode": "Pre-Delivery inspection at factory site / online video mode with SDSC SHAR authorities",
+    "inspection_cost_applicable": true
+  },
 
-"commercial_terms": {
-"delivery_timeline": "12 weeks from date of placement of order",
-"warranty_period": "Minimum one year from date of acceptance",
-"payment_terms": "100% payment after receipt and acceptance at SDSC SHAR",
-"liquidated_damages": "0.5% per week or part thereof, maximum 10% of total contract value"
-},
+  "commercial_terms": {
+    "delivery_timeline": "12 weeks from date of placement of order",
+    "warranty_period": "Minimum one year from date of acceptance",
+    "payment_terms": "100% payment after receipt and acceptance at SDSC SHAR",
+    "liquidated_damages": "0.5% per week or part thereof, maximum 10% of total contract value"
+  },
 
-"pricing_flags": [
-"Multiple cable variants with different pair counts",
-"Extensive electrical and mechanical testing requirements",
-"Client-witnessed pre-delivery inspection mandatory",
-"Single-source OEM for telecom cable families"
-]
+  "pricing_flags": [
+    "Multiple cable variants with different pair counts",
+    "Extensive electrical and mechanical testing requirements",
+    "Client-witnessed pre-delivery inspection mandatory",
+    "Single-source OEM for telecom cable families"
+  ]
 }
