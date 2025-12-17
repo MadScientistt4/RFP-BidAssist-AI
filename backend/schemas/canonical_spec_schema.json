@@ -1,0 +1,22 @@
+{
+  "spec_key": "string",
+  "value": {
+    "min": ["number", "null"],
+    "max": ["number", "null"],
+    "exact": ["number", "null"]
+  },
+  "unit": "string",
+  "operator": "string",
+  "test_conditions": {
+    "temperature_c": ["number", "null"],
+    "frequency_hz": ["number", "null"]
+  },
+  "tolerance": ["number", "null"],
+  "mandatory": "boolean",
+  "applies_to": "all_variants | specific_variant",
+  "variant_scope": {
+    "pair_count": ["number", "null"],
+    "variant_id": ["string", "null"]
+  },
+  "source_text": "string"
+}

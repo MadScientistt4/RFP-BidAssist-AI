@@ -1,0 +1,60 @@
+{
+  "product_lines": [
+    {
+      "product_line_name": "Switching",
+      "products": [
+        {
+          "product_name": "Catalyst 9300 Series Switches",
+          "product_code": "C9300-24UXM",
+          "quantity": 5,
+          "technical_specifications": {
+            "ports": "24 x 10/100/1000BASE-T, UPOE+",
+            "uplinks": "4 x 10GE SFP+",
+            "power_supply": "1100W AC Power Supply",
+            "ios_version": "IOS XE 17.3.x",
+            "features": [
+              "StackWise Virtual",
+              "Trustworthy Solutions",
+              "Encrypted MACsec"
+            ]
+          }
+        },
+        {
+          "product_name": "Catalyst 9200 Series Switch",
+          "product_code": "C9200-24T-E",
+          "quantity": 10,
+          "technical_specifications": {
+            "ports": "24 x 10/100/1000BASE-T",
+            "uplinks": "4 x 1G SFP",
+            "power_supply": "310W AC Power Supply",
+            "ios_version": "IOS XE 17.3.x",
+            "features": [
+              "StackWise-480",
+              "Basic Layer 3 features"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "product_line_name": "Wireless",
+      "products": [
+        {
+          "product_name": "Catalyst 9120AX Access Point",
+          "product_code": "C9120AXI-BT",
+          "quantity": 20,
+          "technical_specifications": {
+            "wifi_standard": "Wi-Fi 6 (802.11ax)",
+            "antennas": "Internal antennas",
+            "management": "Integrated or external controller",
+            "features": [
+              "OFDMA",
+              "MU-MIMO",
+              "WPA3"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

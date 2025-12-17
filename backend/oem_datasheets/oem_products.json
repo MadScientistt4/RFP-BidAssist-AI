@@ -1,0 +1,58 @@
+[
+  {
+    "oem_id": "TOPCABLE",
+    "oem_name": "TopCable India Pvt Ltd",
+    "product_sku": "TC-PIJF-200P-05",
+    "product_family": "PIJF Armoured Copper Telecom Cable",
+    "pair_count": 200,
+    "conductor_diameter_mm": 0.5,
+    "armouring_type": "Double Helical Galvanized Steel Tape",
+    "insulation_material": "Polythene",
+    "sheath_material": "Polythene",
+    "operating_temperature_c": "-10 to +60",
+    "standards_supported": ["DOT TEC GR/CUG-01/03 Aug 2003", "BS 6234"],
+    "datasheet_ref": "TopCable_PIJF_200P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "oem_name": "TopCable India Pvt Ltd",
+    "product_sku": "TC-PIJF-150P-05",
+    "product_family": "PIJF Armoured Copper Telecom Cable",
+    "pair_count": 150,
+    "conductor_diameter_mm": 0.5,
+    "armouring_type": "Single Steel Tape",
+    "insulation_material": "Polythene",
+    "sheath_material": "Polythene",
+    "operating_temperature_c": "-10 to +60",
+    "standards_supported": ["DOT TEC GR/CUG-01/03 Aug 2003"],
+    "datasheet_ref": "TopCable_PIJF_150P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "oem_name": "TopCable India Pvt Ltd",
+    "product_sku": "TC-PIJF-100P-05",
+    "product_family": "PIJF Armoured Copper Telecom Cable",
+    "pair_count": 100,
+    "conductor_diameter_mm": 0.5,
+    "armouring_type": "Double Helical Galvanized Steel Tape",
+    "insulation_material": "Polythene",
+    "sheath_material": "Polythene",
+    "operating_temperature_c": "-10 to +60",
+    "standards_supported": ["DOT TEC GR/CUG-01/03 Aug 2003", "BS 6234"],
+    "datasheet_ref": "TopCable_PIJF_100P.pdf"
+  },
+  {
+    "oem_id": "POLYLINK",
+    "oem_name": "Polylink Telecom Cables Ltd",
+    "product_sku": "PL-PIJF-200P-06",
+    "product_family": "Enhanced PIJF Armoured Telecom Cable",
+    "pair_count": 200,
+    "conductor_diameter_mm": 0.6,
+    "armouring_type": "Corrugated Steel Tape",
+    "insulation_material": "HDPE",
+    "sheath_material": "HDPE",
+    "operating_temperature_c": "-20 to +70",
+    "standards_supported": ["DOT TEC GR/CUG-01/03 Aug 2003"],
+    "datasheet_ref": "Polylink_PIJF_200P.pdf"
+  }
+]
