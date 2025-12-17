@@ -1,0 +1,527 @@
+[
+  {
+    "spec_key": "conductor_diameter",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 0.5
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "armouring_thickness",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 0.5
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "conductor_resistance",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 86.0
+    },
+    "OEM_1": {
+      "value": 84,
+      "passed": true
+    },
+    "OEM_2": {
+      "value": 85,
+      "passed": true
+    },
+    "OEM_3": {
+      "value": 86,
+      "passed": true
+    }
+  },
+  {
+    "spec_key": "resistance_unbalance",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 1.0
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "mutual_capacitance",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 52.0
+    },
+    "OEM_1": {
+      "value": 50,
+      "passed": true
+    },
+    "OEM_2": {
+      "value": 52,
+      "passed": true
+    },
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "capacitance_unbalance_pair_to_pair",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": 50.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "capacitance_unbalance_pair_to_ground",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": 750.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "dielectric_strength_between_conductors",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 2.4
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "dielectric_strength_between_conductors_and_shield",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 5.0
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "insulation_resistance_conductor_to_conductor",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": 5000.0,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "insulation_resistance_conductor_to_shield",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": 5000.0,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "dielectric_strength_sheath",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 17.0
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "equal_level_far_end_crosstalk",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": 55.0,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "near_end_crosstalk",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": 55.0,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "attenuation",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": null,
+      "max": 8.25,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_sheath",
+    "pair_count": 200,
+    "rfp_requirement": {
+      "min": null,
+      "max": 37.5,
+      "exact": null
+    },
+    "OEM_1": {
+      "value": 36,
+      "passed": true
+    },
+    "OEM_2": "N/A",
+    "OEM_3": {
+      "value": 32,
+      "passed": true
+    }
+  },
+  {
+    "spec_key": "minimum_sheath_thickness",
+    "pair_count": 200,
+    "rfp_requirement": {
+      "min": 1.62,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "jacket_thickness",
+    "pair_count": null,
+    "rfp_requirement": {
+      "min": 1.4,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_jacket",
+    "pair_count": 200,
+    "rfp_requirement": {
+      "min": null,
+      "max": 45.5,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_sheath",
+    "pair_count": 100,
+    "rfp_requirement": {
+      "min": null,
+      "max": 28.0,
+      "exact": null
+    },
+    "OEM_1": {
+      "value": 36,
+      "passed": false
+    },
+    "OEM_2": "N/A",
+    "OEM_3": {
+      "value": 32,
+      "passed": false
+    }
+  },
+  {
+    "spec_key": "minimum_sheath_thickness",
+    "pair_count": 100,
+    "rfp_requirement": {
+      "min": 1.5,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_jacket",
+    "pair_count": 100,
+    "rfp_requirement": {
+      "min": null,
+      "max": 36.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_sheath",
+    "pair_count": 50,
+    "rfp_requirement": {
+      "min": null,
+      "max": 22.0,
+      "exact": null
+    },
+    "OEM_1": {
+      "value": 36,
+      "passed": false
+    },
+    "OEM_2": "N/A",
+    "OEM_3": {
+      "value": 32,
+      "passed": false
+    }
+  },
+  {
+    "spec_key": "minimum_sheath_thickness",
+    "pair_count": 50,
+    "rfp_requirement": {
+      "min": 1.5,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_jacket",
+    "pair_count": 50,
+    "rfp_requirement": {
+      "min": null,
+      "max": 29.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_sheath",
+    "pair_count": 20,
+    "rfp_requirement": {
+      "min": null,
+      "max": 17.0,
+      "exact": null
+    },
+    "OEM_1": {
+      "value": 36,
+      "passed": false
+    },
+    "OEM_2": "N/A",
+    "OEM_3": {
+      "value": 32,
+      "passed": false
+    }
+  },
+  {
+    "spec_key": "minimum_sheath_thickness",
+    "pair_count": 20,
+    "rfp_requirement": {
+      "min": 1.5,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_jacket",
+    "pair_count": 20,
+    "rfp_requirement": {
+      "min": null,
+      "max": 24.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_sheath",
+    "pair_count": 10,
+    "rfp_requirement": {
+      "min": null,
+      "max": 11.0,
+      "exact": null
+    },
+    "OEM_1": {
+      "value": 36,
+      "passed": false
+    },
+    "OEM_2": "N/A",
+    "OEM_3": {
+      "value": 32,
+      "passed": false
+    }
+  },
+  {
+    "spec_key": "minimum_sheath_thickness",
+    "pair_count": 10,
+    "rfp_requirement": {
+      "min": 1.5,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "diameter_over_jacket",
+    "pair_count": 10,
+    "rfp_requirement": {
+      "min": null,
+      "max": 20.2,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "armouring_size",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": 0.9,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "lay_length_of_twisted_pair",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": null,
+      "max": 80.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "inner_sheath_thickness",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": 0.65,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "outer_sheath_thickness",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": 1.24,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "nominal_diameter_of_overall_cable",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 11.5
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "insulation_resistance",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": 50.0,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "high_voltage_test",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": 2.0
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "capacitance_unbalance_pair_to_pair",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": null,
+      "max": 230.0,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  },
+  {
+    "spec_key": "flammability_test",
+    "pair_count": 5,
+    "rfp_requirement": {
+      "min": null,
+      "max": null,
+      "exact": null
+    },
+    "OEM_1": "N/A",
+    "OEM_2": "N/A",
+    "OEM_3": "N/A"
+  }
+]
