@@ -1,0 +1,797 @@
+{
+  "rfp_context": {
+    "rfp_title": "Supply of Copper cables",
+    "issuing_authority": "SDSC SHAR",
+    "currency": "INR",
+    "submission_deadline": ""
+  },
+  "items_for_pricing": [
+    {
+      "item_id": "",
+      "item_name": "200 pair, 0.5mm diameter, PIJF armoured copper cable (single strand)",
+      "selected_oem": "",
+      "selected_sku": "",
+      "quantity": "1.5",
+      "unit": "km",
+      "pricing_unit": "per km / per unit",
+      "applicable_tests": [
+        {
+          "test_name": "Polythene for conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric constant or permittivity",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Volume resistivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Permittivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Poly-Al tape",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Diameter over Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Variation between the maximum and minimum diameter over sheath at any cross section",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Elongation and tensile strength of conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Annealing of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Cable bend test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Water penetration test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Continuity of conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Conductor resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance unbalance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance of poly-al tape",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Mutual capacitance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Pair)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Gnd)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between all conductors and shield",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Insulation resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength of the sheath",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Equal level far end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Near end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Attenuation",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        }
+      ]
+    },
+    {
+      "item_id": "",
+      "item_name": "100 pair, 0.5mm diameter, PIJF armoured copper cable (single strand)",
+      "selected_oem": "",
+      "selected_sku": "",
+      "quantity": "1",
+      "unit": "km",
+      "pricing_unit": "per km / per unit",
+      "applicable_tests": [
+        {
+          "test_name": "Polythene for conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric constant or permittivity",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Volume resistivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Permittivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Poly-Al tape",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Diameter over Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Variation between the maximum and minimum diameter over sheath at any cross section",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Elongation and tensile strength of conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Annealing of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Cable bend test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Water penetration test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Continuity of conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Conductor resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance unbalance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance of poly-al tape",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Mutual capacitance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Pair)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Gnd)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between all conductors and shield",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Insulation resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength of the sheath",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Equal level far end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Near end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Attenuation",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        }
+      ]
+    },
+    {
+      "item_id": "",
+      "item_name": "50 Pair, 0.5mm diameter, PIJF armoured copper cable (Single strand)",
+      "selected_oem": "",
+      "selected_sku": "",
+      "quantity": "4.5",
+      "unit": "kms",
+      "pricing_unit": "per km / per unit",
+      "applicable_tests": [
+        {
+          "test_name": "Polythene for conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric constant or permittivity",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Volume resistivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Permittivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Poly-Al tape",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Diameter over Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Variation between the maximum and minimum diameter over sheath at any cross section",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Elongation and tensile strength of conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Annealing of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Cable bend test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Water penetration test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Continuity of conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Conductor resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance unbalance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance of poly-al tape",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Mutual capacitance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Pair)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Gnd)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between all conductors and shield",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Insulation resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength of the sheath",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Equal level far end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Near end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Attenuation",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        }
+      ]
+    },
+    {
+      "item_id": "",
+      "item_name": "20 Pair, 0.5mm diameter, PIJF armoured copper cable (Single strand)",
+      "selected_oem": "",
+      "selected_sku": "",
+      "quantity": "3",
+      "unit": "kms",
+      "pricing_unit": "per km / per unit",
+      "applicable_tests": [
+        {
+          "test_name": "Polythene for conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric constant or permittivity",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Volume resistivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Permittivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Poly-Al tape",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Diameter over Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Variation between the maximum and minimum diameter over sheath at any cross section",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Elongation and tensile strength of conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Annealing of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Cable bend test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Water penetration test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Continuity of conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Conductor resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance unbalance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance of poly-al tape",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Mutual capacitance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Pair)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Gnd)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between all conductors and shield",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Insulation resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength of the sheath",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Equal level far end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Near end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Attenuation",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        }
+      ]
+    },
+    {
+      "item_id": "",
+      "item_name": "10 Pair, 0.5mm diameter, PIJF armoured copper cable (Single strand)",
+      "selected_oem": "",
+      "selected_sku": "",
+      "quantity": "2",
+      "unit": "kms",
+      "pricing_unit": "per km / per unit",
+      "applicable_tests": [
+        {
+          "test_name": "Polythene for conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric constant or permittivity",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Volume resistivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Permittivity of petroleum jelly",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Poly-Al tape",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Diameter over Sheath",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Variation between the maximum and minimum diameter over sheath at any cross section",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Elongation and tensile strength of conductor insulation",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Thickness of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Annealing of conductor",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Cable bend test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Water penetration test",
+          "test_type": "Mechanical",
+          "chargeable": true
+        },
+        {
+          "test_name": "Continuity of conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Conductor resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance unbalance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Resistance of poly-al tape",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Mutual capacitance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Pair)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance unbalance (Pair to Gnd)",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between conductors",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength (High voltage) between all conductors and shield",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Insulation resistance",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Dielectric strength of the sheath",
+          "test_type": "Electrical (Low frequency)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Equal level far end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Near end cross talk",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        },
+        {
+          "test_name": "Attenuation",
+          "test_type": "Electrical (High frequency 150KHz)",
+          "chargeable": true
+        }
+      ]
+    },
+    {
+      "item_id": "",
+      "item_name": "5 pair, 0.5mm diameter, Armoured FRLS copper cable (Single strand)",
+      "selected_oem": "",
+      "selected_sku": "",
+      "quantity": "3",
+      "unit": "kms",
+      "pricing_unit": "per km / per unit",
+      "applicable_tests": [
+        {
+          "test_name": "Conductor Resistance",
+          "test_type": "Electrical tests",
+          "chargeable": true
+        },
+        {
+          "test_name": "Min Insulation resistance",
+          "test_type": "Electrical tests",
+          "chargeable": true
+        },
+        {
+          "test_name": "High Voltage test",
+          "test_type": "Electrical tests",
+          "chargeable": true
+        },
+        {
+          "test_name": "Capacitance Unbalance (pair to pair)",
+          "test_type": "Electrical tests",
+          "chargeable": true
+        },
+        {
+          "test_name": "Flammability test (Shall pass the test when tested as per IEC-332 Part-1)",
+          "test_type": "FRLS properties",
+          "chargeable": true
+        },
+        {
+          "test_name": "Smoke density rating (Max(60%) when tested as per ASTM D2843)",
+          "test_type": "FRLS properties",
+          "chargeable": true
+        }
+      ]
+    }
+  ],
+  "testing_and_inspection": {
+    "inspection_required": true,
+    "inspection_mode": "Client witnessed / Third-party",
+    "inspection_cost_applicable": true
+  },
+  "commercial_terms": {
+    "delivery_timeline": "12 weeks from the date of placement of the order",
+    "warranty_period": "Minimum one year from the date of acceptance of cables at our end.",
+    "payment_terms": "100% payment shall be made after receipt and acceptance of materials at our site by CLIP at SDSC SHAR for the actual quantity of cable supply. Furnish banker details for transferring payments through ECS mode. Income tax at prevailing rate shall be deducted.",
+    "liquidated_damages": "0.5 percentage per week or part thereof of the undelivered portion of the total contract price of equipment. The Total liquidated damages shall not exceed the 10.0 % of the total Contract."
+  },
+  "pricing_flags": [
+    "Multiple variants require separate testing batches",
+    "High number of routine tests increases service cost",
+    "Client witnessed inspections"
+  ]
+}

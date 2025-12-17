@@ -78,7 +78,7 @@ class MainAgent:
     def run_external_technical_agent(self) -> dict:
         tech_agent_path = PROJECT_ROOT/ "agents" / "technical_agent" / "technical_agent.py"
         output_path = OUTPUT_DIR / "technical_agent_output.json"
-
+        """
         if not tech_agent_path.exists():
             raise FileNotFoundError("❌ technical_agent/technical_agent.py not found")
 
@@ -100,7 +100,7 @@ class MainAgent:
 
         with open(output_path, "r", encoding="utf-8") as f:
             return json.load(f)
-
+        """
     # -------------------------------------------------
     # STEP 3: GENERATE PRICING SUMMARY
     # -------------------------------------------------
