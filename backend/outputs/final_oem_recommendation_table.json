@@ -1,0 +1,26 @@
+[
+  {
+    "product_line": "Switching",
+    "rfp_product_name": "Catalyst 9300 Series Switches",
+    "rfp_product_code": "C9300-24UXM",
+    "quantity": 5,
+    "recommended_oem_sku": "TC-PIJF-200P-05",
+    "spec_match_pct": 5.0
+  },
+  {
+    "product_line": "Switching",
+    "rfp_product_name": "Catalyst 9200 Series Switch",
+    "rfp_product_code": "C9200-24T-E",
+    "quantity": 10,
+    "recommended_oem_sku": "TC-PIJF-200P-05",
+    "spec_match_pct": 5.0
+  },
+  {
+    "product_line": "Wireless",
+    "rfp_product_name": "Catalyst 9120AX Access Point",
+    "rfp_product_code": "C9120AXI-BT",
+    "quantity": 20,
+    "recommended_oem_sku": "TC-PIJF-200P-05",
+    "spec_match_pct": 5.0
+  }
+]

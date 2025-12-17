@@ -3,28 +3,41 @@
 import json
 from typing import Dict, Any, List
 from pathlib import Path
+
+# ---- INTERNAL MODULES ----
+from normalize_scope_of_summary import normalize_scope
+from normalize_rfp_specs import normalize_rfp_specs
+from enforce_normalize_specs import enforce_all
+from spec_scorer import (
+    rank_oem_skus,
+    build_final_recommendation_table,
+)
+
+# ---- LLM ----
 from google import genai
 from google.genai import types
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-MODEL_NAME = "gemini-2.5-flash-lite"
+MODEL_NAME = "gemini-2.5-flash"
 
 
 class TechnicalAgent:
+    """
+    End-to-end technical evaluation pipeline.
+    """
+
     def __init__(self):
         self.client = genai.Client()
 
-    # -------------------------------------------------
-    # LLM STEP: Scope of Supply generation
-    # -------------------------------------------------
+    # =================================================
+    # STEP 1️⃣ SCOPE OF SUPPLY (LLM)
+    # =================================================
     def generate_scope_of_supply(
         self,
         extracted_rfp: Dict[str, Any],
         technical_summary: Dict[str, Any],
-        scope_schema: Dict[str, Any]
+        scope_schema: Dict[str, Any],
     ) -> Dict[str, Any]:
 
         prompt = f"""
@@ -35,7 +48,6 @@ Your task is to generate a STRUCTURED SCOPE OF SUPPLY SUMMARY.
 RULES:
 - Follow the schema strictly
 - No hallucinations
-- No summarization beyond structure
 - Exact specs only
 
 SCHEMA:
@@ -53,130 +65,117 @@ TECHNICAL SUMMARY:
             contents=[prompt],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json"
-            )
+            ),
         )
 
         return json.loads(response.text)
 
-    # -------------------------------------------------
-    # SPEC MATCH ENGINE (NO LLM)
-    # -------------------------------------------------
-"""
-    def compare_specs(self, rfp_specs: Dict[str, Any], oem_specs: Dict[str, Any]) -> Dict[str, Any]:
-        matched = 0
-        total = len(rfp_specs)
-        mismatches = []
+    # =================================================
+    # STEP 2️⃣ FULL TECHNICAL PIPELINE
+    # =================================================
+    def run(
+        self,
+        extracted_rfp: Dict[str, Any],
+        technical_summary: Dict[str, Any],
+        scope_schema: Dict[str, Any],
+        oem_repo: List[Dict[str, Any]],
+    ) -> Dict[str, Any]:
 
-        for key, rfp_value in rfp_specs.items():
-            oem_value = oem_specs.get(key)
+        # -----------------------------
+        # 1️⃣ Scope of Supply
+        # -----------------------------
+        raw_scope = self.generate_scope_of_supply(
+            extracted_rfp=extracted_rfp,
+            technical_summary=technical_summary,
+            scope_schema=scope_schema,
+        )
 
-            if oem_value is None:
-                mismatches.append(key)
-                continue
+        if "product_lines" in raw_scope:
+            scope_summary = raw_scope
+        elif "scope_of_supply_input" in raw_scope:
+            scope_summary = raw_scope["scope_of_supply_input"]
+        elif "data" in raw_scope:
+            scope_summary = raw_scope["data"]
+        else:
+            raise ValueError("Invalid scope_of_supply structure from LLM")
 
-            # String match
-            if isinstance(rfp_value, str):
-                if rfp_value.lower() in str(oem_value).lower():
-                    matched += 1
-                else:
-                    mismatches.append(key)
 
-            # Numeric match
-            elif isinstance(rfp_value, (int, float)):
-                try:
-                    if float(oem_value) >= float(rfp_value):
-                        matched += 1
-                    else:
-                        mismatches.append(key)
-                except:
-                    mismatches.append(key)
+        # -----------------------------
+        # 2️⃣ Normalize Scope
+        # -----------------------------
+        normalized_scope = normalize_scope(scope_summary)
 
-            # List match
-            elif isinstance(rfp_value, list):
-                if all(item in oem_value for item in rfp_value):
-                    matched += 1
-                else:
-                    mismatches.append(key)
+        # -----------------------------
+        # 3️⃣ Normalize RFP Specs (LLM)
+        # -----------------------------
+        normalized_specs_llm = normalize_rfp_specs(
+            extracted_rfp_technical_specs=extracted_rfp
+        )
 
-            else:
-                mismatches.append(key)
+        # -----------------------------
+        # 4️⃣ Enforce Normalized Specs
+        # -----------------------------
+        enforced_specs = enforce_all(normalized_specs_llm)
 
-        score = round((matched / total) * 100, 2) if total else 0
+        # -----------------------------
+        # 5️⃣ Rank OEMs
+        # -----------------------------
+        top_3_oems = rank_oem_skus(
+            rfp_specs=enforced_specs,
+            oem_repo=oem_repo,
+            top_k=3,
+        )
 
+        # -----------------------------
+        # 6️⃣ Final OEM Recommendation Table
+        # -----------------------------
+        final_table = build_final_recommendation_table(
+            scope_summary=raw_scope,
+            ranked_oems=top_3_oems,
+        )
+
+        # -----------------------------
+        # 7️⃣ RETURN TO MAIN AGENT
+        # -----------------------------
         return {
-            "score_percent": score,
-            "matched_specs": matched,
-            "total_specs": total,
-            "mismatched_specs": mismatches
+            "scope_of_supply_summary": scope_summary,
+            "normalized_scope": normalized_scope,
+            "rfp_specs": enforced_specs,
+            "top_3_oems": top_3_oems,
+            "final_recommendation_table": final_table,
         }
 
-    # -------------------------------------------------
-    # OEM RECOMMENDATION ENGINE
-    # -------------------------------------------------
-    def recommend_oems(
-        self,
-        scope_product: Dict[str, Any],
-        oem_catalog: List[Dict[str, Any]]
-    ) -> List[Dict[str, Any]]:
 
-        rfp_specs = scope_product["core_specifications"]
-
-        results = []
-
-        for oem in oem_catalog:
-            match_result = self.compare_specs(rfp_specs, oem["technical_specifications"])
-
-            results.append({
-                "oem_name": oem["oem_name"],
-                "product_name": oem["product_name"],
-                "sku": oem["sku"],
-                "spec_match": match_result
-            })
-
-        # Sort by best match
-        results.sort(key=lambda x: x["spec_match"]["score_percent"], reverse=True)
-
-        return results[:3]
-
-
-# -------------------------------------------------
-# MAIN (Local test runner)
-# -------------------------------------------------
+# =================================================
+# LOCAL TEST RUNNER
+# =================================================
 if __name__ == "__main__":
-    base = Path("outputs")
+
+    with open("outputs/extracted_rfp.json") as f:
+        extracted_rfp = json.load(f)
+
+    with open("outputs/technical_summary_by_main_agent.json") as f:
+        technical_summary = json.load(f)
+
+    with open("schemas/scope_of_supply_schema.json") as f:
+        scope_schema = json.load(f)
+
+    with open("oem_datasheets/normalized_oem.json") as f:
+        oem_repo = json.load(f)
 
     agent = TechnicalAgent()
 
-    # Load inputs
-    with open("outputs/scope_of_supply_summary.json") as f:
-        scope_data = json.load(f)
+    result = agent.run(
+        extracted_rfp=extracted_rfp,
+        technical_summary=technical_summary,
+        scope_schema=scope_schema,
+        oem_repo=oem_repo,
+    )
 
-    with open("oem_datasheets/oem_products.json") as f:
-        oem_catalog = json.load(f)
+    print("\nTOP 3 OEM RECOMMENDATIONS\n")
+    for i, oem in enumerate(result["top_3_oems"], 1):
+        print(f"#{i} {oem['product_sku']} — {oem['spec_match_pct']}%")
 
-    final_recommendations = []
-
-    for product_line in scope_data["product_lines"]:
-        line_name = product_line["product_line_name"]
-
-        for product in product_line["products"]:
-            product_name = product["product_name"]
-            rfp_specs = product["technical_specifications"]
-
-            # This is where spec match logic will go
-
-            top_oems = agent.recommend_oems(product, oem_catalog)
-
-            final_recommendations.append({
-                "product_id": product["product_id"],
-                "product_name": product["product_name"],
-                "recommended_oems": top_oems
-            })
-
-    with open(base / "oem_datasheets/oem_recommendations.json", "w") as f:
-        json.dump(final_recommendations, f, indent=2)
-
-    print("✅ OEM recommendations generated successfully")
-"""
-
-
+    print("\nFINAL OEM RECOMMENDATION TABLE\n")
+    for row in result["final_recommendation_table"]:
+        print(row)

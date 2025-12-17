@@ -1,6 +1,17 @@
 import json
 from typing import Dict, List, Any, Tuple
+from pathlib import Path
+import csv
 
+OUTPUT_DIR = Path("outputs")
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+
+def save_json(filename: str, data):
+    path = OUTPUT_DIR / filename
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+    print(f"✅ Saved {path}")
 
 # =================================================
 # BASIC UTILITIES
@@ -166,6 +177,54 @@ def build_final_recommendation_table(
 
     return final_table
 
+# =================================================
+# COMPARISON TABLE
+# =================================================
+
+def build_comparison_table(
+    rfp_specs: List[Dict[str, Any]],
+    top_oems: List[Dict[str, Any]],
+    oem_repo: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+
+    # index OEM specs as: SKU → spec_key → spec
+    oem_index = {}
+    for row in oem_repo:
+        sku = row["product_sku"]
+        oem_index.setdefault(sku, {})[row["spec_key"]] = row
+
+    table = []
+
+    for rfp in rfp_specs:
+        row = {
+            "spec_key": rfp["spec_key"],
+            "pair_count": rfp["variant_scope"]["pair_count"],
+            "rfp_requirement": rfp["value"]
+        }
+
+        for i, oem in enumerate(top_oems, start=1):
+            sku = oem["product_sku"]
+            oem_spec = oem_index.get(sku, {}).get(rfp["spec_key"])
+
+            if not oem_spec:
+                row[f"OEM_{i}"] = "N/A"
+                continue
+
+            oem_value = extract_oem_numeric_value(oem_spec["value"])
+            passed = (
+                check_compliance(rfp, oem_value)
+                if oem_value is not None
+                else False
+            )
+
+            row[f"OEM_{i}"] = {
+                "value": oem_value,
+                "passed": passed
+            }
+
+        table.append(row)
+
+    return table
 
 # =================================================
 # MAIN RUNNER
@@ -184,7 +243,11 @@ if __name__ == "__main__":
         scope_summary = json.load(f)
 
     # ---- RANK OEMs ----
-    top_3 = rank_oem_skus(rfp_specs, oem_repo)
+    top_3 = rank_oem_skus(
+        rfp_specs=rfp_specs,
+        oem_repo=oem_repo,
+        top_k=3
+    )
 
     # ---- FINAL TABLE ----
     final_table = build_final_recommendation_table(
@@ -192,6 +255,14 @@ if __name__ == "__main__":
         ranked_oems=top_3
     )
 
+    # ---- COMPARISON TABLE ----
+    comparison_table = build_comparison_table(
+        rfp_specs=rfp_specs,
+        top_oems=top_3,
+        oem_repo=oem_repo
+    )
+    save_json("final_oem_recommendation_table.json", final_table)
+    save_json("comparison_table.json", comparison_table)
     # ---- PRINT OUTPUT ----
     print("\nTOP 3 OEM RECOMMENDATIONS\n")
     for i, oem in enumerate(top_3, 1):
@@ -199,4 +270,8 @@ if __name__ == "__main__":
 
     print("\nFINAL OEM RECOMMENDATION TABLE\n")
     for row in final_table:
+        print(row)
+
+    print("\nCOMPARISON TABLE\n")
+    for row in comparison_table:
         print(row)

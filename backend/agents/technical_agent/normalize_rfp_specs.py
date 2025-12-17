@@ -116,8 +116,7 @@ def normalize_rfp_specs(
 
     return normalizer.normalize_rfp_specs(
         extracted_rfp_technical_specs=extracted_rfp_technical_specs,
-        canonical_spec_schema=canonical_spec_schema,
-        technical_summary=technical_summary
+        canonical_spec_schema=canonical_spec_schema
     )
 
 def main():

@@ -770,6 +770,25 @@
         "variant_id": null
       },
       "source_text": "Capacitance Unbalance (pair to pair) (Shall not exceed 230PF)"
+    },
+    {
+      "spec_key": "flammability_test",
+      "value": {
+        "min": null,
+        "max": null,
+        "exact": null
+      },
+      "unit": null,
+      "operator": "unspecified",
+      "test_conditions": {},
+      "tolerance": null,
+      "mandatory": true,
+      "applies_to": "specific_variant",
+      "variant_scope": {
+        "pair_count": 5,
+        "variant_id": null
+      },
+      "source_text": "Flammability test (Shall pass the test when tested as per IEC-332 Part-1)"
     }
   ]
 }
