@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFP Intel | Commercial & Technical Dashboard</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        p.subtitle {
+            color: var(--text-light);
+        }
+
+        /* Input Section */
+        .input-wrapper {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .download-link {
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 4px;
+        }
+        
+        .download-link:hover { text-decoration: underline; }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover { background-color: var(--primary-hover); }
+        button:disabled { background-color: var(--text-light); cursor: not-allowed; }
+
+        /* Loading State */
+        .loader-section {
+            display: none;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .agent-status {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-family: monospace;
+            margin-top: 10px;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Summary Grid */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-box h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .flag-list li {
+            font-size: 0.9rem;
+            color: var(--danger);
+            margin-bottom: 0.25rem;
+            list-style-type: none;
+        }
+        
+        .flag-list li::before {
+            content: "⚠️ ";
+        }
+
+        /* Spec Table */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            max-height: 600px; /* Scrollable for long lists */
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: var(--text-light);
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .status-pass { color: var(--success); font-weight: 600; background: #ecfdf5; padding: 2px 8px; border-radius: 12px; display: inline-block;}
+        .status-fail { color: var(--danger); font-weight: 600; background: #fef2f2; padding: 2px 8px; border-radius: 12px; display: inline-block;}
+        .status-na { color: var(--text-light); font-style: italic; }
+        .spec-key { font-family: monospace; color: var(--primary); font-size: 0.8rem; }
+
+        /* Hardware Grid */
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .hw-card {
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .hw-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .hw-meta { font-size: 0.85rem; color: var(--text-light); display: flex; justify-content: space-between; margin-bottom: 0.5rem;}
+        .hw-rec { background: #eff6ff; padding: 0.5rem; border-radius: 6px; font-size: 0.85rem; color: var(--primary); border: 1px solid #dbeafe; }
+
+        /* PDF Viewer Container */
+        .pdf-container {
+            width: 100%;
+            height: 800px;
+            border: 1px solid var(--border);
+            background: #f1f5f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        iframe.pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AgentFlow Dashboard</h1>
+            <p class="subtitle">Multi-Agent RFP Analysis & Compliance Engine</p>
+        </header>
+
+        <div class="input-wrapper">
+            <div class="input-row">
+                <input type="text" id="rfpInput" placeholder="Enter RFP Source URL (e.g. tenders.gov/network-infra-2025)..." value="https://example.com/rfp/cables-switches-2025">
+                <button onclick="startProcessing()" id="analyzeBtn">Run Analysis</button>
+            </div>
+            <div>
+                <a href="rfp_2024.pdf" class="download-link" download>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Download Original RFP Document
+                </a>
+            </div>
+        </div>
+
+        <div class="loader-section" id="loader">
+            <div class="spinner"></div>
+            <h3 id="loaderTitle">Initializing Agents...</h3>
+            <p class="agent-status" id="agentLog">> Agent A: Connection established...</p>
+        </div>
+
+        <div class="results-section" id="results" style="display:none;">
+            
+            <div class="card">
+                <h2>Technical Analysis Summary</h2>
+                <div class="summary-grid">
+                    <div class="stat-box">
+                        <h4>Total Specs Analyzed</h4>
+                        <p id="total-specs">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Critical Flags</h4>
+                        <ul class="flag-list" id="flag-list"></ul>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Top Recommendation</h4>
+                        <p id="top-oem-name" style="color: var(--success);">Loading...</p>
+                        <div style="font-size: 0.8rem; color: var(--text-light); margin-top:4px;" id="top-oem-reason"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Product Line Recommendations</h2>
+                <div class="hardware-grid" id="hardware-container"></div>
+            </div>
+
+            <div class="card">
+                <h2>Specification Compliance Matrix</h2>
+                <div class="table-container">
+                    <table id="specTable">
+                        <thead>
+                            <tr>
+                                <th>Spec Parameter</th>
+                                <th>RFP Requirement</th>
+                                <th>OEM 1</th>
+                                <th>OEM 2</th>
+                                <th>OEM 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Pricing Summary</h2>
+                <div class="pdf-container">
+                    <iframe 
+                        src="Pricing_Summary.pdf" 
+                        class="pdf-viewer" 
+                        type="application/pdf">
+                        <p>Unable to display PDF file. <a href="Pricing_Summary.pdf">Download</a> instead.</p>
+                    </iframe>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px; text-align: center;">
+                    Displaying: <b>Pricing_Summary.pdf</b>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- 1. DATASETS (Full Injection) ---
+
+        const productData = [
+          { "product_line": "Switching", "rfp_product_name": "Catalyst 9300 Series Switches", "rfp_product_code": "C9300-24UXM", "quantity": 5, "recommended_oem_sku": "TC-PIJF-200P-05", "spec_match_pct": 98.0 },
+          { "product_line": "Switching", "rfp_product_name": "Catalyst 9200 Series Switch", "rfp_product_code": "C9200-24T-E", "quantity": 10, "recommended_oem_sku": "TC-PIJF-200P-05", "spec_match_pct": 95.0 },
+          { "product_line": "Wireless", "rfp_product_name": "Catalyst 9120AX Access Point", "rfp_product_code": "C9120AXI-BT", "quantity": 20, "recommended_oem_sku": "TC-PIJF-200P-05", "spec_match_pct": 92.5 }
+        ];
+
+        const recData = {
+          "technical_summary_flags": [
+            "OEM A does not support FRLS cable variant",
+            "Multiple cable variants require separate manufacturing lines"
+          ],
+          "item_level_recommendations": [
+            {
+              "final_selected_oem": {
+                "oem_name": "TechCable Sol",
+                "sku": "TC-PIJF-200P-05",
+                "selection_reason": "Highest overall spec match with zero critical deviations"
+              }
+            }
+          ]
+        };
+
+        const specsData = [
+          { "spec_key": "conductor_diameter", "pair_count": null, "rfp_requirement": { "exact": 0.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "armouring_thickness", "pair_count": null, "rfp_requirement": { "exact": 0.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "conductor_resistance", "pair_count": null, "rfp_requirement": { "exact": 86.0 }, "OEM_1": { "value": 84, "passed": true }, "OEM_2": { "value": 85, "passed": true }, "OEM_3": { "value": 86, "passed": true } },
+          { "spec_key": "resistance_unbalance", "pair_count": null, "rfp_requirement": { "exact": 1.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "mutual_capacitance", "pair_count": null, "rfp_requirement": { "exact": 52.0 }, "OEM_1": { "value": 50, "passed": true }, "OEM_2": { "value": 52, "passed": true }, "OEM_3": "N/A" },
+          { "spec_key": "capacitance_unbalance_pair_to_pair", "pair_count": null, "rfp_requirement": { "max": 50.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "capacitance_unbalance_pair_to_ground", "pair_count": null, "rfp_requirement": { "max": 750.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "dielectric_strength_between_conductors", "pair_count": null, "rfp_requirement": { "exact": 2.4 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "dielectric_strength_between_conductors_and_shield", "pair_count": null, "rfp_requirement": { "exact": 5.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "insulation_resistance_conductor_to_conductor", "pair_count": null, "rfp_requirement": { "min": 5000.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "insulation_resistance_conductor_to_shield", "pair_count": null, "rfp_requirement": { "min": 5000.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "dielectric_strength_sheath", "pair_count": null, "rfp_requirement": { "exact": 17.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "equal_level_far_end_crosstalk", "pair_count": null, "rfp_requirement": { "min": 55.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "near_end_crosstalk", "pair_count": null, "rfp_requirement": { "min": 55.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "attenuation", "pair_count": null, "rfp_requirement": { "max": 8.25 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_sheath", "pair_count": 200, "rfp_requirement": { "max": 37.5 }, "OEM_1": { "value": 36, "passed": true }, "OEM_2": "N/A", "OEM_3": { "value": 32, "passed": true } },
+          { "spec_key": "minimum_sheath_thickness", "pair_count": 200, "rfp_requirement": { "min": 1.62 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "jacket_thickness", "pair_count": null, "rfp_requirement": { "min": 1.4 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_jacket", "pair_count": 200, "rfp_requirement": { "max": 45.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_sheath", "pair_count": 100, "rfp_requirement": { "max": 28.0 }, "OEM_1": { "value": 36, "passed": false }, "OEM_2": "N/A", "OEM_3": { "value": 32, "passed": false } },
+          { "spec_key": "minimum_sheath_thickness", "pair_count": 100, "rfp_requirement": { "min": 1.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_jacket", "pair_count": 100, "rfp_requirement": { "max": 36.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_sheath", "pair_count": 50, "rfp_requirement": { "max": 22.0 }, "OEM_1": { "value": 36, "passed": false }, "OEM_2": "N/A", "OEM_3": { "value": 32, "passed": false } },
+          { "spec_key": "minimum_sheath_thickness", "pair_count": 50, "rfp_requirement": { "min": 1.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_jacket", "pair_count": 50, "rfp_requirement": { "max": 29.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_sheath", "pair_count": 20, "rfp_requirement": { "max": 17.0 }, "OEM_1": { "value": 36, "passed": false }, "OEM_2": "N/A", "OEM_3": { "value": 32, "passed": false } },
+          { "spec_key": "minimum_sheath_thickness", "pair_count": 20, "rfp_requirement": { "min": 1.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_jacket", "pair_count": 20, "rfp_requirement": { "max": 24.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_sheath", "pair_count": 10, "rfp_requirement": { "max": 11.0 }, "OEM_1": { "value": 36, "passed": false }, "OEM_2": "N/A", "OEM_3": { "value": 32, "passed": false } },
+          { "spec_key": "minimum_sheath_thickness", "pair_count": 10, "rfp_requirement": { "min": 1.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "diameter_over_jacket", "pair_count": 10, "rfp_requirement": { "max": 20.2 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "armouring_size", "pair_count": 5, "rfp_requirement": { "min": 0.9 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "lay_length_of_twisted_pair", "pair_count": 5, "rfp_requirement": { "max": 80.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "inner_sheath_thickness", "pair_count": 5, "rfp_requirement": { "min": 0.65 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "outer_sheath_thickness", "pair_count": 5, "rfp_requirement": { "min": 1.24 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "nominal_diameter_of_overall_cable", "pair_count": 5, "rfp_requirement": { "exact": 11.5 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "insulation_resistance", "pair_count": 5, "rfp_requirement": { "min": 50.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "high_voltage_test", "pair_count": 5, "rfp_requirement": { "exact": 2.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "capacitance_unbalance_pair_to_pair", "pair_count": 5, "rfp_requirement": { "max": 230.0 }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" },
+          { "spec_key": "flammability_test", "pair_count": 5, "rfp_requirement": { "exact": null }, "OEM_1": "N/A", "OEM_2": "N/A", "OEM_3": "N/A" }
+        ];
+
+        // --- APP LOGIC ---
+
+        function startProcessing() {
+            const btn = document.getElementById('analyzeBtn');
+            const loader = document.getElementById('loader');
+            const results = document.getElementById('results');
+            
+            results.style.display = 'none';
+            btn.disabled = true;
+            loader.style.display = 'block';
+
+            // Loading Simulation
+            const steps = [
+                { time: 500, text: "Fetching RFP Source..." },
+                { time: 2000, text: "Verifying Spec Data..." },
+                { time: 4000, text: "Finalizing Dashboard..." }
+            ];
+
+            steps.forEach((step, i) => {
+                setTimeout(() => {
+                    document.getElementById('loaderTitle').innerText = step.text;
+                }, step.time);
+            });
+
+            setTimeout(() => {
+                renderDashboard();
+                loader.style.display = 'none';
+                results.style.display = 'grid';
+                btn.disabled = false;
+                btn.innerText = "Re-Analyze";
+            }, 5000); 
+        }
+
+        function renderDashboard() {
+            // A. Technical Summary
+            document.getElementById('total-specs').innerText = specsData.length;
+            
+            const flagList = document.getElementById('flag-list');
+            flagList.innerHTML = '';
+            recData.technical_summary_flags.forEach(flag => {
+                flagList.innerHTML += `<li>${flag}</li>`;
+            });
+            
+            const topRec = recData.item_level_recommendations[0].final_selected_oem;
+            document.getElementById('top-oem-name').innerText = topRec.oem_name;
+            document.getElementById('top-oem-reason').innerText = topRec.selection_reason;
+
+            // B. Product Line Grid
+            const hwContainer = document.getElementById('hardware-container');
+            hwContainer.innerHTML = '';
+            productData.forEach(prod => {
+                hwContainer.innerHTML += `
+                    <div class="hw-card">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3>${prod.rfp_product_name}</h3>
+                            <span style="font-size:0.75rem; background:#f1f5f9; padding:2px 6px; border-radius:4px;">Qty: ${prod.quantity}</span>
+                        </div>
+                        <div class="hw-meta">
+                            <span>Req: ${prod.rfp_product_code}</span>
+                            <span>Match: <b style="color:var(--success)">${prod.spec_match_pct}%</b></span>
+                        </div>
+                        <div class="hw-rec">
+                            <strong>Rec:</strong> ${prod.recommended_oem_sku}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // C. Specification Table
+            const specBody = document.querySelector('#specTable tbody');
+            specBody.innerHTML = '';
+
+            specsData.forEach(row => {
+                // 1. Format Requirement Text
+                let reqStr = '-';
+                if (row.rfp_requirement.exact !== null && row.rfp_requirement.exact !== undefined) reqStr = `Exact: ${row.rfp_requirement.exact}`;
+                else if (row.rfp_requirement.min) reqStr = `Min: ${row.rfp_requirement.min}`;
+                else if (row.rfp_requirement.max) reqStr = `Max: ${row.rfp_requirement.max}`;
+
+                // 2. Format Key Name (snake_case to Title Case) + Pair Count
+                let keyDisplay = row.spec_key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                if(row.pair_count) keyDisplay += ` <span style="color:#64748b; font-size:0.75rem;">(${row.pair_count} Pair)</span>`;
+
+                // 3. Helper for Cell Color
+                const renderCell = (oemData) => {
+                    if (oemData === "N/A" || !oemData) return '<span class="status-na">N/A</span>';
+                    const cssClass = oemData.passed ? 'status-pass' : 'status-fail';
+                    return `<span class="${cssClass}">${oemData.value}</span>`;
+                };
+
+                specBody.innerHTML += `
+                    <tr>
+                        <td class="spec-key">${keyDisplay}</td>
+                        <td style="font-weight:600">${reqStr}</td>
+                        <td>${renderCell(row.OEM_1)}</td>
+                        <td>${renderCell(row.OEM_2)}</td>
+                        <td>${renderCell(row.OEM_3)}</td>
+                    </tr>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
