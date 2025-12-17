@@ -84,11 +84,11 @@ class MainAgent:
 
         # Run the external script (BLOCKING)
         result = subprocess.run(
-            [sys.executable, str(tech_agent_path)],
-            cwd=str(PROJECT_ROOT),
-            capture_output=True,
-            text=True
+                [sys.executable, str(tech_agent_path)],
+                cwd=str(PROJECT_ROOT),
+                text=True
         )
+
 
         if result.returncode != 0:
             print("STDOUT:\n", result.stdout)
