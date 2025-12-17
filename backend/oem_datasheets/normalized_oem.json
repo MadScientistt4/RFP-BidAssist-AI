@@ -1,0 +1,148 @@
+[
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_key": "conductor_resistance",
+    "operator": "<=",
+    "unit": "ohm_per_km",
+    "value": { "exact": null, "min": null, "max": 84 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_200P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_key": "mutual_capacitance",
+    "operator": "<=",
+    "unit": "nf_per_km",
+    "value": { "exact": null, "min": null, "max": 50 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_200P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_key": "diameter_over_sheath",
+    "operator": "<=",
+    "unit": "mm",
+    "value": { "exact": null, "min": null, "max": 36 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_200P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-200P-05",
+    "spec_key": "operating_temperature_max",
+    "operator": ">=",
+    "unit": "celsius",
+    "value": { "exact": null, "min": 60, "max": null },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_200P.pdf"
+  },
+
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-150P-05",
+    "spec_key": "conductor_resistance",
+    "operator": "<=",
+    "unit": "ohm_per_km",
+    "value": { "exact": null, "min": null, "max": 86 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 150, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_150P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-150P-05",
+    "spec_key": "diameter_over_sheath",
+    "operator": "<=",
+    "unit": "mm",
+    "value": { "exact": null, "min": null, "max": 32 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 150, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_150P.pdf"
+  },
+
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-100P-05",
+    "spec_key": "conductor_resistance",
+    "operator": "<=",
+    "unit": "ohm_per_km",
+    "value": { "exact": null, "min": null, "max": 85 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 100, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_100P.pdf"
+  },
+  {
+    "oem_id": "TOPCABLE",
+    "product_sku": "TC-PIJF-100P-05",
+    "spec_key": "mutual_capacitance",
+    "operator": "<=",
+    "unit": "nf_per_km",
+    "value": { "exact": null, "min": null, "max": 52 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 100, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "TopCable_PIJF_100P.pdf"
+  },
+
+  {
+    "oem_id": "POLYLINK",
+    "product_sku": "PL-PIJF-200P-06",
+    "spec_key": "conductor_resistance",
+    "operator": "<=",
+    "unit": "ohm_per_km",
+    "value": { "exact": null, "min": null, "max": 80 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "Polylink_PIJF_200P.pdf"
+  },
+  {
+    "oem_id": "POLYLINK",
+    "product_sku": "PL-PIJF-200P-06",
+    "spec_key": "mutual_capacitance",
+    "operator": "<=",
+    "unit": "nf_per_km",
+    "value": { "exact": null, "min": null, "max": 45 },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "Polylink_PIJF_200P.pdf"
+  },
+  {
+    "oem_id": "POLYLINK",
+    "product_sku": "PL-PIJF-200P-06",
+    "spec_key": "operating_temperature_max",
+    "operator": ">=",
+    "unit": "celsius",
+    "value": { "exact": null, "min": 70, "max": null },
+    "tolerance": null,
+    "test_conditions": {},
+    "variant_scope": { "pair_count": 200, "variant_id": null },
+    "source": "datasheet",
+    "datasheet_ref": "Polylink_PIJF_200P.pdf"
+  }
+]

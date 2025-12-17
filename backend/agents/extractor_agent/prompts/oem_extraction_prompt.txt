@@ -9,7 +9,7 @@ Rules:
 3. DO NOT merge different SKUs.
 4. Each product variant MUST be a separate entry.
 5. Convert all measurements to standard units where explicitly stated.
-6. If a specification is not mentioned, return null.
+6. If a specification is not mentioned, return None.
 7. Preserve all standards and compliance references exactly.
 8. Output ONLY valid JSON.
 9. Follow the schema strictly.

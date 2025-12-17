@@ -4,25 +4,21 @@ from agents.technical_agent.sku_matcher import SKUMatcher
 import json
 
 # --- RFP INPUT ---
-scope_text = """
-Supply, installation, testing and commissioning of
-200 pair underground telecom cable for 120 km as per DOT standards.
-"""
 
-spec_text = """
-Conductor resistance shall not exceed 85 Ohms/km.
-Mutual capacitance ≤ 50 nF/km.
-"""
+with open("outputs/scope_of_supply_summary.json") as f:
+    scope_text = json.load(f)
+with open("outputs/extracted_rfp.json") as f:
+    spec_text = json.load(f)
 
 # --- Normalize ---
 normalized_scope = normalize_scope(scope_text)
 normalized_specs = normalize_rfp_specs(spec_text)
 
 # --- Load OEM Data ---
-with open("backend/oem_datasheets/oem_products.json") as f:
+with open("oem_datasheets/oem_products.json") as f:
     oem_products = json.load(f)
 
-with open("backend/oem_datasheets/oem_product_sku.json") as f:
+with open("oem_datasheets/oem_product_sku.json") as f:
     oem_specs = json.load(f)
 
 # --- Match ---

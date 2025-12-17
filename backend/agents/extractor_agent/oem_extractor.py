@@ -142,7 +142,7 @@ DOCUMENT TEXT:
     def merge_results(self, partials: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
         Simple deterministic merge:
-        - First non-null value wins
+        - First non-None value wins
         - Lists are merged uniquely
         """
         final = {}

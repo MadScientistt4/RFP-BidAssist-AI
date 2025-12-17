@@ -45,7 +45,7 @@ SCHEMA TO FOLLOW (STRICTLY):
         {
           "test_name": "",
           "test_type": "",
-          "chargeable": true
+          "chargeable": True
         }
       ]
     }
@@ -73,7 +73,7 @@ LOGIC GUIDELINES:
   - Map the FINAL selected OEM SKU from the Technical Agent output.
   - Attach all mandatory tests relevant to that item.
 - If the RFP specifies common tests for all items, apply them to each item.
-- Mark tests as chargeable = true unless the RFP explicitly states otherwise.
+- Mark tests as chargeable = True unless the RFP explicitly states otherwise.
 - Populate inspection fields only if the RFP mentions inspection or pre-dispatch testing.
 - Use pricing_flags to highlight cost-impacting factors such as:
   - High number of tests

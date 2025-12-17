@@ -20,16 +20,16 @@
         {
           "test_name": "Conductor resistance test",
           "test_type": "Routine / Acceptance / Type",
-          "chargeable": true
+          "chargeable": True
         }
       ]
     }
   ],
 
   "testing_and_inspection": {
-    "inspection_required": true,
+    "inspection_required": True,
     "inspection_mode": "Client witnessed / Third-party",
-    "inspection_cost_applicable": true
+    "inspection_cost_applicable": True
   },
 
   "commercial_terms": {

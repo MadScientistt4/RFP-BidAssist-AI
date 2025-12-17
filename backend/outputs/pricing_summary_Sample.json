@@ -16,12 +16,12 @@
 "unit": "km",
 "pricing_unit": "km",
 "applicable_tests": [
-{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
 ]
 },
 {
@@ -33,12 +33,12 @@
 "unit": "km",
 "pricing_unit": "km",
 "applicable_tests": [
-{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Dielectric constant or permittivity test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
 ]
 },
 {
@@ -50,11 +50,11 @@
 "unit": "kms",
 "pricing_unit": "km",
 "applicable_tests": [
-{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+{ "test_name": "Polythene for conductor insulation test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
 ]
 },
 {
@@ -66,10 +66,10 @@
 "unit": "kms",
 "pricing_unit": "km",
 "applicable_tests": [
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Attenuation test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
 ]
 },
 {
@@ -81,9 +81,9 @@
 "unit": "kms",
 "pricing_unit": "km",
 "applicable_tests": [
-{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": true },
-{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": true }
+{ "test_name": "Water penetration test", "test_type": "Mechanical", "chargeable": True },
+{ "test_name": "Conductor resistance test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Spark test", "test_type": "Electrical", "chargeable": True }
 ]
 },
 {
@@ -95,18 +95,18 @@
 "unit": "kms",
 "pricing_unit": "km",
 "applicable_tests": [
-{ "test_name": "Conductor Resistance test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "High Voltage test", "test_type": "Electrical", "chargeable": true },
-{ "test_name": "Flammability test", "test_type": "Fire", "chargeable": true },
-{ "test_name": "Smoke density rating test", "test_type": "Fire", "chargeable": true }
+{ "test_name": "Conductor Resistance test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "High Voltage test", "test_type": "Electrical", "chargeable": True },
+{ "test_name": "Flammability test", "test_type": "Fire", "chargeable": True },
+{ "test_name": "Smoke density rating test", "test_type": "Fire", "chargeable": True }
 ]
 }
 ],
 
 "testing_and_inspection": {
-"inspection_required": true,
+"inspection_required": True,
 "inspection_mode": "Pre-Delivery inspection at factory site / online video mode with SDSC SHAR authorities",
-"inspection_cost_applicable": true
+"inspection_cost_applicable": True
 },
 
 "commercial_terms": {

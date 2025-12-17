@@ -1,0 +1,32 @@
+{
+  "activities": [],
+  "product_families": [
+    "Switching",
+    "Wireless"
+  ],
+  "quantities": [
+    {
+      "family_id": "Switching",
+      "variant_id": "C9300-24UXM",
+      "pair_count": null,
+      "quantity": 5,
+      "unit": "nos"
+    },
+    {
+      "family_id": "Switching",
+      "variant_id": "C9200-24T-E",
+      "pair_count": null,
+      "quantity": 10,
+      "unit": "nos"
+    },
+    {
+      "family_id": "Wireless",
+      "variant_id": "C9120AXI-BT",
+      "pair_count": null,
+      "quantity": 20,
+      "unit": "nos"
+    }
+  ],
+  "standards_required": [],
+  "mandatory": true
+}
