@@ -151,6 +151,17 @@
       "test_name": "Smoke density rating test",
       "test_category": "Fire Safety",
       "synthetic_price": 8000
+    },
+    {
+      "test_name": "Dielectric strength of the sheath test",
+      "test_category": "Electrical",
+      "synthetic_price": 4800
+    },
+    {
+      "test_name": "Thickness of insulation test",
+      "test_category": "Dimensional",
+      "synthetic_price": 1800
     }
+
   ]
 }
