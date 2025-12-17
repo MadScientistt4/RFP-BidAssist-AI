@@ -28,18 +28,18 @@ class MainAgent:
 
         # ---- Prompts ----
         # ---- Prompts ----
-    with open(PROJECT_ROOT / "prompts" / "technical_summary_prompt.txt", encoding="utf-8") as f:
-        self.technical_prompt = f.read()
+        with open(PROJECT_ROOT / "prompts" / "technical_summary_prompt.txt", encoding="utf-8") as f:
+            self.technical_prompt = f.read()
 
-    with open(PROJECT_ROOT / "prompts" / "pricing_summary_prompt.txt", encoding="utf-8") as f:
-        self.pricing_prompt = f.read()
+        with open(PROJECT_ROOT / "prompts" / "pricing_summary_prompt.txt", encoding="utf-8") as f:
+            self.pricing_prompt = f.read()
 
 # ---- Schemas ----
-    with open(PROJECT_ROOT / "schemas" / "technical_summary_schema.json", encoding="utf-8") as f:
-        self.technical_schema = json.load(f)
+        with open(PROJECT_ROOT / "schemas" / "technical_summary_schema.json", encoding="utf-8") as f:
+            self.technical_schema = json.load(f)
 
-    with open(PROJECT_ROOT / "schemas" / "pricing_summary_schema.json", encoding="utf-8") as f:
-        self.pricing_schema = json.load(f)
+        with open(PROJECT_ROOT / "schemas" / "pricing_summary_schema.json", encoding="utf-8") as f:
+            self.pricing_schema = json.load(f)
 
     # -------------------------------------------------
     # TECHNICAL SUMMARY (for Technical Agent)
