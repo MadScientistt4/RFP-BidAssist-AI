@@ -18,7 +18,7 @@ load_dotenv()
 # -------------------------------------------------
 try:
     client = genai.Client()
-    GEMINI_MODEL = "gemini-2.5-flash"   # ✅ WORKING MODEL
+    GEMINI_MODEL = "gemini-2.5-flash-lite"  
 except Exception as e:
     raise RuntimeError("Failed to initialize Gemini client. Check API key.") from e
 
@@ -80,13 +80,13 @@ RFP DOCUMENT TEXT:
 """
 
     def extract(self, pdf_path: str) -> Dict[str, Any]:
-        print("📄 Extracting PDF text...")
+        print(" Extracting PDF text...")
         document_text = PDFProcessor.extract_text(pdf_path)
 
-        print("🧠 Building prompt...")
+        print(" Building prompt...")
         prompt = self.build_prompt(document_text)
 
-        print("🚀 Calling Gemini...")
+        print(" Calling Gemini...")
         response = client.models.generate_content(
             model=GEMINI_MODEL,
             contents=[prompt],

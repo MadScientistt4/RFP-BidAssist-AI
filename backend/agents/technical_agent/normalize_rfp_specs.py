@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 from typing import Dict, Any, List
 from google import genai
 from google.genai import types
@@ -8,6 +9,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MODEL_NAME = "gemini-2.5-flash-lite"
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+DEFAULT_CANONICAL_SPEC_SCHEMA_PATH = BASE_DIR / "schemas" / "canonical_spec_schema.json"
 
 
 class RFPTechSpecNormalizer:
@@ -104,13 +108,9 @@ def normalize_rfp_specs(
     Wrapper for pipeline usage.
     """
 
-    # Canonical spec schema (OEM-aligned)
-    with open("schemas/canonical_spec_schema.json") as f:
-        canonical_spec_schema = json.load(f)
-
-    # Technical summary (for context)
-    with open("outputs/technical_summary_by_main_agent.json") as f:
-        technical_summary = json.load(f)
+    if canonical_spec_schema is None:
+        with open(DEFAULT_CANONICAL_SPEC_SCHEMA_PATH, encoding="utf-8") as f:
+            canonical_spec_schema = json.load(f)
 
     normalizer = RFPTechSpecNormalizer()
 

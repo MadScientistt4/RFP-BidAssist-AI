@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
-import { fetchScopeOfSupply } from "../api";
-
-export default function ScopeOfSupply() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetchScopeOfSupply().then(setData);
-  }, []);
-
+export default function ScopeOfSupply({ data }) {
   return (
     <div className="card">
       <h2>Scope of Supply</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      ) : (
+        <p>Upload an RFP to see the scope of supply.</p>
+      )}
     </div>
   );
 }

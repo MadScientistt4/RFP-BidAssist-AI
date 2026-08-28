@@ -18,9 +18,11 @@ RULES:
 7. Output MUST strictly conform to the provided schema.
 
 OUTPUT FORMAT:
-Return ONLY a JSON object that conforms EXACTLY to the following structure:
+Return ONLY a JSON object that conforms EXACTLY to the following schema:
+
+{{TECHNICAL_SUMMARY_SCHEMA}}
 
 INPUT DATA:
 ---
-{{{{EXTRACTED_RFP_JSON}}}}
+{{EXTRACTED_RFP_JSON}}
 ---

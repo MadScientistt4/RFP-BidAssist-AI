@@ -2,33 +2,25 @@ import axios from "axios";
 
 const API_BASE = "http://localhost:8000";
 
-export const uploadRFP = async (file) => {
+export const runRfp = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  const res = await axios.post(`${API_BASE}/upload-rfp`, formData, {
+  const res = await axios.post(`${API_BASE}/run-rfp`, formData, {
     headers: { "Content-Type": "multipart/form-data" }
   });
 
   return res.data;
 };
 
-export const fetchTechnicalSummary = async () => {
-  const res = await axios.get(`${API_BASE}/technical-summary`);
+export const scanRfps = async () => {
+  const res = await axios.get(`${API_BASE}/scan-rfps`);
   return res.data;
 };
 
-export const fetchScopeOfSupply = async () => {
-  const res = await axios.get(`${API_BASE}/scope-of-supply`);
-  return res.data;
-};
-
-export const fetchSpecMatch = async () => {
-  const res = await axios.get(`${API_BASE}/spec-match`);
-  return res.data;
-};
-
-export const fetchOEMRecommendations = async () => {
-  const res = await axios.get(`${API_BASE}/oem-recommendations`);
+export const runSelectedRfp = async (pdfPath) => {
+  const res = await axios.post(`${API_BASE}/run-selected-rfp`, {
+    pdf_path: pdfPath
+  });
   return res.data;
 };

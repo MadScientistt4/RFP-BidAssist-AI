@@ -1,20 +1,26 @@
-import { uploadRFP } from "../api";
 import { useState } from "react";
 
-export default function UploadPanel() {
+export default function UploadPanel({ onUpload, status }) {
   const [file, setFile] = useState(null);
+  const loading = status === "loading";
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!file) return alert("Select a PDF");
-    await uploadRFP(file);
-    alert("RFP Uploaded & Processed");
+    onUpload(file);
   };
 
   return (
     <div className="card">
       <h2>Upload RFP PDF</h2>
-      <input type="file" accept=".pdf" onChange={(e) => setFile(e.target.files[0])} />
-      <button onClick={handleUpload}>Upload</button>
+      <input
+        type="file"
+        accept=".pdf"
+        disabled={loading}
+        onChange={(e) => setFile(e.target.files[0])}
+      />
+      <button onClick={handleUpload} disabled={loading}>
+        {loading ? "Processing..." : "Upload"}
+      </button>
     </div>
   );
 }
