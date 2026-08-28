@@ -5,12 +5,13 @@ from typing import Dict, Any, List
 from pathlib import Path
 
 # ---- INTERNAL MODULES ----
-from normalize_scope_of_summary import normalize_scope
-from normalize_rfp_specs import normalize_rfp_specs
-from enforce_normalize_specs import enforce_all
-from spec_scorer import (
+from .normalize_scope_of_summary import normalize_scope
+from .normalize_rfp_specs import normalize_rfp_specs
+from .enforce_normalize_specs import enforce_all
+from .spec_scorer import (
     rank_oem_skus,
     build_final_recommendation_table,
+    build_comparison_table,
 )
 
 # ---- LLM ----
@@ -135,7 +136,16 @@ TECHNICAL SUMMARY:
         )
 
         # -----------------------------
-        # 7️⃣ RETURN TO MAIN AGENT
+        # 7️⃣ Spec Comparison Table (RFP vs OEM 1/2/3)
+        # -----------------------------
+        comparison_table = build_comparison_table(
+            rfp_specs=enforced_specs,
+            top_oems=top_3_oems,
+            oem_repo=oem_repo,
+        )
+
+        # -----------------------------
+        # 8️⃣ RETURN TO MAIN AGENT
         # -----------------------------
         return {
             "scope_of_supply_summary": scope_summary,
@@ -143,6 +153,7 @@ TECHNICAL SUMMARY:
             "rfp_specs": enforced_specs,
             "top_3_oems": top_3_oems,
             "final_recommendation_table": final_table,
+            "comparison_table": comparison_table,
         }
 
 

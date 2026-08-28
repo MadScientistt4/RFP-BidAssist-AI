@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
-import { fetchTechnicalSummary } from "../api";
-
-export default function TechnicalSummary() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetchTechnicalSummary().then(setData);
-  }, []);
-
+export default function TechnicalSummary({ data }) {
   return (
     <div className="card">
       <h2>Technical Summary</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      ) : (
+        <p>Upload an RFP to see the technical context summary.</p>
+      )}
     </div>
   );
 }
